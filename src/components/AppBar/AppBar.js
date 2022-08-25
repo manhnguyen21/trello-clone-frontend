@@ -1,7 +1,8 @@
-import "./AppBar.scss";
+import React from "react"
+import "./AppBar.scss"
 
 const AppBar = () => {
-  return <nav className="navbar-app">NAVBAR - APP</nav>;
-};
+  return <nav className="navbar-app">NAVBAR - APP</nav>
+}
 
-export default AppBar;
+export default AppBar

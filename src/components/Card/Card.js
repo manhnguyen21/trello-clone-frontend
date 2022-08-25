@@ -1,14 +1,20 @@
-import "./Card.scss";
+import React from "react"
+import "./Card.scss"
 
 const Card = ({ card }) => {
   return (
-    <li className="card-item">
+    <div className="card-item">
       {card.cover && (
-        <img className="card-cover" src={card.cover} alt={card.title} />
+        <img
+          className="card-cover"
+          draggable={false}
+          src={card.cover}
+          alt={card.title}
+        />
       )}
       {card.title}
-    </li>
-  );
-};
+    </div>
+  )
+}
 
-export default Card;
+export default Card
