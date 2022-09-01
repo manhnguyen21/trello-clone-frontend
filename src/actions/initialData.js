@@ -38,7 +38,7 @@ export const initialData = {
               columnId: "column-1",
               title: "The title of card 3",
               cover:
-                "https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/297245123_2068660989988709_6917048615246873905_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=9bOvMyPip34AX9IZRYO&tn=4Zs1TEi0Uxeuu7uq&_nc_ht=scontent.fsgn5-9.fna&oh=00_AT8qrRRtDYOKmIHi2UhN38yO7bJm5HSkI3okbGEaS5pG_g&oe=63084206",
+                "https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/207912652_1776328079222003_3253959893346048550_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=QFhSzdKTLhQAX8FHcJa&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT-4zmvwJaxsGAoGtjb-dt2cPx13wDF_mmAUD6Y6WayO0g&oe=63384089",
             },
             {
               id: "card-4",
@@ -138,4 +138,4 @@ export const initialData = {
       ],
     },
   ],
-};
+}
