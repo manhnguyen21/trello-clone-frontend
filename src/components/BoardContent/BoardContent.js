@@ -70,6 +70,10 @@ const BoardContent = () => {
           </Draggable>
         ))}
       </Container>
+      <div className="add-new-column">
+        <i className="icon fa fa-plus" />
+        Add new column
+      </div>
     </div>
   )
 }
