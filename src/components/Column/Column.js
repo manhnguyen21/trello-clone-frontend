@@ -28,10 +28,15 @@ const Column = ({ column, onCardDrop }) => {
             <Draggable key={index}>
               <Card card={card} />
             </Draggable>
-          ))}{" "}
+          ))}
         </Container>
       </div>
-      <footer>Add another card</footer>
+      <footer>
+        <div className="footer-actions">
+          <i className="icon fa fa-plus" />
+          Add another card
+        </div>
+      </footer>
     </div>
   )
 }

@@ -13,4 +13,10 @@ body {
   // grid-template-rows: 40px 50px 1fr;
   line-height: 1.3em;
   background-color: $board-bg-color;
+
+  .icon {
+    font-size: 14px;
+    margin-right: 5px;
+    color: $app-main-text-color;
+  }
 }
