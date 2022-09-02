@@ -32,7 +32,7 @@
     "react/prop-types": 0,
     "react/display-name": 0,
     "keyword-spacing": 1,
-    "comma-dangle": 1,
+    "comma-dangle": 0,
     "comma-spacing": 1,
     "arrow-spacing": 1
   }

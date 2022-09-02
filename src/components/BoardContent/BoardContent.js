@@ -1,4 +1,5 @@
 import { initialData } from "actions/initialData"
+import AddColumn from "components/AddColumn/AddColumn"
 import Column from "components/Column/Column"
 import { isEmpty } from "lodash"
 import React from "react"
@@ -70,10 +71,7 @@ const BoardContent = () => {
           </Draggable>
         ))}
       </Container>
-      <div className="add-new-column">
-        <i className="icon fa fa-plus" />
-        Add new column
-      </div>
+      <AddColumn />
     </div>
   )
 }
