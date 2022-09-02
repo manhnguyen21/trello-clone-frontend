@@ -1,0 +1,54 @@
+@import "_setting.scss";
+
+$add-new-column-width-container: 250px;
+
+.add-new-column-container {
+  width: $add-new-column-width-container !important;
+  max-width: $add-new-column-width-container !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-left: 12px !important;
+  border-radius: $column-border-radius;
+
+  .add-new-column-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 32px;
+    align-items: center;
+
+    .toggle-button {
+      cursor: pointer;
+      color: white;
+      background-color: hsla(0, 0%, 100%, 0.25) !important;
+      font-size: 15px;
+      border-radius: $column-border-radius;
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.35);
+      }
+      i {
+        font-size: 14px !important;
+        color: white !important;
+      }
+    }
+
+    .input-text {
+      padding: 12px;
+    }
+
+    div {
+      button {
+        width: 100%;
+      }
+      i {
+        font-size: 32px !important;
+        color: $alert-danger !important;
+        &:hover {
+          cursor: pointer;
+          color: darken($color: $alert-danger, $amount: 20);
+        }
+      }
+    }
+  }
+}
