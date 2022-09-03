@@ -71,7 +71,12 @@ const BoardContent = () => {
           </Draggable>
         ))}
       </Container>
-      <AddColumn />
+      <AddColumn
+        board={board}
+        setBoard={setBoard}
+        columns={columns}
+        setColumns={setColumns}
+      />
     </div>
   )
 }
