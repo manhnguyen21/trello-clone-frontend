@@ -43,6 +43,23 @@ body {
   [type="email"].form-control:focus,
   [type="tel"].form-control:focus,
   [contenteditable].form-control:focus {
-    box-shadow: none;
+    box-shadow: none !important;
+  }
+  .btn:focus,
+  .btn:active {
+    outline: none;
+  }
+
+  .trello-app-editable {
+    background-color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    border: none;
+
+    &:focus {
+      background-color: white;
+      border: 1px solid $input-border-color;
+    }
   }
 }

@@ -35,6 +35,9 @@ $add-new-column-width-container: 250px;
 
     .input-text {
       padding: 12px;
+      input {
+        border: 1px solid $input-border-color;
+      }
     }
 
     div {
