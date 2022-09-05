@@ -1,6 +1,6 @@
+import AddRemoveButton from "components/AddNewButton/AddNewButton"
 import React, { useEffect, useRef, useState } from "react"
 import {
-  Button,
   Col,
   Container as BootstrapContainer,
   Form,
@@ -9,12 +9,12 @@ import {
 import "./AddColumn.scss"
 
 const AddColumn = ({ board, setBoard, columns, setColumns }) => {
-  const [openForm, setOpenForm] = useState(false)
-  const [columnTitle, setColumnTitle] = useState("")
   const inputTextRef = useRef()
 
-  const toggle = () => setOpenForm(!openForm)
+  const [openForm, setOpenForm] = useState(false)
+  const [columnTitle, setColumnTitle] = useState("")
 
+  const toggle = () => setOpenForm(!openForm)
   const handleChangeInputText = ({ target: { value } }) => setColumnTitle(value)
 
   const handleKeyDownInputText = ({ code }) => {
@@ -53,7 +53,7 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
       {!openForm && (
         <Row>
           <BootstrapContainer className="add-new-column-container">
-            <Row className="add-new-column-row border-top-left-right">
+            <Row className="trello-bootstrap-row border-top-left-right">
               <Col className="toggle-button" onClick={toggle}>
                 <i className="icon fa fa-plus" />
                 Add new column
@@ -66,7 +66,7 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
       {openForm && (
         <Row>
           <BootstrapContainer className="add-new-column-container default-bg-color">
-            <Row className="add-new-column-row">
+            <Row className="trello-bootstrap-row">
               <Col className="input-text">
                 <Form.Control
                   size="sm"
@@ -79,20 +79,11 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
                 />
               </Col>
             </Row>
-            <Row className="add-new-column-row">
-              <Col xs={6}>
-                <Button
-                  variant="success"
-                  size="sm"
-                  onClick={handleAddButtonClick}
-                >
-                  Add
-                </Button>
-              </Col>
-              <Col xs={6} onClick={toggle}>
-                <i className="icon fa fa-times" />
-              </Col>
-            </Row>
+            <AddRemoveButton
+              addLabel={"Add new column"}
+              onAddClick={handleAddButtonClick}
+              onCloseClick={toggle}
+            />
           </BootstrapContainer>
         </Row>
       )}

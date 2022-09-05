@@ -1,0 +1,17 @@
+@import "_setting.scss";
+
+.trello-bootstrap-row {
+  div {
+    button {
+      width: 100%;
+    }
+    i {
+      font-size: 32px !important;
+      color: $alert-danger !important;
+      &:hover {
+        cursor: pointer;
+        color: darken($color: $alert-danger, $amount: 20) !important;
+      }
+    }
+  }
+}

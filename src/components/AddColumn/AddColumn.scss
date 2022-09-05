@@ -10,14 +10,7 @@ $add-new-column-width-container: 250px;
   margin-left: 12px !important;
   border-radius: $column-border-radius;
 
-  .add-new-column-row {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 32px;
-    align-items: center;
-
+  .trello-bootstrap-row {
     .toggle-button {
       cursor: pointer;
       color: white;
@@ -35,23 +28,6 @@ $add-new-column-width-container: 250px;
 
     .input-text {
       padding: 12px;
-      input {
-        border: 1px solid $input-border-color;
-      }
-    }
-
-    div {
-      button {
-        width: 100%;
-      }
-      i {
-        font-size: 32px !important;
-        color: $alert-danger !important;
-        &:hover {
-          cursor: pointer;
-          color: darken($color: $alert-danger, $amount: 20) !important;
-        }
-      }
     }
   }
 }

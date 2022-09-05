@@ -71,7 +71,7 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
   }
 
   footer {
-    padding-left: $gap;
+    // padding-left: $gap;
     height: $column-footer-height;
     line-height: $column-footer-height;
     border-bottom-left-radius: $column-border-radius;
@@ -120,6 +120,23 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
       background-color: rgba(150, 150, 200, 0.1);
       border: 1px dashed #abc;
       margin: 5px;
+    }
+
+    .card-title-text {
+      min-height: 56px;
+      max-height: 162px;
+      margin-bottom: $gap;
+    }
+
+    .add-first-card-spacing {
+      margin-bottom: $gap;
+    }
+
+    .row {
+      padding: 0 !important;
+      .col {
+        padding: 0 !important;
+      }
     }
   }
 }
