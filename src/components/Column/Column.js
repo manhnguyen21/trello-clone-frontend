@@ -65,11 +65,12 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     }
 
     const newCards = [newCard, ...column.cards]
+    const newCardOrder = [newCard.id, ...column.cardOrder]
 
     onColumnUpdate({
       ...column,
       cards: newCards,
-      cardOrder: newCards.map(({ id }) => id),
+      cardOrder: newCardOrder,
     })
     setFirstCardTitle("")
     toggleAddNewFirstCard()
@@ -85,11 +86,12 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     }
 
     const newCards = [...column.cards, newCard]
+    const newCardOrder = [...column.cards, newCard.id]
 
     onColumnUpdate({
       ...column,
       cards: newCards,
-      cardOrder: newCards.map(({ id }) => id),
+      cardOrder: newCardOrder,
     })
     setEndCardTitle("")
     toggleAddNewEndCard()
