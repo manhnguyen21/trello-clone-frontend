@@ -1,6 +1,7 @@
+import AddNewButton from "components/AddNewButton/AddNewButton"
 import Card from "components/Card/Card"
 import ConfirmModal from "components/Common/ConfirmModal"
-import React, { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Dropdown, Form } from "react-bootstrap"
 import { Container, Draggable } from "react-smooth-dnd"
 import { MODAL_ACTION_CONFIRM } from "utilities/constants"
@@ -12,20 +13,25 @@ import { mapOrder } from "utilities/utils"
 import "./Column.scss"
 
 const Column = ({ column, onCardDrop, onColumnUpdate }) => {
-  const [columnTitle, setColumnTitle] = useState("")
-
   const cards = mapOrder(column.cards, column.cardOrder)
 
+  const firstCardTitleRef = useRef()
+  const endCardTitleRef = useRef()
+
+  const [columnTitle, setColumnTitle] = useState("")
+  const [firstCardTitle, setFirstCardTitle] = useState("")
+  const [endCardTitle, setEndCardTitle] = useState("")
+
   const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [openAddNewFirstCard, setOpenAddNewFirstCard] = useState(false)
+  const [openAddNewEndCard, setOpenAddNewEndCard] = useState(false)
 
   const toggleShowConfirmModal = () => setShowConfirmModal(!showConfirmModal)
 
-  const handleConfirmModalAction = (type) => {
-    if (type === MODAL_ACTION_CONFIRM) {
-      onColumnUpdate({ ...column, _destroy: true })
-    }
-    toggleShowConfirmModal()
-  }
+  const toggleAddNewFirstCard = () =>
+    setOpenAddNewFirstCard(!openAddNewFirstCard)
+
+  const toggleAddNewEndCard = () => setOpenAddNewEndCard(!openAddNewEndCard)
 
   const handleColumnTitleChange = ({ target: { value } }) =>
     setColumnTitle(value)
@@ -36,9 +42,76 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
 
   const handleColumnTitleMouseDown = (e) => e.preventDefault()
 
+  const handleConfirmModalAction = (type) => {
+    if (type === MODAL_ACTION_CONFIRM) {
+      onColumnUpdate({ ...column, _destroy: true })
+    }
+    toggleShowConfirmModal()
+  }
+
+  const handleFirstCardTitleChange = ({ target: { value } }) =>
+    setFirstCardTitle(value)
+
+  const handleEndCardTitleChange = ({ target: { value } }) =>
+    setEndCardTitle(value)
+
+  const handleAddNewFirstCard = () => {
+    const newCard = {
+      id: Math.random(),
+      boardId: column.boardId,
+      columnId: column.id,
+      title: firstCardTitle,
+      cover: null,
+    }
+
+    const newCards = [newCard, ...column.cards]
+    const newCardOrder = [newCard.id, ...column.cardOrder]
+
+    onColumnUpdate({
+      ...column,
+      cards: newCards,
+      cardOrder: newCardOrder,
+    })
+    setFirstCardTitle("")
+    toggleAddNewFirstCard()
+  }
+
+  const handleAddNewEndCard = () => {
+    const newCard = {
+      id: Math.random(),
+      boardId: column.boardId,
+      columnId: column.id,
+      title: endCardTitle,
+      cover: null,
+    }
+
+    const newCards = [...column.cards, newCard]
+    const newCardOrder = [...column.cards, newCard.id]
+
+    onColumnUpdate({
+      ...column,
+      cards: newCards,
+      cardOrder: newCardOrder,
+    })
+    setEndCardTitle("")
+    toggleAddNewEndCard()
+  }
+
   useEffect(() => {
     setColumnTitle(column.title)
   }, [column.title])
+
+  useEffect(() => {
+    openAddNewEndCard &&
+      endCardTitleRef.current &&
+      endCardTitleRef.current.select()
+  }, [openAddNewEndCard])
+
+  useEffect(() => {
+    openAddNewFirstCard &&
+      firstCardTitleRef.current &&
+      firstCardTitleRef.current.select()
+  }, [openAddNewFirstCard])
 
   return (
     <div className="column">
@@ -67,7 +140,9 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
             />
 
             <Dropdown.Menu>
-              <Dropdown.Item>Add card</Dropdown.Item>
+              <Dropdown.Item onClick={toggleAddNewFirstCard}>
+                Add card
+              </Dropdown.Item>
               <Dropdown.Item onClick={toggleShowConfirmModal}>
                 Remove column
               </Dropdown.Item>
@@ -78,6 +153,29 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
         </div>
       </header>
       <div className="card-list">
+        {openAddNewFirstCard && (
+          <>
+            <Form.Control
+              size="sm"
+              as="textarea"
+              row="3"
+              placeholder="Enter card content..."
+              className="card-title-text"
+              ref={firstCardTitleRef}
+              value={firstCardTitle}
+              onClick={selectText}
+              onKeyDown={handlePressEnter}
+              onChange={handleFirstCardTitleChange}
+              onBlur={handleAddNewFirstCard}
+            />
+            <AddNewButton
+              addLabel={"Add new card"}
+              onAddClick={handleAddNewFirstCard}
+              onCloseClick={toggleAddNewFirstCard}
+            />
+            <div className="add-first-card-spacing" />
+          </>
+        )}
         <Container
           groupName="col"
           onDrop={(dropResult) => onCardDrop(column.id, dropResult)}
@@ -97,13 +195,39 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
             </Draggable>
           ))}
         </Container>
+
+        {openAddNewEndCard && (
+          <Form.Control
+            size="sm"
+            as="textarea"
+            row="3"
+            placeholder="Enter card content..."
+            className="card-title-text"
+            ref={endCardTitleRef}
+            value={endCardTitle}
+            onClick={selectText}
+            onKeyDown={handlePressEnter}
+            onChange={handleEndCardTitleChange}
+            onBlur={handleAddNewEndCard}
+          />
+        )}
       </div>
-      <footer>
-        <div className="footer-actions">
-          <i className="icon fa fa-plus" />
-          Add another card
-        </div>
-      </footer>
+
+      {openAddNewEndCard && (
+        <AddNewButton
+          addLabel={"Add new card"}
+          onAddClick={handleAddNewEndCard}
+          onCloseClick={toggleAddNewEndCard}
+        />
+      )}
+      {!openAddNewEndCard && (
+        <footer>
+          <div className="footer-actions" onClick={toggleAddNewEndCard}>
+            <i className="icon fa fa-plus" />
+            Add another card
+          </div>
+        </footer>
+      )}
       <ConfirmModal
         show={showConfirmModal}
         onAction={handleConfirmModalAction}
