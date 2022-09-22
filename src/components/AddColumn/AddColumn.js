@@ -25,7 +25,7 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
   const handleAddButtonClick = () => {
     const column = {
       id: Math.random().toFixed(5),
-      boardId: board.id,
+      boardId: board._id,
       title: columnTitle,
       cardOrder: [],
       cards: [],

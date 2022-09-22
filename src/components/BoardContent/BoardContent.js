@@ -1,9 +1,9 @@
-import { initialData } from "actions/initialData"
 import AddColumn from "components/AddColumn/AddColumn"
 import Column from "components/Column/Column"
 import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
+import { getBoardById } from "services/board"
 import { applyDrag, mapOrder } from "utilities/utils"
 import "./BoardContent.scss"
 
@@ -12,14 +12,25 @@ const BoardContent = () => {
   const [columns, setColumns] = React.useState([])
 
   React.useEffect(() => {
-    const boardFromDb = initialData.boards.find(({ id }) => id === "board-1")
+    getBoardById({ id: "6327274493d41701b4f9454f" })
+      .then((response) => {
+        if (!response) return
+        const { columns, columnOrder } = response
+        const sortedColumns = mapOrder(columns, columnOrder)
+        setBoard(response)
+        setColumns(sortedColumns)
+      })
+      .catch((error) => {
+        throw new Error(error)
+      })
 
-    if (boardFromDb) {
-      const { columns, columnOrder } = boardFromDb
-      const sortedColumns = mapOrder(columns, columnOrder)
-      setBoard(boardFromDb)
-      setColumns(sortedColumns)
-    }
+    // const boardFromDb = initialData.boards.find(({ _id }) => _id === "board-1")
+    // if (boardFromDb) {
+    //   const { columns, columnOrder } = boardFromDb
+    //   const sortedColumns = mapOrder(columns, columnOrder)
+    //   setBoard(boardFromDb)
+    //   setColumns(sortedColumns)
+    // }
   }, [])
 
   if (isEmpty(board)) {
@@ -31,7 +42,7 @@ const BoardContent = () => {
     const newBoard = {
       ...board,
       columns: newColumns,
-      columnOrder: newColumns.map(({ id }) => id),
+      columnOrder: newColumns.map(({ _id }) => _id),
     }
     setColumns(newColumns)
     setBoard(newBoard)
@@ -42,20 +53,20 @@ const BoardContent = () => {
 
     if (addedIndex === null && removedIndex === null) return
 
-    const currentColumn = columns.find(({ id }) => id === columnId)
+    const currentColumn = columns.find(({ _id }) => _id === columnId)
 
     if (currentColumn === undefined) return
 
     const newCards = applyDrag(currentColumn.cards, cardDropResult)
     currentColumn.cards = newCards
-    currentColumn.cardOrder = newCards.map(({ id }) => id)
+    currentColumn.cardOrder = newCards.map(({ _id }) => _id)
     setColumns([...columns])
   }
 
   const onColumnUpdate = (columnToUpdate) => {
     if (columnToUpdate === undefined) return
 
-    const columnIndex = columns.findIndex(({ id }) => id === columnToUpdate.id)
+    const columnIndex = columns.findIndex(({ id }) => id === columnToUpdate._id)
 
     if (columnIndex === undefined) return
 
@@ -63,7 +74,7 @@ const BoardContent = () => {
 
     if (columnToUpdate._destroy) {
       // destroy
-      // newColumns = newColumns.filter(({ id }) => id !== columnToUpdate.id)
+      // newColumns = newColumns.filter(({ id }) => id !== columnToUpdate._id)
       newColumns.splice(columnIndex, 1)
     } else {
       // update
@@ -74,7 +85,7 @@ const BoardContent = () => {
     const newBoard = {
       ...board,
       columns: newColumns,
-      columnOrder: newColumns.map(({ id }) => id),
+      columnOrder: newColumns.map(({ _id }) => _id),
     }
 
     setBoard(newBoard)
@@ -95,7 +106,7 @@ const BoardContent = () => {
         }}
       >
         {columns.map((column) => (
-          <Draggable key={column.id}>
+          <Draggable key={column._id}>
             <Column
               column={column}
               onColumnUpdate={onColumnUpdate}

@@ -59,13 +59,13 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     const newCard = {
       id: Math.random(),
       boardId: column.boardId,
-      columnId: column.id,
+      columnId: column._id,
       title: firstCardTitle,
       cover: null,
     }
 
     const newCards = [newCard, ...column.cards]
-    const newCardOrder = [newCard.id, ...column.cardOrder]
+    const newCardOrder = [newCard._id, ...column.cardOrder]
 
     onColumnUpdate({
       ...column,
@@ -80,13 +80,13 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     const newCard = {
       id: Math.random(),
       boardId: column.boardId,
-      columnId: column.id,
+      columnId: column._id,
       title: endCardTitle,
       cover: null,
     }
 
     const newCards = [...column.cards, newCard]
-    const newCardOrder = [...column.cards, newCard.id]
+    const newCardOrder = [...column.cards, newCard._id]
 
     onColumnUpdate({
       ...column,
@@ -178,7 +178,7 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
         )}
         <Container
           groupName="col"
-          onDrop={(dropResult) => onCardDrop(column.id, dropResult)}
+          onDrop={(dropResult) => onCardDrop(column._id, dropResult)}
           getChildPayload={(index) => cards[index]}
           dragClass="card-ghost"
           dropClass="card-ghost-drop"
