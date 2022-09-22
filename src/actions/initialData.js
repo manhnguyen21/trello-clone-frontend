@@ -1,11 +1,11 @@
 export const initialData = {
   boards: [
     {
-      id: "board-1",
+      _id: "board-1",
       columnOrder: ["column-1", "column-2", "column-3"],
       columns: [
         {
-          id: "column-1",
+          _id: "column-1",
           boardId: "board-1",
           title: "BrandStorm",
           cardOrder: [
@@ -19,21 +19,21 @@ export const initialData = {
           ],
           cards: [
             {
-              id: "card-1",
+              _id: "card-1",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 1",
               cover: null,
             },
             {
-              id: "card-2",
+              _id: "card-2",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 2",
               cover: null,
             },
             {
-              id: "card-3",
+              _id: "card-3",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 3",
@@ -41,28 +41,28 @@ export const initialData = {
                 "https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/207912652_1776328079222003_3253959893346048550_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=QFhSzdKTLhQAX8FHcJa&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT-4zmvwJaxsGAoGtjb-dt2cPx13wDF_mmAUD6Y6WayO0g&oe=63384089",
             },
             {
-              id: "card-4",
+              _id: "card-4",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 4",
               cover: null,
             },
             {
-              id: "card-5",
+              _id: "card-5",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 5",
               cover: null,
             },
             {
-              id: "card-6",
+              _id: "card-6",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 6",
               cover: null,
             },
             {
-              id: "card-7",
+              _id: "card-7",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 7",
@@ -71,27 +71,27 @@ export const initialData = {
           ],
         },
         {
-          id: "column-2",
+          _id: "column-2",
           boardId: "board-1",
           title: "Rest column",
           cardOrder: ["card-8", "card-9", "card-10"],
           cards: [
             {
-              id: "card-8",
+              _id: "card-8",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 8",
               cover: null,
             },
             {
-              id: "card-9",
+              _id: "card-9",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 9",
               cover: null,
             },
             {
-              id: "card-10",
+              _id: "card-10",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 10",
@@ -100,34 +100,34 @@ export const initialData = {
           ],
         },
         {
-          id: "column-3",
+          _id: "column-3",
           boardId: "board-1",
           title: "Rest column",
           cardOrder: ["card-14", "card-11", "card-12", "card-13"],
           cards: [
             {
-              id: "card-11",
+              _id: "card-11",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 11",
               cover: null,
             },
             {
-              id: "card-12",
+              _id: "card-12",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 12",
               cover: null,
             },
             {
-              id: "card-13",
+              _id: "card-13",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 13",
               cover: null,
             },
             {
-              id: "card-14",
+              _id: "card-14",
               boardId: "board-1",
               columnId: "column-1",
               title: "The title of card 14",
