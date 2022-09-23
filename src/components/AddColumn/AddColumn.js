@@ -1,11 +1,12 @@
 import AddRemoveButton from "components/AddNewButton/AddNewButton"
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   Col,
   Container as BootstrapContainer,
   Form,
   Row,
 } from "react-bootstrap"
+import { createNewColumn } from "services/column"
 import "./AddColumn.scss"
 
 const AddColumn = ({ board, setBoard, columns, setColumns }) => {
@@ -24,21 +25,21 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
 
   const handleAddButtonClick = () => {
     const column = {
-      id: Math.random().toFixed(5),
       boardId: board._id,
       title: columnTitle,
-      cardOrder: [],
-      cards: [],
     }
-    const newColumns = [...columns, column]
-    setColumns(newColumns)
-    setBoard({
-      ...board,
-      columns: newColumns,
-      columnOrder: newColumns.map(({ id }) => id),
+
+    createNewColumn(column).then((newColumn) => {
+      const newColumns = [...columns, newColumn]
+      setColumns(newColumns)
+      setBoard({
+        ...board,
+        columns: newColumns,
+        columnOrder: newColumns.map(({ id }) => id),
+      })
+      setColumnTitle("")
+      toggle()
     })
-    setColumnTitle("")
-    toggle()
   }
 
   useEffect(() => {
