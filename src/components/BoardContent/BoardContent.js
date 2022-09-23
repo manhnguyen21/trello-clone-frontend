@@ -63,10 +63,12 @@ const BoardContent = () => {
     setColumns([...columns])
   }
 
-  const onColumnUpdate = (columnToUpdate) => {
+  const onColumnUpdateState = (columnToUpdate) => {
     if (columnToUpdate === undefined) return
 
-    const columnIndex = columns.findIndex(({ id }) => id === columnToUpdate._id)
+    const columnIndex = columns.findIndex(
+      ({ _id }) => _id === columnToUpdate._id
+    )
 
     if (columnIndex === undefined) return
 
@@ -109,7 +111,7 @@ const BoardContent = () => {
           <Draggable key={column._id}>
             <Column
               column={column}
-              onColumnUpdate={onColumnUpdate}
+              onColumnUpdateState={onColumnUpdateState}
               onCardDrop={onCardDrop}
             />
           </Draggable>
