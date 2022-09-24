@@ -15,6 +15,7 @@ const BoardContent = () => {
     getBoardById({ id: "6327274493d41701b4f9454f" })
       .then((response) => {
         if (!response) return
+
         const { columns, columnOrder } = response
         const sortedColumns = mapOrder(columns, columnOrder)
         setBoard(response)
@@ -107,8 +108,8 @@ const BoardContent = () => {
           className: "columns-drop-preview",
         }}
       >
-        {columns.map((column) => (
-          <Draggable key={column._id}>
+        {columns?.map((column) => (
+          <Draggable key={column._id || Math.random(1000)}>
             <Column
               column={column}
               onColumnUpdateState={onColumnUpdateState}
