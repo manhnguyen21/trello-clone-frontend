@@ -57,7 +57,9 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
 
   const handleConfirmModalAction = (type) => {
     if (type === MODAL_ACTION_CONFIRM) {
-      onColumnUpdateState({ ...column, _destroy: true })
+      updateColumn({ ...column, _destroy: true }).then((removedColumn) => {
+        onColumnUpdateState(removedColumn)
+      })
     }
     toggleShowConfirmModal()
   }

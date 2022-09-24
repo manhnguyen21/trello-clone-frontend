@@ -70,7 +70,7 @@ const BoardContent = () => {
       ({ _id }) => _id === columnToUpdate._id
     )
 
-    if (columnIndex === undefined) return
+    if (columnIndex === -1) return
 
     let newColumns = [...columns]
 
