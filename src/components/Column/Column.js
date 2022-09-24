@@ -4,6 +4,7 @@ import ConfirmModal from "components/Common/ConfirmModal"
 import { useEffect, useRef, useState } from "react"
 import { Dropdown, Form } from "react-bootstrap"
 import { Container, Draggable } from "react-smooth-dnd"
+import { createNewCard, createNewCardAtTop } from "services/card"
 import { updateColumn } from "services/column"
 import { MODAL_ACTION_CONFIRM } from "utilities/constants"
 import {
@@ -72,44 +73,53 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
 
   const handleAddNewFirstCard = () => {
     const newCard = {
-      id: Math.random(),
       boardId: column.boardId,
       columnId: column._id,
       title: firstCardTitle,
-      cover: null,
     }
 
-    const newCards = [newCard, ...column.cards]
-    const newCardOrder = [newCard._id, ...column.cardOrder]
+    createNewCardAtTop(newCard)
+      .then((createdCard) => {
+        const newCards = [createdCard, ...cards]
+        const newCardOrder = [createdCard._id, ...column.cardOrder]
+        onColumnUpdateState({
+          ...column,
+          cards: newCards,
+          cardOrder: newCardOrder,
+        })
 
-    onColumnUpdateState({
-      ...column,
-      cards: newCards,
-      cardOrder: newCardOrder,
-    })
-    setFirstCardTitle("")
-    toggleAddNewFirstCard()
+        setFirstCardTitle("")
+        toggleAddNewFirstCard()
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log("error", error)
+      })
   }
 
   const handleAddNewEndCard = () => {
     const newCard = {
-      id: Math.random(),
       boardId: column.boardId,
       columnId: column._id,
       title: endCardTitle,
-      cover: null,
     }
 
-    const newCards = [...column.cards, newCard]
-    const newCardOrder = [...column.cards, newCard._id]
-
-    onColumnUpdateState({
-      ...column,
-      cards: newCards,
-      cardOrder: newCardOrder,
-    })
-    setEndCardTitle("")
-    toggleAddNewEndCard()
+    createNewCard(newCard)
+      .then((createdCard) => {
+        const newCards = [...cards, createdCard]
+        const newCardOrder = [...column.cardOrder, createdCard._id]
+        onColumnUpdateState({
+          ...column,
+          cards: newCards,
+          cardOrder: newCardOrder,
+        })
+        setEndCardTitle("")
+        toggleAddNewEndCard()
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log("error", error)
+      })
   }
 
   useEffect(() => {
@@ -137,7 +147,7 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
             type="text"
             placeholder="Enter column name..."
             className="trello-app-editable"
-            value={columnTitle}
+            value={columnTitle || ""}
             spellCheck={"false"}
             onClick={selectText}
             onKeyDown={handlePressEnter}
@@ -177,11 +187,11 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
               placeholder="Enter card content..."
               className="card-title-text"
               ref={firstCardTitleRef}
-              value={firstCardTitle}
+              value={firstCardTitle || ""}
               onClick={selectText}
               onKeyDown={handlePressEnter}
               onChange={handleFirstCardTitleChange}
-              onBlur={handleAddNewFirstCard}
+              // onBlur={handleAddNewFirstCard}
             />
             <AddNewButton
               addLabel={"Add new card"}
@@ -204,7 +214,7 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
           }}
           dropPlaceholderAnimationDuration={200}
         >
-          {cards.map((card, index) => (
+          {cards?.map((card, index) => (
             <Draggable key={index}>
               <Card card={card} />
             </Draggable>
@@ -223,7 +233,7 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
             onClick={selectText}
             onKeyDown={handlePressEnter}
             onChange={handleEndCardTitleChange}
-            onBlur={handleAddNewEndCard}
+            // onBlur={handleAddNewEndCard}
           />
         )}
       </div>
