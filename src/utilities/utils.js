@@ -16,5 +16,8 @@ export const applyDrag = (arr, dragResult) => {
   return result
 }
 
-export const mapOrder = (array, order, key = "id") =>
-  array.sort((a, b) => order.indexOf(a[key]) - order.indexOf(b[key]))
+export const mapOrder = (array, order, key = "id") => {
+  if (!array || !order || !key) return
+
+  return array.sort((a, b) => order.indexOf(a[key]) - order.indexOf(b[key]))
+}
