@@ -4,6 +4,7 @@ import ConfirmModal from "components/Common/ConfirmModal"
 import { useEffect, useRef, useState } from "react"
 import { Dropdown, Form } from "react-bootstrap"
 import { Container, Draggable } from "react-smooth-dnd"
+import { updateColumn } from "services/column"
 import { MODAL_ACTION_CONFIRM } from "utilities/constants"
 import {
   handlePressEnter,
@@ -12,7 +13,7 @@ import {
 import { mapOrder } from "utilities/utils"
 import "./Column.scss"
 
-const Column = ({ column, onCardDrop, onColumnUpdate }) => {
+const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
   const cards = mapOrder(column.cards, column.cardOrder)
 
   const firstCardTitleRef = useRef()
@@ -37,14 +38,26 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     setColumnTitle(value)
 
   const handleColumnTitleBlur = () => {
-    onColumnUpdate({ ...column, title: columnTitle })
+    if (column.title === columnTitle) return
+
+    const newColumState = { ...column, title: columnTitle }
+
+    updateColumn(newColumState)
+      .then((updatedColumn) => {
+        onColumnUpdateState(updatedColumn)
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        setColumnTitle(column.title)
+      })
   }
 
   const handleColumnTitleMouseDown = (e) => e.preventDefault()
 
   const handleConfirmModalAction = (type) => {
     if (type === MODAL_ACTION_CONFIRM) {
-      onColumnUpdate({ ...column, _destroy: true })
+      onColumnUpdateState({ ...column, _destroy: true })
     }
     toggleShowConfirmModal()
   }
@@ -67,7 +80,7 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     const newCards = [newCard, ...column.cards]
     const newCardOrder = [newCard._id, ...column.cardOrder]
 
-    onColumnUpdate({
+    onColumnUpdateState({
       ...column,
       cards: newCards,
       cardOrder: newCardOrder,
@@ -88,7 +101,7 @@ const Column = ({ column, onCardDrop, onColumnUpdate }) => {
     const newCards = [...column.cards, newCard]
     const newCardOrder = [...column.cards, newCard._id]
 
-    onColumnUpdate({
+    onColumnUpdateState({
       ...column,
       cards: newCards,
       cardOrder: newCardOrder,
