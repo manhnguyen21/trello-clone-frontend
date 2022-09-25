@@ -3,7 +3,7 @@ import Column from "components/Column/Column"
 import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
-import { getBoardById } from "services/board"
+import { getBoardById, updateBoard } from "services/board"
 import { applyDrag, mapOrder } from "utilities/utils"
 import "./BoardContent.scss"
 
@@ -45,8 +45,17 @@ const BoardContent = () => {
       columns: newColumns,
       columnOrder: newColumns.map(({ _id }) => _id),
     }
+
+    // set new state
     setColumns(newColumns)
     setBoard(newBoard)
+
+    updateBoard(newBoard).catch(() => {
+      // occurred error during updating process
+      // so the columns and board must set to previous state
+      setColumns(columns)
+      setBoard(board)
+    })
   }
 
   const onCardDrop = (columnId, cardDropResult) => {
