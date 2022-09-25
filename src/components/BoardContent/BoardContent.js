@@ -4,6 +4,8 @@ import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
 import { getBoardById, updateBoard } from "services/board"
+import { updateCard } from "services/card"
+import { updateColumn } from "services/column"
 import { applyDrag, mapOrder } from "utilities/utils"
 import "./BoardContent.scss"
 
@@ -59,7 +61,7 @@ const BoardContent = () => {
   }
 
   const onCardDrop = (columnId, cardDropResult) => {
-    const { addedIndex, removedIndex } = cardDropResult
+    const { addedIndex, payload, removedIndex } = cardDropResult
 
     if (addedIndex === null && removedIndex === null) return
 
@@ -68,8 +70,26 @@ const BoardContent = () => {
     if (currentColumn === undefined) return
 
     const newCards = applyDrag(currentColumn.cards, cardDropResult)
+
     currentColumn.cards = newCards
     currentColumn.cardOrder = newCards.map(({ _id }) => _id)
+
+    // If a card is dropped in the current column,
+    // we will need to update the columnId of that card
+    if (addedIndex !== null) {
+      const addCardIndex = cardDropResult.addedIndex
+      const cardItem = { ...payload, columnId: currentColumn._id }
+      // update card here
+      currentColumn.cards.splice(addCardIndex, 1, cardItem)
+      updateCard(cardItem).catch(() => {
+        console.log("update card failure")
+      })
+    }
+
+    updateColumn(currentColumn).catch(() => {
+      console.log("update card failure")
+    })
+
     setColumns([...columns])
   }
 
