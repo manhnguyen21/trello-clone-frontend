@@ -26,14 +26,6 @@ const BoardContent = () => {
       .catch((error) => {
         throw new Error(error)
       })
-
-    // const boardFromDb = initialData.boards.find(({ _id }) => _id === "board-1")
-    // if (boardFromDb) {
-    //   const { columns, columnOrder } = boardFromDb
-    //   const sortedColumns = mapOrder(columns, columnOrder)
-    //   setBoard(boardFromDb)
-    //   setColumns(sortedColumns)
-    // }
   }, [])
 
   if (isEmpty(board)) {
@@ -72,7 +64,6 @@ const BoardContent = () => {
     if (currentColumn === undefined) return
 
     const newCards = applyDrag(currentColumn.cards, cardDropResult)
-
     currentColumn.cards = newCards
     currentColumn.cardOrder = newCards.map(({ _id }) => _id)
 
