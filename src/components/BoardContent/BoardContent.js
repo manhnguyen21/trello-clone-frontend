@@ -3,7 +3,9 @@ import Column from "components/Column/Column"
 import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
-import { getBoardById } from "services/board"
+import { getBoardById, updateBoard } from "services/board"
+import { updateCard } from "services/card"
+import { updateColumn } from "services/column"
 import { applyDrag, mapOrder } from "utilities/utils"
 import "./BoardContent.scss"
 
@@ -24,14 +26,6 @@ const BoardContent = () => {
       .catch((error) => {
         throw new Error(error)
       })
-
-    // const boardFromDb = initialData.boards.find(({ _id }) => _id === "board-1")
-    // if (boardFromDb) {
-    //   const { columns, columnOrder } = boardFromDb
-    //   const sortedColumns = mapOrder(columns, columnOrder)
-    //   setBoard(boardFromDb)
-    //   setColumns(sortedColumns)
-    // }
   }, [])
 
   if (isEmpty(board)) {
@@ -45,14 +39,25 @@ const BoardContent = () => {
       columns: newColumns,
       columnOrder: newColumns.map(({ _id }) => _id),
     }
+
+    // set new state
     setColumns(newColumns)
     setBoard(newBoard)
+
+    updateBoard(newBoard).catch(() => {
+      // occurred error during updating process
+      // so the columns and board must set to previous state
+      setColumns(columns)
+      setBoard(board)
+    })
   }
 
   const onCardDrop = (columnId, cardDropResult) => {
-    const { addedIndex, removedIndex } = cardDropResult
+    const { addedIndex, payload, removedIndex } = cardDropResult
 
     if (addedIndex === null && removedIndex === null) return
+
+    if (addedIndex === removedIndex) return
 
     const currentColumn = columns.find(({ _id }) => _id === columnId)
 
@@ -61,7 +66,19 @@ const BoardContent = () => {
     const newCards = applyDrag(currentColumn.cards, cardDropResult)
     currentColumn.cards = newCards
     currentColumn.cardOrder = newCards.map(({ _id }) => _id)
+
     setColumns([...columns])
+
+    updateColumn(currentColumn)
+
+    // If a card is dropped in the current column,
+    // we will need to update the columnId of that card
+    if (addedIndex !== null) {
+      const cardItem = { ...payload, columnId: currentColumn._id }
+      // update card here
+      currentColumn.cards.splice(addedIndex, 1, cardItem)
+      updateCard(cardItem)
+    }
   }
 
   const onColumnUpdateState = (columnToUpdate) => {
