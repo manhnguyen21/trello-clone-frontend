@@ -65,6 +65,8 @@ const BoardContent = () => {
 
     if (addedIndex === null && removedIndex === null) return
 
+    if (addedIndex === removedIndex) return
+
     const currentColumn = columns.find(({ _id }) => _id === columnId)
 
     if (currentColumn === undefined) return
@@ -74,23 +76,18 @@ const BoardContent = () => {
     currentColumn.cards = newCards
     currentColumn.cardOrder = newCards.map(({ _id }) => _id)
 
+    setColumns([...columns])
+
+    updateColumn(currentColumn)
+
     // If a card is dropped in the current column,
     // we will need to update the columnId of that card
     if (addedIndex !== null) {
-      const addCardIndex = cardDropResult.addedIndex
       const cardItem = { ...payload, columnId: currentColumn._id }
       // update card here
-      currentColumn.cards.splice(addCardIndex, 1, cardItem)
-      updateCard(cardItem).catch(() => {
-        console.log("update card failure")
-      })
+      currentColumn.cards.splice(addedIndex, 1, cardItem)
+      updateCard(cardItem)
     }
-
-    updateColumn(currentColumn).catch(() => {
-      console.log("update card failure")
-    })
-
-    setColumns([...columns])
   }
 
   const onColumnUpdateState = (columnToUpdate) => {
