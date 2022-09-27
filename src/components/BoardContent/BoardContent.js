@@ -4,7 +4,6 @@ import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
 import { getBoardById, updateBoard } from "services/board"
-import { updateCard } from "services/card"
 import { updateColumn } from "services/column"
 import { applyDrag, mapOrder } from "utilities/utils"
 import "./BoardContent.scss"
@@ -67,18 +66,16 @@ const BoardContent = () => {
     currentColumn.cards = newCards
     currentColumn.cardOrder = newCards.map(({ _id }) => _id)
 
-    setColumns([...columns])
-
-    updateColumn(currentColumn)
-
-    // If a card is dropped in the current column,
-    // we will need to update the columnId of that card
+    // // If a card is dropped in the current column,
+    // // we will need to update the columnId of that card
     if (addedIndex !== null) {
       const cardItem = { ...payload, columnId: currentColumn._id }
       // update card here
       currentColumn.cards.splice(addedIndex, 1, cardItem)
-      updateCard(cardItem)
     }
+
+    setColumns([...columns])
+    updateColumn(currentColumn)
   }
 
   const onColumnUpdateState = (columnToUpdate) => {
