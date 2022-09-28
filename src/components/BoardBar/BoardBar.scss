@@ -1,10 +1,13 @@
 @import "_setting.scss";
 
 .navbar-board {
-  height: $navbar-board-height;
-  padding: $gap;
-  display: flex;
-  align-items: center;
-  background-color: $board-bg-color;
+  // height: $navbar-board-height;
+  // background-color: $board-bg-color;
+  padding: 0 !important;
+  margin: $gap !important;
   font-size: 1.1rem;
+
+  .btn-item {
+    padding-left: 4px !important;
+  }
 }

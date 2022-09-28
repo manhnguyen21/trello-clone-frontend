@@ -38,6 +38,14 @@ body {
     background-color: $column-bg-color;
   }
 
+  .row {
+    padding: 0px !important;
+    margin: 0px !important;
+    > * {
+      padding: 0px;
+    }
+  }
+
   .btn:focus,
   .btn:active,
   textarea:focus,
