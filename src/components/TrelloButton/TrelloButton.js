@@ -1,8 +1,8 @@
 import "./TrelloButton.scss"
 
-const TrelloButton = ({ children, ...props }) => {
+const TrelloButton = ({ className, children, ...props }) => {
   return (
-    <button className="trello-button" {...props}>
+    <button className={`trello-button ${className}`} {...props}>
       {children}
     </button>
   )
