@@ -1,18 +1,17 @@
-import { Button, Col, Row } from "react-bootstrap"
+import TrelloButton from "components/TrelloButton/TrelloButton"
+import { FiX } from "react-icons/fi"
 import "./AddNewButton.scss"
 
 const AddNewButton = ({ addLabel, onAddClick, onCloseClick }) => {
   return (
-    <Row className="trello-bootstrap-row">
-      <Col>
-        <Button variant="success" size="sm" onClick={onAddClick}>
-          {addLabel}
-        </Button>
-      </Col>
-      <Col xs={3} onClick={onCloseClick}>
-        <i className="icon fa fa-times" />
-      </Col>
-    </Row>
+    <div className="add-new-button">
+      <TrelloButton size="sm" onClick={onAddClick}>
+        {addLabel}
+      </TrelloButton>
+      <span onClick={onCloseClick}>
+        <FiX />
+      </span>
+    </div>
   )
 }
 

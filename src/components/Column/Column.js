@@ -13,6 +13,7 @@ import {
 } from "utilities/contentEditableInlineText"
 import { mapOrder } from "utilities/utils"
 import "./Column.scss"
+import { FiPlus } from "react-icons/fi"
 
 const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
   const cards = mapOrder(column.cards, column.cardOrder)
@@ -238,21 +239,28 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
         )}
       </div>
 
-      {openAddNewEndCard && (
-        <AddNewButton
-          addLabel={"Add new card"}
-          onAddClick={handleAddNewEndCard}
-          onCloseClick={toggleAddNewEndCard}
-        />
-      )}
-      {!openAddNewEndCard && (
-        <footer>
+      <footer>
+        {!openAddNewEndCard && (
           <div className="footer-actions" onClick={toggleAddNewEndCard}>
-            <i className="icon fa fa-plus" />
-            Add another card
+            <p>
+              <span>
+                <FiPlus />
+              </span>
+              Add a card
+            </p>
           </div>
-        </footer>
-      )}
+        )}
+        {openAddNewEndCard && (
+          <div className="add-new-button-wrapper">
+            <AddNewButton
+              addLabel={"Add card"}
+              onAddClick={handleAddNewEndCard}
+              onCloseClick={toggleAddNewEndCard}
+            />
+          </div>
+        )}
+      </footer>
+
       <ConfirmModal
         show={showConfirmModal}
         onAction={handleConfirmModalAction}

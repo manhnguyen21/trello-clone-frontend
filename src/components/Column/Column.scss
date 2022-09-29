@@ -5,6 +5,9 @@ $column-footer-height: 46px;
 
 $column-height: calc(#{$board-content-height} - #{$gap * 2});
 
+$footer-action-height: 28px;
+$footer-icon-size: 16px;
+
 .column {
   // flex: 0 0 auto;
   width: 300px;
@@ -71,19 +74,35 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
   }
 
   footer {
-    // padding-left: $gap;
-    height: $column-footer-height;
-    line-height: $column-footer-height;
+    padding-bottom: $gap;
     border-bottom-left-radius: $column-border-radius;
     border-bottom-right-radius: $column-border-radius;
     color: #888;
     .footer-actions {
-      margin-left: $gap;
+      height: $footer-action-height;
       cursor: pointer;
 
+      p {
+        line-height: $footer-action-height;
+        margin-bottom: 0;
+        span {
+          margin: $gap;
+          line-height: $footer-action-height;
+          svg {
+            width: $footer-icon-size;
+            height: $footer-icon-size;
+          }
+        }
+      }
+
       &:hover {
+        background-color: #dadbe2;
         color: $app-main-text-color;
       }
+    }
+
+    .add-new-button-wrapper {
+      padding: 0px 8px;
     }
   }
 
