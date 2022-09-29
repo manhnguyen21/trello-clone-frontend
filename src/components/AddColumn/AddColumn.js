@@ -1,4 +1,4 @@
-import AddRemoveButton from "components/AddNewButton/AddNewButton"
+import AddNewButton from "components/AddNewButton/AddNewButton"
 import { useEffect, useRef, useState } from "react"
 import {
   Col,
@@ -6,6 +6,7 @@ import {
   Form,
   Row,
 } from "react-bootstrap"
+import { FiPlus } from "react-icons/fi"
 import { createNewColumn } from "services/column"
 import "./AddColumn.scss"
 
@@ -52,16 +53,17 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
   return (
     <BootstrapContainer className="trello-bootstrap-container">
       {!openForm && (
-        <Row>
-          <BootstrapContainer className="add-new-column-container">
-            <Row className="trello-bootstrap-row border-top-left-right">
-              <Col className="toggle-button" onClick={toggle}>
-                <i className="icon fa fa-plus" />
-                Add new column
-              </Col>
-            </Row>
-          </BootstrapContainer>
-        </Row>
+        <div
+          className="add-new-column-container default-bg-color"
+          onClick={toggle}
+        >
+          <div className={"add-another-list"}>
+            <span>
+              <FiPlus />
+            </span>
+            Add another list
+          </div>
+        </div>
       )}
 
       {openForm && (
@@ -80,11 +82,13 @@ const AddColumn = ({ board, setBoard, columns, setColumns }) => {
                 />
               </Col>
             </Row>
-            <AddRemoveButton
-              addLabel={"Add new column"}
-              onAddClick={handleAddButtonClick}
-              onCloseClick={toggle}
-            />
+            <div className="add-list">
+              <AddNewButton
+                addLabel={"Add list"}
+                onAddClick={handleAddButtonClick}
+                onCloseClick={toggle}
+              />
+            </div>
           </BootstrapContainer>
         </Row>
       )}

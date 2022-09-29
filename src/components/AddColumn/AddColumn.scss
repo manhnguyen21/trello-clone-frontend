@@ -1,33 +1,37 @@
 @import "_setting.scss";
 
-$add-new-column-width-container: 250px;
+$add-new-column-width-container: 270px;
 
 .add-new-column-container {
   width: $add-new-column-width-container !important;
   max-width: $add-new-column-width-container !important;
   padding: 0 !important;
   margin: 0 !important;
-  margin-left: 12px !important;
   border-radius: $column-border-radius;
 
-  .trello-bootstrap-row {
-    .toggle-button {
+  .add-another-list {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px $gap;
+    color: white;
+    background-color: lighten($board-bg-color, 5%);
+    border-radius: $column-border-radius;
+    font-size: 16px;
+    span {
+      margin-right: 2px;
+    }
+    &:hover {
       cursor: pointer;
-      color: white;
-      background-color: hsla(0, 0%, 100%, 0.25) !important;
-      font-size: 15px;
-      border-radius: $column-border-radius;
-      &:hover {
-        background-color: hsla(0, 0%, 100%, 0.35) !important;
-      }
-      i {
-        font-size: 14px !important;
-        color: white !important;
-      }
+      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
     }
+  }
 
-    .input-text {
-      padding: 12px;
-    }
+  .trello-bootstrap-row .input-text {
+    padding: 5px;
+  }
+
+  .add-list {
+    padding: 0 0 5px 5px;
   }
 }
