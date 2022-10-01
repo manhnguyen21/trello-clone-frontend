@@ -5,12 +5,12 @@
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  height: $button-height;
   color: white;
   background-repeat: no-repeat;
   background-color: lighten($board-bg-color, 5%);
   font-size: 14px;
-  // width: fit-content !important;
+  padding: 0 12px;
+  white-space: nowrap;
   &:hover {
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
   }

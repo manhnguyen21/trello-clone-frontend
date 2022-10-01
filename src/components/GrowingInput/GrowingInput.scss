@@ -1,0 +1,15 @@
+.growing-text-hidden {
+  position: absolute;
+  opacity: 0;
+  z-index: -100;
+  white-space: pre;
+  padding: 0px 12px;
+}
+
+.growing-text-input {
+  padding: 0px 12px;
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+}
