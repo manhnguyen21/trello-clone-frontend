@@ -4,10 +4,80 @@
   // height: $navbar-board-height;
   // background-color: $board-bg-color;
   padding: 0 !important;
-  margin: $gap !important;
+  margin: 8px !important;
   font-size: 1.1rem;
 
-  .btn-item {
-    padding-left: 4px !important;
+  .navbar-board-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-board-container--left {
+      flex: 1 1;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .navbar-board-container--right {
+      flex: 1 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .navbar-board-btn-item {
+      &:first-child {
+        margin-left: 0px;
+      }
+      &:last-child {
+        margin-right: 0px;
+      }
+      margin: 0 2px;
+      // having icon
+      padding: 0px 12px 0px 0px;
+
+      .navbar-board-btn-item--icon-start {
+        margin: 0px 8px;
+      }
+
+      .navbar-board-btn-item--icon-end {
+        margin: 0px 0px 0px 8px;
+      }
+    }
+
+    .board-name-input {
+      padding: 0px;
+      font-size: 14px;
+      font-weight: 700;
+
+      input {
+        height: $button-height;
+        padding: 0px 8px;
+      }
+    }
+
+    .btn-share {
+      background-color: white;
+      color: black;
+
+      &:hover {
+        background-color: #e6f2f9;
+      }
+    }
+
+    .only-icon {
+      padding: 0;
+    }
+
+    .btn-without-icon {
+      padding: 0px 12px;
+    }
+
+    .navbar-board-btn-divider {
+      border-left: 1px solid #ffffff3d;
+      height: 16px;
+      margin: 8px;
+    }
   }
 }

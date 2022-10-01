@@ -1,53 +1,74 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
-import { Col, Row } from "react-bootstrap"
 import "./BoardBar.scss"
+
+import { Form } from "react-bootstrap"
+import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
+import { BiRocket } from "react-icons/bi"
+import { BsThreeDots } from "react-icons/bs"
+import { FiChevronDown, FiStar, FiUsers } from "react-icons/fi"
+import { HiViewBoards } from "react-icons/hi"
+import { IoFilterSharp } from "react-icons/io5"
 
 const BoardBar = () => {
   return (
     <nav className="navbar-board">
-      <Row className="trello-bootstrap-row justify-content-between">
-        <Col xs={6}>
-          <Row className="justify-content-start">
-            <Col className="btn-item">
-              <TrelloButton>Board</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>ThanhDat-Workspace</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Start</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>trello Workspace</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Workspace visible</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>User Avatar</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Share</TrelloButton>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={4}>
-          <Row className="justify-content-end">
-            <Col className="btn-item">
-              <TrelloButton>Poser-Ups</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Automation</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Filter</TrelloButton>
-            </Col>
-            <Col className="btn-item">
-              <TrelloButton>Show Menu</TrelloButton>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <div className="navbar-board-container">
+        <div className="navbar-board-container--left">
+          <TrelloButton className="navbar-board-btn-item">
+            <HiViewBoards className="navbar-board-btn-item--icon-start" />
+            Board
+            <FiChevronDown className="navbar-board-btn-item--icon-end" />
+          </TrelloButton>
+          <TrelloButton className="navbar-board-btn-item board-name-input">
+            <Form.Control
+              size="sm"
+              type="text"
+              placeholder="Enter column name..."
+              className="trello-app-editable"
+            />
+          </TrelloButton>
+          <TrelloButton className="navbar-board-btn-item only-icon">
+            <FiStar className="navbar-board-btn-item--icon-start " />
+          </TrelloButton>
+          <span className="navbar-board-btn-divider" />
+          <TrelloButton className="navbar-board-btn-item btn-without-icon">
+            Trello Workspace
+          </TrelloButton>
+          <span className="navbar-board-btn-divider" />
+          <TrelloButton className="navbar-board-btn-item">
+            <FiUsers className="navbar-board-btn-item--icon-start" />
+            Workspace visible
+          </TrelloButton>
+          <span className="navbar-board-btn-divider" />
+          <TrelloButton className="navbar-board-btn-item btn-without-icon">
+            User Avatar
+          </TrelloButton>
+          <TrelloButton className="navbar-board-btn-item btn-share">
+            <AiOutlineUserAdd className="navbar-board-btn-item--icon-start" />
+            Share
+          </TrelloButton>
+        </div>
+        <div className="navbar-board-container--right">
+          <TrelloButton className="navbar-board-btn-item">
+            <AiFillThunderbolt className="navbar-board-btn-item--icon-start" />
+            Automation
+          </TrelloButton>
+          <TrelloButton className="navbar-board-btn-item">
+            <BiRocket className="navbar-board-btn-item--icon-start" />
+            Power-Ups
+          </TrelloButton>
+          <span className="navbar-board-btn-divider" />
+          <TrelloButton className="navbar-board-btn-item">
+            <IoFilterSharp className="navbar-board-btn-item--icon-start" />
+            Filter
+          </TrelloButton>
+          <span className="navbar-board-btn-divider" />
+          <TrelloButton className="navbar-board-btn-item">
+            <BsThreeDots className="navbar-board-btn-item--icon-start" />
+            Show Menu
+          </TrelloButton>
+        </div>
+      </div>
     </nav>
   )
 }
