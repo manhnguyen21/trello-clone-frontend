@@ -1,13 +1,14 @@
+import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
-import "./BoardBar.scss"
-
-import { Form } from "react-bootstrap"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
 import { BiRocket } from "react-icons/bi"
 import { BsThreeDots } from "react-icons/bs"
 import { FiChevronDown, FiStar, FiUsers } from "react-icons/fi"
 import { HiViewBoards } from "react-icons/hi"
 import { IoFilterSharp } from "react-icons/io5"
+import "./BoardBar.scss"
+
+const boardNameInputStyle = { fontSize: 18, fontWeight: 700 }
 
 const BoardBar = () => {
   return (
@@ -19,13 +20,8 @@ const BoardBar = () => {
             Board
             <FiChevronDown className="navbar-board-btn-item--icon-end" />
           </TrelloButton>
-          <TrelloButton className="navbar-board-btn-item board-name-input">
-            <Form.Control
-              size="sm"
-              type="text"
-              placeholder="Enter column name..."
-              className="trello-app-editable"
-            />
+          <TrelloButton className="navbar-board-btn-item board-name">
+            <GrowingInput style={boardNameInputStyle} />
           </TrelloButton>
           <TrelloButton className="navbar-board-btn-item only-icon">
             <FiStar className="navbar-board-btn-item--icon-start " />

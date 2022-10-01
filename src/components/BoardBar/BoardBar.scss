@@ -4,7 +4,7 @@
   // height: $navbar-board-height;
   // background-color: $board-bg-color;
   padding: 0 !important;
-  margin: 8px !important;
+  margin: 8px 4px 12px 10px !important;
   font-size: 1.1rem;
 
   .navbar-board-container {
@@ -46,14 +46,14 @@
       }
     }
 
-    .board-name-input {
+    .board-name {
       padding: 0px;
-      font-size: 14px;
-      font-weight: 700;
-
+      background-color: $board-bg-color;
       input {
-        height: $button-height;
-        padding: 0px 8px;
+        color: #fff;
+        &:focus {
+          color: $app-main-text-color;
+        }
       }
     }
 
@@ -68,6 +68,10 @@
 
     .only-icon {
       padding: 0;
+      svg {
+        height: auto;
+        width: 21px;
+      }
     }
 
     .btn-without-icon {
