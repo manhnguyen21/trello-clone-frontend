@@ -3,5 +3,13 @@
   opacity: 0;
   z-index: -100;
   white-space: pre;
-  padding: 0.25rem 0.5rem;
+  padding: 0px 12px;
+}
+
+.growing-text-input {
+  padding: 0px 12px;
+  &:focus,
+  &:active {
+    outline: 0;
+  }
 }

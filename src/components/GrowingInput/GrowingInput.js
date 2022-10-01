@@ -1,6 +1,6 @@
 import { isFunction } from "lodash"
 import { useEffect, useRef, useState } from "react"
-import { Form } from "react-bootstrap"
+import { selectText } from "utilities/contentEditableInlineText"
 import "./GrowingInput.scss"
 
 const GrowingInput = ({ style, onChange }) => {
@@ -24,12 +24,12 @@ const GrowingInput = ({ style, onChange }) => {
       <span className="growing-text-hidden" style={style} ref={input}>
         {content}
       </span>
-      <Form.Control
+      <input
         size="sm"
         type="text"
-        className="trello-app-editable"
+        className="trello-app-editable growing-text-input"
         style={inputStyle}
-        autoFocus
+        onFocus={selectText}
         onChange={changeHandler}
       />
     </>
