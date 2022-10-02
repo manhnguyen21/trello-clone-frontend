@@ -1,8 +1,9 @@
 @import "_setting.scss";
 
 $app-bar-bg-color: #0067a3;
+$app-bar-max-height: 32px;
 
-%btn-item-active {
+%app-bar-bg-color-lighten-10 {
   background-color: lighten($color: $app-bar-bg-color, $amount: 10) !important;
 }
 
@@ -15,22 +16,73 @@ $app-bar-bg-color: #0067a3;
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
+
     .navbar-app-container--left {
       flex: 1 1;
       display: flex;
       justify-content: flex-start;
+      max-height: $app-bar-max-height;
+
+      .icon-end {
+        margin-left: 6px;
+      }
     }
+
     .navbar-app-container--right {
       flex: 1 1;
       display: flex;
       justify-content: flex-end;
+      max-height: $app-bar-max-height;
 
+      .form-control::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #ffffff;
+        opacity: 1; /* Firefox */
+      }
+
+      .form-control:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #ffffff;
+      }
+
+      .form-control::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #ffffff;
+      }
+
+      .search-text-input-group {
+        max-width: 100%;
+        width: 200px;
+        max-height: $app-bar-max-height;
+        margin-right: 2px;
+        .search-text-icon {
+          height: $app-bar-max-height;
+          width: 30px;
+          padding: 0px 7px;
+          border-radius: 0.375rem;
+          @extend %app-bar-bg-color-lighten-10;
+        }
+
+        .search-text-input {
+          padding: 0px 20px 0px 0px;
+          border: none;
+          color: white;
+          @extend %app-bar-bg-color-lighten-10;
+        }
+      }
+
+      .icon-center {
+        color: white;
+      }
       .user-avatar {
-        width: 32px;
-        height: 32px;
+        width: $app-bar-max-height;
+        height: $app-bar-max-height;
         border-radius: 25rem;
+        margin-left: 4px;
+        cursor: pointer;
       }
     }
+
     .navbar-app-btn-item {
       &:first-child {
         margin-left: 0px;
@@ -45,7 +97,7 @@ $app-bar-bg-color: #0067a3;
 
       &:hover,
       &:focus {
-        @extend %btn-item-active;
+        @extend %app-bar-bg-color-lighten-10;
       }
 
       .trello-icon {
@@ -74,14 +126,10 @@ $app-bar-bg-color: #0067a3;
           }
         }
       }
-
-      .navbar-app-btn-item--icon-end {
-        margin-left: 6px;
-      }
     }
 
     .active {
-      @extend %btn-item-active;
+      @extend %app-bar-bg-color-lighten-10;
     }
   }
 }

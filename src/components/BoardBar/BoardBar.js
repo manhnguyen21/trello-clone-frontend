@@ -17,10 +17,15 @@ const BoardBar = () => {
   return (
     <nav className="navbar-board">
       <div className="navbar-board-container">
-        <IconContext.Provider value={{ size: ICON_SIZE }}>
+        <IconContext.Provider
+          value={{
+            className: "navbar-board-btn-item--icon-start",
+            size: ICON_SIZE,
+          }}
+        >
           <div className="navbar-board-container--left">
             <TrelloButton className="navbar-board-btn-item">
-              <HiViewBoards className="navbar-board-btn-item--icon-start" />
+              <HiViewBoards />
               Board
               <FiChevronDown className="navbar-board-btn-item--icon-end" />
             </TrelloButton>
@@ -39,7 +44,7 @@ const BoardBar = () => {
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
             <TrelloButton className="navbar-board-btn-item">
-              <FiUsers className="navbar-board-btn-item--icon-start" />
+              <FiUsers />
               Workspace visible
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
@@ -48,27 +53,27 @@ const BoardBar = () => {
               src={require("assets/images/user-avatar.png")}
             />
             <TrelloButton className="navbar-board-btn-item btn-share">
-              <AiOutlineUserAdd className="navbar-board-btn-item--icon-start" />
+              <AiOutlineUserAdd />
               Share
             </TrelloButton>
           </div>
           <div className="navbar-board-container--right">
             <TrelloButton className="navbar-board-btn-item">
-              <AiFillThunderbolt className="navbar-board-btn-item--icon-start" />
+              <AiFillThunderbolt />
               Automation
             </TrelloButton>
             <TrelloButton className="navbar-board-btn-item">
-              <BiRocket className="navbar-board-btn-item--icon-start" />
+              <BiRocket />
               Power-Ups
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
             <TrelloButton className="navbar-board-btn-item">
-              <IoFilterSharp className="navbar-board-btn-item--icon-start" />
+              <IoFilterSharp />
               Filter
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
             <TrelloButton className="navbar-board-btn-item">
-              <BsThreeDots className="navbar-board-btn-item--icon-start" />
+              <BsThreeDots />
               Show Menu
             </TrelloButton>
           </div>
