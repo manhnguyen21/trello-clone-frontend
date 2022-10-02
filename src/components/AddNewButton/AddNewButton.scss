@@ -1,6 +1,9 @@
 @import "_setting.scss";
 
 .add-new-button {
+  .add-new-button--button {
+    padding: 7px 12px;
+  }
   span {
     margin: $gap;
     svg {
