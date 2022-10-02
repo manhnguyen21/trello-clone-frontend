@@ -3,6 +3,7 @@ import Card from "components/Card/Card"
 import ConfirmModal from "components/Common/ConfirmModal"
 import { useEffect, useRef, useState } from "react"
 import { Dropdown, Form } from "react-bootstrap"
+import { FiPlus } from "react-icons/fi"
 import { Container, Draggable } from "react-smooth-dnd"
 import { createNewCard, createNewCardAtTop } from "services/card"
 import { updateColumn } from "services/column"
@@ -13,7 +14,6 @@ import {
 } from "utilities/contentEditableInlineText"
 import { mapOrder } from "utilities/utils"
 import "./Column.scss"
-import { FiPlus } from "react-icons/fi"
 
 const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
   const cards = mapOrder(column.cards, column.cardOrder)
@@ -251,7 +251,7 @@ const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
           </div>
         )}
         {openAddNewEndCard && (
-          <div className="add-new-button-wrapper">
+          <div>
             <AddNewButton
               addLabel={"Add card"}
               onAddClick={handleAddNewEndCard}
