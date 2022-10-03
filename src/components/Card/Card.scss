@@ -19,4 +19,9 @@ $card-border-radius: 5px;
     border-top-left-radius: $card-border-radius;
     border-top-right-radius: $card-border-radius;
   }
+
+  &:hover {
+    background-color: #f4f5f7;
+    cursor: pointer;
+  }
 }
