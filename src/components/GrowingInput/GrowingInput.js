@@ -4,7 +4,7 @@ import { selectText } from "utilities/contentEditableInlineText"
 import "./GrowingInput.scss"
 
 const GrowingInput = ({ style, onChange }) => {
-  const [content, setContent] = useState("")
+  const [content, setContent] = useState("BẢNG CÔNG VIỆC CỦA ĐẠT HEHE =))")
   const [width, setWidth] = useState(24)
   const input = useRef()
 
@@ -27,10 +27,11 @@ const GrowingInput = ({ style, onChange }) => {
       <input
         size="sm"
         type="text"
-        className="trello-app-editable growing-text-input"
+        value={content}
         style={inputStyle}
         onFocus={selectText}
         onChange={changeHandler}
+        className="trello-app-editable growing-text-input"
       />
     </>
   )
