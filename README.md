@@ -8,7 +8,7 @@ Project clone [Trello task manager](https://trello.com) app, use for privacy pur
 
 ### Demo
 
-[Trello-clone demo](<(https://gthanhdat-trello-clone.firebaseapp.com)>)
+[Trello-clone demo](https://gthanhdat-trello-clone.firebaseapp.com)
 
 ## Installation
 
