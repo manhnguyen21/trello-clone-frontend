@@ -11,7 +11,7 @@ import { TiStarOutline } from "react-icons/ti"
 import { ICON_SIZE } from "utilities/constants"
 import "./BoardBar.scss"
 
-const boardNameInputStyle = { fontSize: 18, fontWeight: "bold" }
+const boardNameInputStyle = { fontSize: 18, fontWeight: "bold", height: 32 }
 
 const BoardBar = () => {
   return (
@@ -24,11 +24,6 @@ const BoardBar = () => {
           }}
         >
           <div className="navbar-board-container--left">
-            <TrelloButton className="navbar-board-btn-item">
-              <HiViewBoards />
-              Board
-              <FiChevronDown className="navbar-board-btn-item--icon-end" />
-            </TrelloButton>
             <div className="navbar-board-btn-item board-name">
               <GrowingInput style={boardNameInputStyle} />
             </div>
@@ -39,22 +34,18 @@ const BoardBar = () => {
               />
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
-            <TrelloButton className="navbar-board-btn-item btn-without-icon">
-              Trello Workspace
-            </TrelloButton>
-            <span className="navbar-board-btn-divider" />
             <TrelloButton className="navbar-board-btn-item">
               <FiUsers />
               Workspace visible
             </TrelloButton>
+            {/* <TrelloButton className="navbar-board-btn-item btn-without-icon">
+              Trello Workspace
+            </TrelloButton> */}
             <span className="navbar-board-btn-divider" />
-            <img
-              className="user-avatar"
-              src={require("assets/images/user-avatar.png")}
-            />
-            <TrelloButton className="navbar-board-btn-item btn-share">
-              <AiOutlineUserAdd />
-              Share
+            <TrelloButton className="navbar-board-btn-item">
+              <HiViewBoards />
+              Board
+              <FiChevronDown className="navbar-board-btn-item--icon-end" />
             </TrelloButton>
           </div>
           <div className="navbar-board-container--right">
@@ -72,9 +63,18 @@ const BoardBar = () => {
               Filter
             </TrelloButton>
             <span className="navbar-board-btn-divider" />
-            <TrelloButton className="navbar-board-btn-item">
+            <img
+              className="user-avatar"
+              src={require("assets/images/user-avatar.png")}
+            />
+            <TrelloButton className="navbar-board-btn-item btn-share">
+              <AiOutlineUserAdd />
+              Share
+            </TrelloButton>
+            <span className="navbar-board-btn-divider" />
+            <TrelloButton className="navbar-board-btn-item  only-icon">
               <BsThreeDots />
-              Show Menu
+              {/* Show Menu */}
             </TrelloButton>
           </div>
         </IconContext.Provider>

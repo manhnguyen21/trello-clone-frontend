@@ -1,5 +1,5 @@
 @import "_setting.scss";
-
+$intersect_screen: 1087px;
 .navbar-board {
   // height: $navbar-board-height;
   // background-color: $board-bg-color;
@@ -111,7 +111,7 @@
     }
   }
 
-  @media screen and (max-width: 1450px) {
+  @media screen and (max-width: $intersect_screen) {
     .navbar-board-container {
       display: block;
 
