@@ -1,6 +1,7 @@
 @import "_setting.scss";
 
 .board-content {
+  clear: both;
   display: flex;
   height: $board-content-height;
   // display: flex;

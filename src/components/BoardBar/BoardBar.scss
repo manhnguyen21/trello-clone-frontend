@@ -1,108 +1,112 @@
 @import "_setting.scss";
 
 .navbar-board {
-  // height: $navbar-board-height;
-  // background-color: $board-bg-color;
-  padding: 0 !important;
-  margin: 8px 4px 12px 10px !important;
   font-size: 1.1rem;
 
-  .navbar-board-container {
+  .navbar-board-container--left {
+    float: left;
+    // margin: 0.4rem;
+    padding: 0.5rem;
     display: flex;
     flex-flow: row wrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3rem;
+  }
 
-    .navbar-board-container--left {
-      flex: 1 1;
-      display: flex;
+  .navbar-board-container--right {
+    float: right;
+    // margin: 0.4rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: 0.3rem;
+  }
+
+  @media screen and (max-width: 477px) {
+    .navbar-board-container--right {
       justify-content: flex-start;
     }
+  }
 
-    .navbar-board-container--right {
-      flex: 1 1;
-      display: flex;
-      justify-content: flex-end;
+  .navbar-board-btn-item {
+    height: $button-height;
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+    margin: 0 2px;
+    // having icon
+    padding: 0px 12px 0px 0px;
+
+    .navbar-board-btn-item--icon-start {
+      margin: 0px 8px;
     }
 
-    .navbar-board-btn-item {
-      &:first-child {
-        margin-left: 0px;
-      }
-      &:last-child {
-        margin-right: 0px;
-      }
-      margin: 0 2px;
-      // having icon
-      padding: 0px 12px 0px 0px;
+    .navbar-board-btn-item--icon-end {
+      margin: 0px 0px 0px 8px;
+    }
+  }
 
-      .navbar-board-btn-item--icon-start {
-        margin: 0px 8px;
-      }
-
-      .navbar-board-btn-item--icon-end {
-        margin: 0px 0px 0px 8px;
+  .board-name {
+    padding: 0px;
+    background-color: $board-bg-color;
+    align-self: center;
+    white-space: nowrap;
+    max-width: calc(100% - 24px);
+    input {
+      color: #fff;
+      &:focus {
+        color: $app-main-text-color;
       }
     }
+  }
 
-    .board-name {
-      padding: 0px;
-      background-color: $board-bg-color;
-      align-self: center;
-      white-space: nowrap;
-      input {
-        color: #fff;
-        &:focus {
-          color: $app-main-text-color;
-        }
-      }
+  .btn-share {
+    background-color: white;
+    color: black;
+
+    &:hover {
+      background-color: #e6f2f9;
     }
+  }
 
-    .btn-share {
-      background-color: white;
-      color: black;
+  .only-icon {
+    padding: 0;
 
-      &:hover {
-        background-color: #e6f2f9;
-      }
+    svg {
+      height: auto;
+      width: 21px;
     }
+    background-color: lighten($board-bg-color, 5%);
 
-    .only-icon {
-      padding: 0;
-
-      svg {
-        height: auto;
-        width: 21px;
-      }
-      background-color: lighten($board-bg-color, 5%);
-
-      &:hover {
-        color: #f0d502;
-        box-shadow: none;
-      }
+    &:hover {
+      color: #f0d502;
+      box-shadow: none;
     }
+  }
 
-    .btn-without-icon {
-      padding: 0px 12px;
-    }
+  .btn-without-icon {
+    padding: 0px 12px;
+  }
 
-    .navbar-board-btn-divider {
-      border-left: 1px solid #ffffff3d;
-      height: 16px;
-      margin: 8px;
-    }
+  .navbar-board-btn-divider {
+    border-left: 1px solid #ffffff3d;
+    height: 16px;
+    margin: 8px 0px;
+  }
 
-    .user-avatar {
-      margin: 0px 8px 0px 0px;
-      width: 32px;
-      height: 32px;
-      border-radius: 25em;
-      cursor: pointer;
-      opacity: 1;
-      &:hover {
-        opacity: 0.7;
-      }
+  .user-avatar {
+    margin: 0px 8px 0px 0px;
+    width: 32px;
+    height: 32px;
+    border-radius: 25em;
+    cursor: pointer;
+    opacity: 1;
+    &:hover {
+      opacity: 0.7;
     }
   }
 }

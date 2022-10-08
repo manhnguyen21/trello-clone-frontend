@@ -4,7 +4,7 @@ import { selectText } from "utilities/contentEditableInlineText"
 import "./GrowingInput.scss"
 
 const GrowingInput = ({ style, onChange }) => {
-  const [content, setContent] = useState("BẢNG CÔNG VIỆC CỦA ĐẠT HEHE =))")
+  const [content, setContent] = useState("ThanhDat-Workspace")
   const [width, setWidth] = useState(24)
   const input = useRef()
 
@@ -12,7 +12,7 @@ const GrowingInput = ({ style, onChange }) => {
     setWidth(input.current.offsetWidth)
   }, [content])
 
-  const inputStyle = { width: width + 10, ...style }
+  const inputStyle = { width: width, ...style }
 
   const changeHandler = ({ target: { value } }) => {
     setContent(value)

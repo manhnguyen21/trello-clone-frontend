@@ -16,11 +16,12 @@ $app-bar-max-height: 32px;
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
-
+    gap: 0.3rem;
     .navbar-app-container--left {
-      flex: 1 1;
       display: flex;
       justify-content: flex-start;
+      flex-flow: wrap;
+      gap: 0.3rem;
       max-height: $app-bar-max-height;
 
       .icon-end {
@@ -29,9 +30,10 @@ $app-bar-max-height: 32px;
     }
 
     .navbar-app-container--right {
-      flex: 1 1;
       display: flex;
       justify-content: flex-end;
+      flex-flow: wrap;
+      gap: 0.3rem;
       max-height: $app-bar-max-height;
 
       .form-control::placeholder {
