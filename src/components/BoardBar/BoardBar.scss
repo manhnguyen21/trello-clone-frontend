@@ -13,20 +13,24 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
+    gap: 0.3rem;
 
     .navbar-board-container--left {
-      flex: 1 1;
       display: flex;
+      flex-flow: row wrap;
       justify-content: flex-start;
+      gap: 0.3rem;
     }
 
     .navbar-board-container--right {
-      flex: 1 1;
       display: flex;
+      flex-flow: row wrap;
       justify-content: flex-end;
+      gap: 0.3rem;
     }
 
     .navbar-board-btn-item {
+      height: $button-height;
       &:first-child {
         margin-left: 0px;
       }
@@ -51,6 +55,7 @@
       background-color: $board-bg-color;
       align-self: center;
       white-space: nowrap;
+      max-width: calc(100% - 24px);
       input {
         color: #fff;
         &:focus {
@@ -90,7 +95,7 @@
     .navbar-board-btn-divider {
       border-left: 1px solid #ffffff3d;
       height: 16px;
-      margin: 8px;
+      margin: 8px 0px;
     }
 
     .user-avatar {
@@ -102,6 +107,22 @@
       opacity: 1;
       &:hover {
         opacity: 0.7;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1450px) {
+    .navbar-board-container {
+      display: block;
+
+      .navbar-board-container--right {
+        margin-top: 0.3rem;
+      }
+
+      @media screen and (max-width: 477px) {
+        .navbar-board-container--right {
+          justify-content: flex-start;
+        }
       }
     }
   }

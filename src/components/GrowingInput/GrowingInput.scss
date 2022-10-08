@@ -4,10 +4,15 @@
   z-index: -100;
   white-space: pre;
   padding: 0px 12px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .growing-text-input {
   padding: 0px 12px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:focus,
   &:active {
     outline: 0;
