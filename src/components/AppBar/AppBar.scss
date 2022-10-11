@@ -7,17 +7,17 @@ $app-bar-max-height: 32px;
   background-color: lighten($color: $app-bar-bg-color, $amount: 10) !important;
 }
 
-.navbar-app {
-  height: $navbar-app-height;
+.app-bar {
+  // height: $app-bar-height;
   padding: 6px 10px;
   background-color: $app-bar-bg-color;
-  .navbar-app-container {
+  .app-bar-container {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.3rem;
-    .navbar-app-container--left {
+    .app-bar-container--left {
       display: flex;
       justify-content: flex-start;
       flex-flow: wrap;
@@ -29,7 +29,7 @@ $app-bar-max-height: 32px;
       }
     }
 
-    .navbar-app-container--right {
+    .app-bar-container--right {
       display: flex;
       justify-content: flex-end;
       flex-flow: wrap;
@@ -85,7 +85,7 @@ $app-bar-max-height: 32px;
       }
     }
 
-    .navbar-app-btn-item {
+    .app-bar-btn-item {
       &:first-child {
         margin-left: 0px;
       }

@@ -8,12 +8,16 @@ const useMediaQuery = (query) => {
 
     const handleChange = (e) => setMatches(e.matches)
 
+    if (matchQueryList.matches !== matches) {
+      handleChange(matchQueryList)
+    }
+
     matchQueryList.addListener(handleChange)
 
     return () => {
       matchQueryList.removeListener(handleChange)
     }
-  }, [query])
+  }, [matches, query])
 
   return matches
 }
