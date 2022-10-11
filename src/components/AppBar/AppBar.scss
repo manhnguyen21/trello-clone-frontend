@@ -97,6 +97,8 @@ $app-bar-max-height: 32px;
       font-weight: 400;
       background-color: inherit;
 
+      transition: 0.7s;
+
       &:hover,
       &:focus {
         @extend %app-bar-bg-color-lighten-10;

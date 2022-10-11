@@ -1,4 +1,5 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import useMediaQuery from "hooks/useMediaQuery"
 import { Form, InputGroup } from "react-bootstrap"
 import { IconContext } from "react-icons"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
@@ -7,6 +8,12 @@ import { RiInformationLine } from "react-icons/ri"
 import "./AppBar.scss"
 
 const AppBar = () => {
+  const hideCreate = useMediaQuery("(max-width: 890px)")
+  const hideTemplates = useMediaQuery("(max-width: 820px)")
+  const hideStarred = useMediaQuery("(max-width: 710px)")
+  const hideRecent = useMediaQuery("(max-width: 645px)")
+  const hideWorkspace = useMediaQuery("(max-width: 558px)")
+
   return (
     <nav className="navbar-app">
       <div className="navbar-app-container">
@@ -15,28 +22,37 @@ const AppBar = () => {
             <TrelloButton className="navbar-app-btn-item">
               <div className="trello-icon" />
             </TrelloButton>
-            <TrelloButton className="navbar-app-btn-item">
-              Workspace
-              <FiChevronDown />
-            </TrelloButton>
-            <TrelloButton className="navbar-app-btn-item">
-              Recent
-              <FiChevronDown />
-            </TrelloButton>
-            <TrelloButton className="navbar-app-btn-item">
-              Starred
-              <FiChevronDown />
-            </TrelloButton>
-            <TrelloButton className="navbar-app-btn-item">
-              Templates
-              <FiChevronDown />
-            </TrelloButton>
-            <TrelloButton className="navbar-app-btn-item active">
-              Create
-            </TrelloButton>
+            {!hideWorkspace && (
+              <TrelloButton className="navbar-app-btn-item">
+                Workspace
+                <FiChevronDown />
+              </TrelloButton>
+            )}
+            {!hideRecent && (
+              <TrelloButton className="navbar-app-btn-item">
+                Recent
+                <FiChevronDown />
+              </TrelloButton>
+            )}
+            {!hideStarred && (
+              <TrelloButton className="navbar-app-btn-item">
+                Starred
+                <FiChevronDown />
+              </TrelloButton>
+            )}
+            {!hideTemplates && (
+              <TrelloButton className="navbar-app-btn-item">
+                Templates
+                <FiChevronDown />
+              </TrelloButton>
+            )}
+            {!hideCreate && (
+              <TrelloButton className="navbar-app-btn-item active">
+                Create
+              </TrelloButton>
+            )}
           </IconContext.Provider>
         </div>
-
         <div className="navbar-app-container--right">
           <IconContext.Provider value={{ className: "icon-center", size: 20 }}>
             <InputGroup className="search-text-input-group">
