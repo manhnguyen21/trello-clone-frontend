@@ -1,5 +1,5 @@
 const CardDetailBanner = ({ className }) => {
-  return <div className={className}>Card-detail-banner</div>
+  return <div className={className}></div>
 }
 
 export default CardDetailBanner

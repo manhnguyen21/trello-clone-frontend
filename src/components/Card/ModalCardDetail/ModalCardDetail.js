@@ -4,6 +4,7 @@ import CardDetailBanner from "../CardDetailBanner/CardDetailBanner"
 import CardDetailHeader from "../CardDetailHeader/CardDetailHeader"
 import CardDetailMainContent from "../CardDetailMainContent/CardDetailMainContent"
 import CardDetailSideBar from "../CardDetailSideBar/CardDetailSideBar"
+import "./ModalCardDetail.scss"
 
 const ModalCardDetail = ({ show, onAction }) => {
   const handleClose = () => onAction(MODAL_ACTION_CLOSE)
@@ -15,7 +16,7 @@ const ModalCardDetail = ({ show, onAction }) => {
       backdrop={"static"}
       keyboard={false}
       animation={false}
-      className="modal-card-detail"
+      dialogClassName="modal-card-detail"
     >
       <CardDetailBanner className="modal-card-detail__banner" />
       <CardDetailHeader className="modal-card-detail__header" />
