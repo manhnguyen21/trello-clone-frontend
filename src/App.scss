@@ -68,17 +68,17 @@ body {
   .btn:active {
     outline: none;
   }
+}
 
-  .trello-app-editable {
-    background-color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    cursor: pointer;
-    border: none;
+.trello-app-editable {
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  border: none;
 
-    &:focus {
-      background-color: white;
-    }
+  &:focus {
+    background-color: white;
   }
 }
 

@@ -1,12 +1,16 @@
 @import "_setting.scss";
 
 .modal-card-detail {
-  max-width: 768px !important;
+  max-width: 48rem !important;
   width: auto !important;
-  margin-top: 48px !important;
+  margin-top: 3rem !important;
 
   .modal-card-detail__banner {
-    min-height: 160px;
-    height: 160px;
+    min-height: 10rem;
+    height: 10rem;
+  }
+  .modal-card-detail__header {
+    min-height: 3.75rem;
+    height: auto;
   }
 }
