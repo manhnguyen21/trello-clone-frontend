@@ -5,14 +5,14 @@ import "./CardDetailHeader.scss"
 
 const CardDetailHeader = ({ className }) => {
   return (
-    <div className={`card-detail-header ${className}`}>
-      <i className="card-detail-header__icon">
+    <div className={`modal-card-detail-container ${className ?? ""}`}>
+      <i className="modal-card-detail-container__icon">
         <CgClapperBoard />
       </i>
-      <div className="card-detail-header__title">
-        <GrowingTextArea className="card-detail-header__title--text" />
+      <div className="modal-card-detail-container__title">
+        <GrowingTextArea className="card-header-title" />
       </div>
-      <div className="card-detail-header__content">
+      <div className="card-header-content">
         <p>
           in list <a href="#">Design</a>
           <span>

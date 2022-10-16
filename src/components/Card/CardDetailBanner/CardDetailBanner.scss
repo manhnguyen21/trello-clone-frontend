@@ -1,6 +1,8 @@
 @import "_setting.scss";
 
 .card-detail-banner {
+  min-height: 10rem;
+  height: 10rem;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

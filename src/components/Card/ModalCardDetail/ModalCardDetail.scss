@@ -5,12 +5,27 @@
   width: auto !important;
   margin-top: 3rem !important;
 
-  .modal-card-detail__banner {
-    min-height: 10rem;
-    height: 10rem;
+  .modal-card-detail__body {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
   }
-  .modal-card-detail__header {
-    min-height: 3.75rem;
-    height: auto;
+
+  // for the title of each block
+  .modal-card-detail-container {
+    margin: 0.75rem 2.5rem 0.5rem 3.5rem;
+    position: relative;
+
+    .modal-card-detail-container__icon {
+      position: absolute;
+      top: 4px;
+      left: -40px;
+      font-size: 1.3rem;
+      color: $title-color;
+    }
+
+    .modal-card-detail-container__title {
+      margin-left: -8px;
+    }
   }
 }

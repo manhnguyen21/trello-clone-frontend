@@ -21,15 +21,11 @@ const ModalCardDetail = ({ show, onAction }) => {
       animation={false}
       dialogClassName="modal-card-detail"
     >
-      <CardDetailBanner
-        className="modal-card-detail__banner"
-        bannerUrl={bannerUrl}
-        onClose={handleClose}
-      />
-      <CardDetailHeader className="modal-card-detail__header" />
+      <CardDetailBanner bannerUrl={bannerUrl} onClose={handleClose} />
+      <CardDetailHeader />
       <Modal.Body className="modal-card-detail__body">
-        <CardDetailMainContent className="modal-card-detail__main-content" />
-        <CardDetailSideBar className="modal-card-detail__sidebar" />
+        <CardDetailMainContent />
+        <CardDetailSideBar />
       </Modal.Body>
     </Modal>
   )

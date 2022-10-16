@@ -2,7 +2,13 @@ import "./GrowingTextArea.scss"
 
 import { useEffect, useRef, useState } from "react"
 
-const GrowingTextArea = ({ className, style, ...props }) => {
+const GrowingTextArea = ({
+  // children,
+  onChange,
+  className,
+  style,
+  ...props
+}) => {
   const textareaRef = useRef(null)
   const [content, setContent] = useState("Design & Research")
 
@@ -14,6 +20,7 @@ const GrowingTextArea = ({ className, style, ...props }) => {
 
   const changeHandler = (e) => {
     setContent(e.target.value)
+    onChange(e.target.value)
   }
 
   return (

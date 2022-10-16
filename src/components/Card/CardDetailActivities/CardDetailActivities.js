@@ -1,5 +1,5 @@
 const CardDetailActivities = ({ className }) => {
-  return <div className={className}>Activity</div>
+  return <div className={className ?? ""}>Activity</div>
 }
 
 export default CardDetailActivities
