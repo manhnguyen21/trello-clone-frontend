@@ -6,16 +6,7 @@
   margin-top: 48px !important;
 
   .modal-card-detail__banner {
-    background-image: url("https://images.unsplash.com/photo-1486728297118-82a07bc48a28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1229&q=80");
-    background-color: rgb(68, 76, 48);
-    height: 160px;
     min-height: 160px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.9;
-    }
+    height: 160px;
   }
 }
