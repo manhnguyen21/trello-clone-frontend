@@ -5,6 +5,7 @@ body {
   font-family: "Source sans Pro", sans-serif;
   font-size: 14px;
   line-height: 1.3em;
+  box-sizing: border-box;
 }
 
 .trello-app-master {
@@ -67,16 +68,35 @@ body {
   .btn:active {
     outline: none;
   }
+}
 
-  .trello-app-editable {
-    background-color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    cursor: pointer;
-    border: none;
+.trello-app-editable {
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  border: none;
 
-    &:focus {
-      background-color: white;
-    }
+  &:focus {
+    background-color: white;
+  }
+}
+
+.skeleton-animation {
+  // animation: loading-skeleton .6s linear 0s infinite alternate;
+  animation-name: loading-skeleton;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes loading-skeleton {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  80% {
+    background-color: hsl(200, 20%, 95%);
   }
 }

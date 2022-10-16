@@ -1,0 +1,47 @@
+@import "_setting.scss";
+
+$title-color: #42526e;
+
+$text-sub-title-color: #5e6c84;
+
+.card-detail-header {
+  margin: 0.75rem 2.5rem 0.5rem 3.5rem;
+  position: relative;
+
+  .card-detail-header__icon {
+    position: absolute;
+    top: 4px;
+    left: -40px;
+    font-size: 1.3rem;
+    color: $title-color;
+  }
+
+  .card-detail-header__title {
+    margin-left: -8px;
+
+    .card-detail-header__title--text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $title-color;
+    }
+  }
+
+  .card-detail-header__content {
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $text-sub-title-color;
+      a {
+        color: $text-sub-title-color;
+        cursor: pointer !important;
+      }
+    }
+    span {
+      margin-left: 0.625rem;
+    }
+  }
+}
