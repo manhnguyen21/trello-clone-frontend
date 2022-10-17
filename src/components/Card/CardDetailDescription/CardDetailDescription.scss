@@ -14,10 +14,18 @@
   }
 }
 
-.card-description-manipulation {
-  margin-top: 0.6rem;
+.card-description-input:focus-within + .card-description-manipulation {
   display: grid;
+}
+
+.card-description-manipulation {
+  display: none;
+  margin-top: 0.6rem;
+
+  // display: grid
   grid-template-columns: 3fr 1fr;
+
+  transition: all 2s linear;
 
   // button
   .card-description-manipulation__button {
