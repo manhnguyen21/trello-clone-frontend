@@ -11,7 +11,34 @@ const CardDetailDescription = ({ className }) => {
         <div className="card-description-title">Description</div>
       </div>
       <div className="card-description-input">
-        <GrowingTextArea rows={4} />
+        <GrowingTextArea
+          rows={4}
+          placeholder="Add module detailed module description..."
+        />
+      </div>
+      <div className="card-description-manipulation">
+        <div>
+          <a
+            href="#"
+            className="card-description-manipulation__button card-description-manipulation__button--save"
+          >
+            Save
+          </a>
+          <a
+            href="#"
+            className="card-description-manipulation__button card-description-manipulation__button--cancel"
+          >
+            Cancel
+          </a>
+        </div>
+        <div>
+          <a
+            href="#"
+            className="card-description-manipulation__button card-description-manipulation__button--formatting-help"
+          >
+            Formatting help
+          </a>
+        </div>
       </div>
     </div>
   )

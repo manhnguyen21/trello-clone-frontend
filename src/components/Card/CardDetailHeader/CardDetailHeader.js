@@ -10,7 +10,10 @@ const CardDetailHeader = ({ className }) => {
         <CgClapperBoard />
       </i>
       <div className="modal-card-detail-container__title">
-        <GrowingTextArea className="card-header-title" />
+        <GrowingTextArea
+          className="card-header-title"
+          value={"Design & Research"}
+        />
       </div>
       <div className="card-header-content">
         <p>
