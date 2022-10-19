@@ -1,0 +1,80 @@
+@import "_setting.scss";
+
+.card-detail-data {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  .card-detail-data__item {
+    flex-basis: auto;
+    margin-bottom: 0.5rem;
+
+    .card-detail-data__item-header {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $title-color;
+    }
+
+    .members,
+    .labels {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.25rem;
+
+      $item-height: 2rem;
+      $item-width: 2rem;
+
+      .members__item {
+        height: $item-height;
+        width: $item-width;
+        border-radius: 50%;
+        color: $app-main-text-color;
+        transition: all 0.2s linear;
+      }
+
+      .labels__item {
+        position: relative;
+        height: $item-height;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s linear;
+      }
+
+      .labels__item--primary {
+        min-width: 3rem;
+        padding-left: 2rem;
+        padding-right: 0.75rem;
+        background-color: #f9e6ce;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          top: 50%;
+          left: 0.5rem;
+          transform: translateY(-50%);
+          background-color: #ffaf3f;
+        }
+        &:hover {
+          background-color: #f5c58a;
+        }
+      }
+
+      .members__item--add,
+      .labels__item--add {
+        background-color: rgba(0, 0, 0, 0.03);
+        text-align: center;
+        svg {
+          height: 100%;
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.065);
+        }
+      }
+
+      .labels__item--add {
+        width: 2rem;
+      }
+    }
+  }
+}
