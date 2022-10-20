@@ -1,0 +1,97 @@
+// === LABEL COLORS ===
+.green {
+  --background-color: #d6ecd2;
+  --hover-background-color: #b7ddb0;
+  --foreground-color: #7bc86c;
+  --hover-foreground-color: #5aac44;
+}
+
+.dark-green {
+  --background-color: #b7ddb0;
+  --hover-background-color: #99d18f;
+  --foreground-color: #5aac44;
+  --hover-foreground-color: #49852e;
+}
+
+.yellow {
+  --background-color: #faf3c0;
+  --hover-background-color: #f5ea92;
+  --foreground-color: #f5dd29;
+  --hover-foreground-color: #e6c60d;
+}
+
+.orange {
+  --background-color: #fce6c6;
+  --hover-background-color: #fad29c;
+  --foreground-color: #ffaf3f;
+  --hover-foreground-color: #e79217;
+}
+
+.red {
+  --background-color: #f5d3ce;
+  --hover-background-color: #efb3ab;
+  --foreground-color: #ef7564;
+  --hover-foreground-color: #cf513d;
+}
+
+.purple {
+  --background-color: #eddbf4;
+  --hover-background-color: #dfc0eb;
+  --foreground-color: #cd8de5;
+  --hover-foreground-color: #a86cc1;
+}
+
+.blue {
+  --background-color: #bcd9ea;
+  --hover-background-color: #8bbdd9;
+  --foreground-color: #5ba4cf;
+  --hover-foreground-color: #0079bf;
+}
+
+.dark-blue {
+  --background-color: #8bbdd9;
+  --hover-background-color: #5ba4cf;
+  --foreground-color: #026aa7;
+  --hover-foreground-color: #094c72;
+}
+
+.sky {
+  --background-color: #bdecf3;
+  --hover-background-color: #8fdfeb;
+  --foreground-color: #29cce5;
+  --hover-foreground-color: #00aecc;
+}
+
+.pink {
+  --background-color: #f9c2e4;
+  --hover-background-color: #ffabdf;
+  --foreground-color: #e568af;
+  --hover-foreground-color: #ae4270;
+}
+// === END - LABEL COLORS ===
+
+.label {
+  position: relative;
+  height: 2rem;
+  border-radius: 3px;
+  transition: all 0.2s linear;
+  background-color: var(--background-color);
+  &:hover {
+    cursor: pointer;
+    background-color: var(--hover-background-color);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--foreground-color);
+    &:hover {
+      background-color: var(--hover-foreground-color);
+    }
+  }
+}
