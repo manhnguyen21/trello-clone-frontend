@@ -31,35 +31,6 @@
         transition: all 0.2s linear;
       }
 
-      .labels__item {
-        position: relative;
-        height: $item-height;
-        border-radius: 3px;
-        cursor: pointer;
-        transition: all 0.2s linear;
-      }
-
-      .labels__item--primary {
-        min-width: 3rem;
-        padding-left: 2rem;
-        padding-right: 0.75rem;
-        background-color: #f9e6ce;
-        &::before {
-          content: "";
-          position: absolute;
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          top: 50%;
-          left: 0.5rem;
-          transform: translateY(-50%);
-          background-color: #ffaf3f;
-        }
-        &:hover {
-          background-color: #f5c58a;
-        }
-      }
-
       .members__item--add,
       .labels__item--add {
         background-color: rgba(0, 0, 0, 0.03);

@@ -1,3 +1,4 @@
+import Label from "components/Label/Label"
 import { AiOutlinePlus } from "react-icons/ai"
 import "./CardDetailData.scss"
 
@@ -20,12 +21,12 @@ const CardDetailData = () => {
         <div className="card-detail-data__item">
           <h3 className="card-detail-data__item-header">Labels</h3>
           <div className="labels">
-            <div className="labels__item labels__item--primary" />
-            <div className="labels__item labels__item--primary" />
-            <div className="labels__item labels__item--primary" />
-            <div className="labels__item labels__item--primary" />
-            <div className="labels__item labels__item--primary" />
-            <div className="labels__item labels__item--primary" />
+            <Label />
+            <Label color="yellow" />
+            <Label color="sky" />
+            <Label color="purple" />
+            <Label color="red" />
+            <Label color="blue" />
             <div className="labels__item labels__item--add">
               <AiOutlinePlus size={16} />
             </div>
