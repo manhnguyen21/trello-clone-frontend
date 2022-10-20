@@ -1,5 +1,7 @@
 import Label from "components/Label/Label"
+import { Form } from "react-bootstrap"
 import { AiOutlinePlus } from "react-icons/ai"
+import { BsChevronDown } from "react-icons/bs"
 import "./CardDetailData.scss"
 
 const members = [
@@ -39,6 +41,16 @@ const CardDetailData = () => {
             <Label color="blue" /> */}
             <div className="labels__item labels__item--add">
               <AiOutlinePlus size={16} />
+            </div>
+          </div>
+        </div>
+        <div className="card-detail-data__item">
+          <h3 className="card-detail-data__item-header">Due date</h3>
+          <div className="due-date-complete">
+            <Form.Check type={"checkbox"} id={`complete-checkbox`} />
+            <div className="due-date-complete__date-picker">
+              Oct 18 at 8:42 PM
+              <BsChevronDown size={14} />
             </div>
           </div>
         </div>
