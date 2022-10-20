@@ -74,10 +74,10 @@
   position: relative;
   height: 2rem;
   border-radius: 3px;
-  cursor: pointer;
   transition: all 0.2s linear;
   background-color: var(--background-color);
   &:hover {
+    cursor: pointer;
     background-color: var(--hover-background-color);
   }
   &::before {

@@ -29,6 +29,15 @@
         border-radius: 50%;
         color: $app-main-text-color;
         transition: all 0.2s linear;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
+      }
+
+      img.members__item {
+        object-fit: cover;
       }
 
       .members__item--add,
@@ -39,6 +48,7 @@
           height: 100%;
         }
         &:hover {
+          cursor: pointer;
           background-color: rgba(0, 0, 0, 0.065);
         }
       }
