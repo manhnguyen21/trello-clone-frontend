@@ -1,5 +1,4 @@
 import Label from "components/Label/Label"
-import { Form } from "react-bootstrap"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 import "./CardDetailData.scss"
@@ -47,9 +46,15 @@ const CardDetailData = () => {
         <div className="card-detail-data__item">
           <h3 className="card-detail-data__item-header">Due date</h3>
           <div className="due-date-complete">
-            <Form.Check type={"checkbox"} id={`complete-checkbox`} />
+            <input
+              type={"checkbox"}
+              id={`complete-checkbox`}
+              className="trello-check-box"
+            />
+
             <div className="due-date-complete__date-picker">
               Oct 18 at 8:42 PM
+              <span className="due-date-complete__label">over due</span>
               <BsChevronDown size={14} />
             </div>
           </div>
