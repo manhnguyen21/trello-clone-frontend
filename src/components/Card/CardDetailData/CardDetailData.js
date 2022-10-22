@@ -1,4 +1,5 @@
 import Label from "components/Label/Label"
+import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 import "./CardDetailData.scss"
@@ -43,21 +44,17 @@ const CardDetailData = () => {
             </div>
           </div>
         </div>
-        <div className="card-detail-data__item">
+        <div className="card-detail-data__item card-detail-data__item--full-width">
           <h3 className="card-detail-data__item-header">Due date</h3>
-          <div className="due-date-complete">
-            <input
-              type={"checkbox"}
-              id={`complete-checkbox`}
-              className="trello-check-box"
-            />
-
-            <div className="due-date-complete__date-picker">
-              Oct 18 at 8:42 PM
-              <span className="due-date-complete__label">over due</span>
-              <BsChevronDown size={14} />
-            </div>
-          </div>
+          <TrelloCheckBox
+            label={
+              <div className="due-date-complete__date-picker">
+                Oct 18 at 8:42 PM
+                <span className="due-date-complete__badge">over due</span>
+                <BsChevronDown size={14} />
+              </div>
+            }
+          />
         </div>
       </div>
     </div>
