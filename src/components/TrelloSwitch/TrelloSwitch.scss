@@ -1,0 +1,40 @@
+@import "_setting.scss";
+
+$trello-switch-width: 2rem;
+$trello-switch-heigh: 1.2rem;
+
+.trello-switch {
+  input {
+    display: none;
+
+    &:checked + label::before {
+      left: calc(#{$trello-switch-width - 1} - 1px);
+    }
+    &:checked + label {
+      background-color: $input-border-color;
+    }
+  }
+
+  label {
+    cursor: pointer;
+    height: $trello-switch-heigh;
+    width: $trello-switch-width;
+    border-radius: 2rem;
+    background-color: rgb(198, 195, 195);
+    position: relative;
+    transition: background-color 0.8s ease-in;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: white;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1.5px;
+      transition: all 0.3s ease-in;
+    }
+  }
+}
