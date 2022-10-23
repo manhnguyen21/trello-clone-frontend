@@ -1,4 +1,5 @@
 import Label from "components/Label/Label"
+import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
@@ -48,11 +49,11 @@ const CardDetailData = () => {
           <h3 className="card-detail-data__item-header">Due date</h3>
           <TrelloCheckBox
             label={
-              <div className="due-date-complete__date-picker">
+              <TrelloButton className="due-date-complete__date-picker">
                 Oct 18 at 8:42 PM
                 <span className="due-date-complete__badge">over due</span>
                 <BsChevronDown size={14} />
-              </div>
+              </TrelloButton>
             }
           />
         </div>

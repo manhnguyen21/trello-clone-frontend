@@ -16,6 +16,7 @@ $thumbnail-width: 112px;
   gap: 0.5rem;
   padding: 0.2rem 0;
   &:hover {
+    cursor: pointer;
     border-radius: 0.3rem;
     background-color: rgba(0, 0, 0, 0.05);
   }

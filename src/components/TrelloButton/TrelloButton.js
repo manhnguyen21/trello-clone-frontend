@@ -3,7 +3,7 @@ import "./TrelloButton.scss"
 const TrelloButton = ({ className, type, children, ...props }) => {
   return (
     <button
-      className={`trello-btn ${className} ${type || "darker"}`}
+      className={`trello-btn ${className || ""} ${type || "darker"}`}
       {...props}
     >
       {children}
