@@ -1,4 +1,5 @@
 import GrowingTextArea from "components/GrowingTextArea/GrowingTextArea"
+import TrelloButton from "components/TrelloButton/TrelloButton"
 import { MdNotes } from "react-icons/md"
 import "./CardDetailDescription.scss"
 const CardDetailDescription = ({ className }) => {
@@ -8,7 +9,9 @@ const CardDetailDescription = ({ className }) => {
         <MdNotes />
       </i>
       <div className="modal-card-detail-container__title">
-        <div className="card-description-title">Description</div>
+        <div className="modal-card-detail-container__title modal-card-detail-container__title--text">
+          Description
+        </div>
       </div>
       <div className="card-description-input">
         <GrowingTextArea
@@ -18,26 +21,13 @@ const CardDetailDescription = ({ className }) => {
       </div>
       <div className="card-description-manipulation">
         <div>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--save"
-          >
-            Save
-          </a>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--cancel"
-          >
+          <TrelloButton type="primary">Save</TrelloButton>
+          <TrelloButton className="card-description-manipulation__button--cancel">
             Cancel
-          </a>
+          </TrelloButton>
         </div>
         <div>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--formatting-help"
-          >
-            Formatting help
-          </a>
+          <TrelloButton>Formatting help</TrelloButton>
         </div>
       </div>
     </div>

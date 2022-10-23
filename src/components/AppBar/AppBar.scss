@@ -3,8 +3,8 @@
 $app-bar-bg-color: #0067a3;
 $app-bar-max-height: 32px;
 
-%app-bar-bg-color-lighten-10 {
-  background-color: lighten($color: $app-bar-bg-color, $amount: 10) !important;
+%app-bar-bg-color-brighter {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .app-bar {
@@ -62,14 +62,14 @@ $app-bar-max-height: 32px;
           width: 30px;
           padding: 0px 7px;
           border-radius: 0.375rem;
-          @extend %app-bar-bg-color-lighten-10;
+          @extend %app-bar-bg-color-brighter;
         }
 
         .search-text-input {
           padding: 0px 20px 0px 0px;
           border: none;
           color: white;
-          @extend %app-bar-bg-color-lighten-10;
+          @extend %app-bar-bg-color-brighter;
         }
       }
 
@@ -95,14 +95,8 @@ $app-bar-max-height: 32px;
       margin: 2px;
       padding: 6px;
       font-weight: 400;
-      background-color: inherit;
 
       transition: 0.7s;
-
-      &:hover,
-      &:focus {
-        @extend %app-bar-bg-color-lighten-10;
-      }
 
       .trello-icon {
         position: relative;
@@ -133,7 +127,7 @@ $app-bar-max-height: 32px;
     }
 
     .active {
-      @extend %app-bar-bg-color-lighten-10;
+      @extend %app-bar-bg-color-brighter;
     }
   }
 }

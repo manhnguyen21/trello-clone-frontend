@@ -26,14 +26,17 @@ const BoardBar = () => {
           <div className="navbar-board-btn-item board-name">
             <GrowingInput style={boardNameInputStyle} />
           </div>
-          <TrelloButton className="navbar-board-btn-item only-icon">
+          <TrelloButton
+            className="navbar-board-btn-item only-icon "
+            type={"brighter"}
+          >
             <TiStarOutline
               size={2}
               className="navbar-board-btn-item--icon-start star-icon"
             />
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item">
+          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <FiUsers />
             Workspace visible
           </TrelloButton>
@@ -41,23 +44,23 @@ const BoardBar = () => {
               Trello Workspace
             </TrelloButton> */}
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item">
+          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <HiViewBoards />
             Board
             <FiChevronDown className="navbar-board-btn-item--icon-end" />
           </TrelloButton>
         </div>
         <div className="navbar-board-container--right">
-          <TrelloButton className="navbar-board-btn-item">
+          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <AiFillThunderbolt />
             Automation
           </TrelloButton>
-          <TrelloButton className="navbar-board-btn-item">
+          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <BiRocket />
             Power-Ups
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item">
+          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <IoFilterSharp />
             Filter
           </TrelloButton>
@@ -66,12 +69,18 @@ const BoardBar = () => {
             className="user-avatar"
             src={require("assets/images/user-avatar.png")}
           />
-          <TrelloButton className="navbar-board-btn-item btn-share">
+          <TrelloButton
+            className="navbar-board-btn-item btn-share "
+            type={"brighter"}
+          >
             <AiOutlineUserAdd />
             Share
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item  only-icon">
+          <TrelloButton
+            className="navbar-board-btn-item  only-icon "
+            type={"brighter"}
+          >
             <BsThreeDots />
             {/* Show Menu */}
           </TrelloButton>
