@@ -13,23 +13,23 @@ const CardDetailDescription = ({ className }) => {
           Description
         </div>
       </div>
-      <div className="card-description-input">
-        <GrowingTextArea
-          rows={4}
-          placeholder="Add module detailed module description..."
-        />
-      </div>
-      <div className="card-description-manipulation">
-        <div>
-          <TrelloButton type="primary">Save</TrelloButton>
-          <TrelloButton className="card-description-manipulation__button--cancel">
-            Cancel
-          </TrelloButton>
+      <GrowingTextArea
+        rows={4}
+        placeholder="Add module detailed module description..."
+        className="card-description-input"
+      >
+        <div className="card-description-manipulation">
+          <div>
+            <TrelloButton type="primary">Save</TrelloButton>
+            <TrelloButton className="card-description-manipulation__button--cancel">
+              Cancel
+            </TrelloButton>
+          </div>
+          <div>
+            <TrelloButton>Formatting help</TrelloButton>
+          </div>
         </div>
-        <div>
-          <TrelloButton>Formatting help</TrelloButton>
-        </div>
-      </div>
+      </GrowingTextArea>
     </div>
   )
 }

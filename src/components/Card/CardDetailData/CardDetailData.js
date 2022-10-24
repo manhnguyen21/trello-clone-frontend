@@ -1,3 +1,4 @@
+import Avatar from "components/Avatar/Avatar"
 import Label from "components/Label/Label"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
@@ -24,7 +25,7 @@ const CardDetailData = () => {
               src={require("assets/images/user-avatar.png")}
             /> */}
             {members.map((src) => (
-              <img key={src} className="members__item" src={src} />
+              <Avatar key={src} src={src} />
             ))}
             <a href="#" className="members__item members__item--add">
               <AiOutlinePlus size={16} />

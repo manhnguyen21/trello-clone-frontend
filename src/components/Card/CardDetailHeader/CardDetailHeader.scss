@@ -1,6 +1,7 @@
 @import "_setting.scss";
 
-textarea.card-header-title {
+.card-header-title textarea {
+  margin-left: -5px;
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.2;
