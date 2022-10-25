@@ -1,0 +1,51 @@
+@import "_setting.scss";
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+
+  .comment-detail {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .comment-detail__author {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: $app-main-text-color;
+      span {
+        margin-left: 0.5rem;
+        font-weight: 400;
+        color: $text-sub-title-color;
+      }
+    }
+
+    .comment-detail__content {
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.1rem;
+      background-color: white;
+      box-shadow: 0 4px 8px -2px #091e4240, 0 0 0 1px #091e4214;
+    }
+
+    .comment-detail__options {
+      span {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: $text-sub-title-color;
+        text-decoration: underline;
+        &:not(:first-child)::before {
+          display: inline-block;
+          content: "-";
+          text-decoration: none;
+          margin: 0px 4px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: $app-main-text-color;
+        }
+      }
+    }
+  }
+}

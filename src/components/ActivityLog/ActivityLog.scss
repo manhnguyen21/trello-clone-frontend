@@ -1,0 +1,28 @@
+@import "_setting.scss";
+
+.log {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  .log-description {
+    flex: 1;
+    padding: 0.5rem 0;
+    .log-description__activity {
+      font-size: 0.875rem;
+      color: $text-sub-title-color;
+      span {
+        font-weight: 700;
+        color: $app-main-text-color;
+      }
+    }
+    .log-description__time {
+      font-weight: 400;
+      color: $text-sub-title-color;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

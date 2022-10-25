@@ -1,16 +1,10 @@
+import ActivityLog from "components/ActivityLog/ActivityLog"
+import Comment from "components/Comment/Comment"
 import CommentInput from "components/CommentInput/CommentInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import { GrList } from "react-icons/gr"
 
 import "./CardDetailActivities.scss"
-
-const Comment = () => {
-  return <div className="comment">Trello-comment</div>
-}
-
-const Log = () => {
-  return <div className="log">log</div>
-}
 
 const CardDetailActivities = ({ className }) => {
   return (
@@ -32,7 +26,7 @@ const CardDetailActivities = ({ className }) => {
         <CommentInput />
         <Comment />
         <Comment />
-        <Log />
+        <ActivityLog />
       </div>
     </>
   )
