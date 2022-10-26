@@ -1,0 +1,33 @@
+@import "_setting.scss";
+
+.card-detail-sidebar {
+  padding: 0 1rem 0.5rem 0.5rem;
+
+  .options {
+    margin-bottom: 1.5rem;
+
+    .options__heading h3 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $text-sub-title-color;
+    }
+
+    .options__buttons {
+      button {
+        display: block;
+        margin-top: 0.5rem;
+        height: 2rem;
+        width: 100%;
+        text-align: left;
+        //   font-size: 0.875rem;
+        svg {
+          margin-right: 0.375rem;
+        }
+      }
+
+      .add-button {
+        color: $app-main-text-color;
+      }
+    }
+  }
+}
