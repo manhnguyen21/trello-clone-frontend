@@ -12,6 +12,10 @@ const ActivityLog = () => {
           <span>Giang Thành Đạt</span> maker the due date complete
         </div>
         <span className="log-description__time">Oct 22 at 11:52 AM</span>
+        <img
+          className="log-description__attachment-img-preview"
+          src="https://trello.com/1/cards/633306db529319017ae953d6/attachments/63593c70a035690127928431/download/photo-1475924156734-496f6cac6ec1.jpeg"
+        />
       </div>
     </div>
   )

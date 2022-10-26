@@ -29,9 +29,9 @@ const Attachment = ({ src }) => {
 }
 
 const attachmentsImgs = [
-  "https://trello.com/1/cards/633306db529319017ae953c0/attachments/634abb94eb23ca009ffb25ad/download/photo-1665834739827-5e03d5f520aa.jpeg",
-  "https://trello.com/1/cards/633306db529319017ae953c0/attachments/634b5a0f1a511d0052764a78/download/photo-1486728297118-82a07bc48a28.jpeg",
-  "https://trello.com/1/cards/633306db529319017ae953c0/attachments/633306db529319017ae954ed/download/Design.png",
+  "https://trello.com/1/cards/633306db529319017ae953d6/attachments/63593c70a035690127928431/download/photo-1475924156734-496f6cac6ec1.jpeg",
+  "https://trello.com/1/cards/633306db529319017ae953d6/attachments/63593c389dfd6f002a147829/previews/63593c389dfd6f002a147845/download/photo-1666704284662-2a45d17e1d10.jpeg.jpg",
+  "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 ]
 
 const CardDetailAttachments = ({ className }) => {

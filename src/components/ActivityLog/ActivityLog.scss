@@ -16,12 +16,23 @@
       }
     }
     .log-description__time {
+      display: block;
       font-weight: 400;
       color: $text-sub-title-color;
 
       &:hover {
         cursor: pointer;
         text-decoration: underline;
+      }
+    }
+
+    .log-description__attachment-img-preview {
+      margin: 0.5rem 0 0.25rem;
+      max-width: 100%;
+      max-height: 500px;
+      border-radius: 3px;
+      &:hover {
+        cursor: pointer;
       }
     }
   }
