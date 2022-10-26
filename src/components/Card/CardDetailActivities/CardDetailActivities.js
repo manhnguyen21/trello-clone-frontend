@@ -24,14 +24,8 @@ const CardDetailActivities = ({ className }) => {
       </div>
       <div className="activities__comments">
         <CommentInput />
-        <Comment />
-        <ActivityLog />
         <ActivityLog />
         <Comment />
-        <Comment />
-        <ActivityLog />
-        <Comment />
-        <ActivityLog />
       </div>
     </>
   )
