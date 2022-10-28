@@ -74,7 +74,7 @@ const CardDetailSideBar = ({ className = "" }) => {
         </div>
         <div className="options">
           <div className="options__heading">
-            <h3>Add to card</h3>
+            <h3>Actions</h3>
           </div>
           <div className="options__buttons">
             <TrelloButton>

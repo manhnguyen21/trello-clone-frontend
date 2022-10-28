@@ -1,6 +1,7 @@
 import Avatar from "components/Avatar/Avatar"
 import GrowingTextArea from "components/GrowingTextArea/GrowingTextArea"
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import { IconContext } from "react-icons"
 import { BsEmojiSmile } from "react-icons/bs"
 import { FaRegCreditCard } from "react-icons/fa"
 import { GoMention } from "react-icons/go"
@@ -21,18 +22,20 @@ const CommentInput = () => {
         <div className="comment-input__controls">
           <TrelloButton type="primary">Save</TrelloButton>
           <div className="comment-input__options">
-            <TrelloButton type="transparent-darker">
-              <RiAttachment2 />
-            </TrelloButton>
-            <TrelloButton type="transparent-darker">
-              <GoMention />
-            </TrelloButton>
-            <TrelloButton type="transparent-darker">
-              <BsEmojiSmile />
-            </TrelloButton>
-            <TrelloButton type="transparent-darker">
-              <FaRegCreditCard />
-            </TrelloButton>
+            <IconContext.Provider value={{ size: 12 }}>
+              <TrelloButton type="transparent-darker">
+                <RiAttachment2 />
+              </TrelloButton>
+              <TrelloButton type="transparent-darker">
+                <GoMention />
+              </TrelloButton>
+              <TrelloButton type="transparent-darker">
+                <BsEmojiSmile />
+              </TrelloButton>
+              <TrelloButton type="transparent-darker">
+                <FaRegCreditCard />
+              </TrelloButton>
+            </IconContext.Provider>
           </div>
         </div>
       </GrowingTextArea>
