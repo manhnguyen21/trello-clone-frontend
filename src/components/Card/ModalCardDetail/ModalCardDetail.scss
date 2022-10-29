@@ -1,5 +1,10 @@
 @import "_setting.scss";
 
+.card-button {
+  --btn-active-bg-color: #e4f0f6;
+  --btn-active-color: #0079bf;
+}
+
 .modal-card-detail {
   max-width: 48rem !important;
   width: auto !important;

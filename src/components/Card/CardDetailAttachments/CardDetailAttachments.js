@@ -50,7 +50,7 @@ const CardDetailAttachments = ({ className }) => {
           <Attachment key={src} src={src} />
         ))}
       </div>
-      <TrelloButton className={"attachment-add-btn"}>
+      <TrelloButton className={"attachment-add-btn card-button"}>
         Add an attachment
       </TrelloButton>
     </div>

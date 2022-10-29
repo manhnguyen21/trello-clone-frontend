@@ -21,12 +21,12 @@ const CardDetailDescription = ({ className }) => {
         <div className="card-description-manipulation">
           <div>
             <TrelloButton type="primary">Save</TrelloButton>
-            <TrelloButton className="card-description-manipulation__button--cancel">
+            <TrelloButton className="card-description-manipulation__button--cancel card-button">
               Cancel
             </TrelloButton>
           </div>
           <div>
-            <TrelloButton>Formatting help</TrelloButton>
+            <TrelloButton className="card-button">Formatting help</TrelloButton>
           </div>
         </div>
       </GrowingTextArea>

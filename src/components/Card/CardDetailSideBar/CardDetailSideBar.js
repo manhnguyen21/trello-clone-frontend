@@ -24,23 +24,23 @@ const CardDetailSideBar = ({ className = "" }) => {
             <h3>Add to card</h3>
           </div>
           <div className="options__buttons">
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <BsPeople />
               Members
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <SlTag />
               Labels
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <TbCheckbox />
               Checklist
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <MdUpdate />
               Dates
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <GrAttachment />
               attachments
             </TrelloButton>
@@ -62,7 +62,7 @@ const CardDetailSideBar = ({ className = "" }) => {
             <h3>Automation</h3>
           </div>
           <div className="options__buttons">
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <MdPeopleAlt />
               Join Card
             </TrelloButton>
@@ -77,27 +77,27 @@ const CardDetailSideBar = ({ className = "" }) => {
             <h3>Actions</h3>
           </div>
           <div className="options__buttons">
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <AiOutlineArrowRight />
               Move
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <MdOutlineContentCopy />
               Copy
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <CgTemplate />
               Make template
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <FiEye />
               Watch
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <RiInboxArchiveLine />
               Archive
             </TrelloButton>
-            <TrelloButton>
+            <TrelloButton className="card-button">
               <AiOutlineShareAlt />
               Share
             </TrelloButton>

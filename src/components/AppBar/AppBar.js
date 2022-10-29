@@ -104,7 +104,7 @@ const AppBar = () => {
               </InputGroup>
             ) : (
               <TrelloButton
-                className="app-bar-btn-item active"
+                className="app-bar-btn-item "
                 type="transparent-brighter"
               >
                 <BiSearch />
@@ -112,14 +112,14 @@ const AppBar = () => {
             )}
             {!hideSearchBar && (
               <TrelloButton
-                className="app-bar-btn-item"
+                className="app-bar-btn-item icon-center"
                 type="transparent-brighter"
               >
                 <RiInformationLine />
               </TrelloButton>
             )}
             <TrelloButton
-              className="app-bar-btn-item"
+              className="app-bar-btn-item icon-center"
               type="transparent-brighter"
             >
               <IoMdNotificationsOutline />

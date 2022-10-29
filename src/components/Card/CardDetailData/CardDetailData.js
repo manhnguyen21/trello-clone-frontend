@@ -41,16 +41,19 @@ const CardDetailData = () => {
             <Label color="purple" />
             {/* <Label color="red" />
             <Label color="blue" /> */}
-            <div className="labels__item labels__item--add">
+            <div className="labels__item labels__item--add ">
               <AiOutlinePlus size={16} />
             </div>
+            {/* <TrelloButton className="labels__item labels__item--add card-button">
+              <AiOutlinePlus size={16} />
+            </TrelloButton> */}
           </div>
         </div>
         <div className="card-detail-data__item card-detail-data__item--full-width">
           <h3 className="card-detail-data__item-header">Due date</h3>
           <TrelloCheckBox
             label={
-              <TrelloButton className="due-date-complete__date-picker">
+              <TrelloButton className="due-date-complete__date-picker card-button">
                 Oct 18 at 8:42 PM
                 <span className="due-date-complete__badge">over due</span>
                 <BsChevronDown size={14} />

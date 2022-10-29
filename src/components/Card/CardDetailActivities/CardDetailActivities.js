@@ -19,7 +19,7 @@ const CardDetailActivities = ({ className }) => {
               Activities
             </div>
           </div>
-          <TrelloButton>Show details</TrelloButton>
+          <TrelloButton className="card-button">Show details</TrelloButton>
         </div>
       </div>
       <div className="activities__comments">
