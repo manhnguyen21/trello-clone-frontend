@@ -35,5 +35,12 @@
         cursor: pointer;
       }
     }
+
+    .log-description__reply {
+      height: 1.25rem;
+      a {
+        color: $app-main-text-color;
+      }
+    }
   }
 }

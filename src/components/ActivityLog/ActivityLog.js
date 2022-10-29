@@ -16,6 +16,9 @@ const ActivityLog = () => {
           className="log-description__attachment-img-preview"
           src="https://trello.com/1/cards/633306db529319017ae953d6/attachments/63593c70a035690127928431/download/photo-1475924156734-496f6cac6ec1.jpeg"
         />
+        <div className="log-description__reply">
+          <a href="#">Reply</a>
+        </div>
       </div>
     </div>
   )
