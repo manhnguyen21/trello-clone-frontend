@@ -1,6 +1,6 @@
-import "./ProgressBar.scss"
+import "./TrelloProgressBar.scss"
 
-const ProgressBar = ({ percent }) => {
+const TrelloProgressBar = ({ percent }) => {
   return (
     <div className="trello-progress-bar">
       <div
@@ -14,4 +14,4 @@ const ProgressBar = ({ percent }) => {
   )
 }
 
-export default ProgressBar
+export default TrelloProgressBar
