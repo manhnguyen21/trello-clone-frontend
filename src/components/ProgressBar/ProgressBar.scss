@@ -12,7 +12,10 @@
     left: 0;
     background-color: $board-bg-color;
     height: 100%;
-    border-radius: inherit;
+    border-radius: 0.2rem 0 0 0.2rem;
     max-width: 100%;
+    transition-property: width, background-color;
+    transition-duration: 0.14s;
+    transition-timing-function: ease-out;
   }
 }

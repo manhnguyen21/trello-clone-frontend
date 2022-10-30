@@ -5,7 +5,10 @@ const ProgressBar = ({ percent }) => {
     <div className="trello-progress-bar">
       <div
         className="trello-progress-bar__current"
-        style={{ width: `${percent}%` }}
+        style={{
+          width: `${percent}%`,
+          borderRadius: `${percent === 100 ? "inherit" : ""}`,
+        }}
       />
     </div>
   )

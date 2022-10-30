@@ -27,7 +27,7 @@ const CardDetailCheckList = () => {
       <div className="checklist__content">
         <div className="checklist__progress-bar">
           <span>25%</span>
-          <ProgressBar percent={25} />
+          <ProgressBar percent={50} />
         </div>
       </div>
     </div>
