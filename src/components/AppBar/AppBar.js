@@ -25,29 +25,44 @@ const AppBar = () => {
       <div className="app-bar-container">
         <div className="app-bar-container--left">
           <IconContext.Provider value={{ className: "icon-end", size: 15 }}>
-            <TrelloButton className="app-bar-btn-item">
+            <TrelloButton
+              className="app-bar-btn-item"
+              type="transparent-brighter"
+            >
               <div className="trello-icon" />
             </TrelloButton>
             {!hideWorkspace && (
-              <TrelloButton className="app-bar-btn-item">
+              <TrelloButton
+                className="app-bar-btn-item"
+                type="transparent-brighter"
+              >
                 Workspace
                 <FiChevronDown />
               </TrelloButton>
             )}
             {!hideRecent && (
-              <TrelloButton className="app-bar-btn-item">
+              <TrelloButton
+                className="app-bar-btn-item"
+                type="transparent-brighter"
+              >
                 Recent
                 <FiChevronDown />
               </TrelloButton>
             )}
             {!hideStarred && (
-              <TrelloButton className="app-bar-btn-item">
+              <TrelloButton
+                className="app-bar-btn-item"
+                type="transparent-brighter"
+              >
                 Starred
                 <FiChevronDown />
               </TrelloButton>
             )}
             {!hideTemplates && (
-              <TrelloButton className="app-bar-btn-item">
+              <TrelloButton
+                className="app-bar-btn-item"
+                type="transparent-brighter"
+              >
                 Templates
                 <FiChevronDown />
               </TrelloButton>
@@ -58,11 +73,17 @@ const AppBar = () => {
               </TrelloButton>
             )}
             {!hideCreate ? (
-              <TrelloButton className="app-bar-btn-item active">
+              <TrelloButton
+                className="app-bar-btn-item active"
+                type="transparent-brighter"
+              >
                 Create
               </TrelloButton>
             ) : (
-              <TrelloButton className="app-bar-btn-item active">
+              <TrelloButton
+                className="app-bar-btn-item active"
+                type="transparent-brighter"
+              >
                 <AiOutlinePlus style={{ marginLeft: 0 }} size={20} />
               </TrelloButton>
             )}
@@ -82,16 +103,25 @@ const AppBar = () => {
                 />
               </InputGroup>
             ) : (
-              <TrelloButton className="app-bar-btn-item active">
+              <TrelloButton
+                className="app-bar-btn-item "
+                type="transparent-brighter"
+              >
                 <BiSearch />
               </TrelloButton>
             )}
             {!hideSearchBar && (
-              <TrelloButton className="app-bar-btn-item">
+              <TrelloButton
+                className="app-bar-btn-item icon-center"
+                type="transparent-brighter"
+              >
                 <RiInformationLine />
               </TrelloButton>
             )}
-            <TrelloButton className="app-bar-btn-item">
+            <TrelloButton
+              className="app-bar-btn-item icon-center"
+              type="transparent-brighter"
+            >
               <IoMdNotificationsOutline />
             </TrelloButton>
             <img

@@ -1,5 +1,10 @@
 @import "_setting.scss";
 
+.card-button {
+  --btn-active-bg-color: #e4f0f6;
+  --btn-active-color: #0079bf;
+}
+
 .modal-card-detail {
   max-width: 48rem !important;
   width: auto !important;
@@ -13,19 +18,26 @@
 
   // for the title of each block
   .modal-card-detail-container {
-    margin: 0.75rem 2.5rem 0.5rem 3.5rem;
+    margin: 0.75rem 0rem 0.5rem 3.5rem;
     position: relative;
 
     .modal-card-detail-container__icon {
       position: absolute;
       top: 4px;
-      left: -40px;
+      left: -30px;
       font-size: 1.3rem;
       color: $title-color;
     }
 
     .modal-card-detail-container__title {
-      margin-left: -8px;
+      margin-left: -4px;
+
+      &.modal-card-detail-container__title--text {
+        padding: 4px 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
     }
   }
 }

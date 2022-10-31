@@ -1,22 +1,23 @@
 @import "_setting.scss";
+$board-bar-max-height: 2rem;
 
 .navbar-board {
   font-size: 1.1rem;
 
   .navbar-board-container--left {
     float: left;
-    // margin: 0.4rem;
-    padding: 0.5rem;
+    height: $board-bar-max-height;
+    margin: 0.5rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    gap: 0.3rem;
+    gap: 0.5rem;
   }
 
   .navbar-board-container--right {
     float: right;
-    // margin: 0.4rem;
-    padding: 0.5rem;
+    height: $board-bar-max-height;
+    margin: 0.5rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
@@ -30,14 +31,7 @@
   }
 
   .navbar-board-btn-item {
-    height: $button-height;
-    &:first-child {
-      margin-left: 0px;
-    }
-    &:last-child {
-      margin-right: 0px;
-    }
-    margin: 0 2px;
+    color: white;
     // having icon
     padding: 0px 12px 0px 0px;
 
@@ -80,7 +74,6 @@
       height: auto;
       width: 21px;
     }
-    background-color: lighten($board-bg-color, 5%);
 
     &:hover {
       color: #f0d502;

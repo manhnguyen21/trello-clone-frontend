@@ -1,0 +1,57 @@
+@import "_setting.scss";
+
+.comment-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.4rem;
+
+  padding-top: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  .comment-input__input-box {
+    flex: 1;
+    box-shadow: 0 4px 8px -2px #091e4240, 0 0 0 1px #091e4214;
+    padding: 0.5rem 0.75rem 0 0.75rem;
+    transition: all 85ms linear;
+    // &:hover {
+    //   background-color: rgba(79, 79, 79, 0.15);
+    // }
+
+    &:focus-within {
+      padding: 0.5rem 0.75rem;
+    }
+
+    textarea {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    textarea:focus {
+      box-shadow: none;
+    }
+
+    textarea:focus + .comment-input__controls {
+      display: flex;
+    }
+
+    .comment-input__controls {
+      display: none;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      .comment-input__options {
+        display: flex;
+        gap: 0.25rem;
+        button {
+          line-height: 0;
+          height: 2rem;
+          width: 2rem;
+          padding: 0.5rem;
+          font-size: 1rem;
+          color: $app-main-text-color;
+        }
+      }
+    }
+  }
+}

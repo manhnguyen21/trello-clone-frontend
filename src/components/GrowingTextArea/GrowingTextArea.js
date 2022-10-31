@@ -4,7 +4,7 @@ import { isFunction } from "lodash"
 import { useEffect, useRef, useState } from "react"
 
 const GrowingTextArea = ({
-  // children,
+  children,
   value,
   onChange,
   className,
@@ -36,15 +36,18 @@ const GrowingTextArea = ({
   }
 
   return (
-    <textarea
-      ref={textareaRef}
-      className={`trello-app-editable growing-textarea-input ${className}`}
-      style={style}
-      rows={rows}
-      {...props}
-      value={content}
-      onChange={changeHandler}
-    />
+    <div className={className || ""}>
+      <textarea
+        ref={textareaRef}
+        className={`trello-app-editable growing-textarea-input`}
+        style={style}
+        rows={rows}
+        {...props}
+        value={content}
+        onChange={changeHandler}
+      />
+      {children}
+    </div>
   )
 }
 export default GrowingTextArea

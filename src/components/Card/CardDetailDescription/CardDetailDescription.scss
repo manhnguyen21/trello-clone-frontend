@@ -1,65 +1,24 @@
 @import "_setting.scss";
 
-.card-description-title {
-  padding: 4px 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.card-description-input {
-  background-color: rgba(0, 0, 0, 0.03);
+.card-description-input textarea {
+  background-color: rgba(0, 0, 0, 0.03) !important;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.05) !important;
   }
 }
 
-.card-description-input:focus-within + .card-description-manipulation {
-  display: grid;
-}
+// .card-description-input:focus-within + .card-description-manipulation {
+//   // display: grid;
+// }
 
 .card-description-manipulation {
-  display: none;
+  display: flex;
   margin-top: 0.6rem;
-
-  // display: grid
-  grid-template-columns: 3fr 1fr;
-
+  justify-content: space-between;
+  align-items: center;
   transition: all 2s linear;
-
-  // button
-  .card-description-manipulation__button {
-    text-decoration: none;
-    color: $app-main-text-color;
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.2rem;
-    transition: all 0.2s linear;
-  }
-
-  a.card-description-manipulation__button {
-    display: inline-block;
-  }
-
-  .card-description-manipulation__button--save {
-    color: white;
-    background-color: $board-bg-color;
-    &:hover {
-      background-color: darken($color: $board-bg-color, $amount: 8);
-    }
-  }
 
   .card-description-manipulation__button--cancel {
     margin-left: 0.3rem;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.095);
-    }
-  }
-
-  .card-description-manipulation__button--formatting-help {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.05);
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.09);
-    }
   }
 }

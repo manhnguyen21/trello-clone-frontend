@@ -1,8 +1,7 @@
 @import "_setting.scss";
 
-$text-sub-title-color: #5e6c84;
-
-textarea.card-header-title {
+.card-header-title textarea {
+  margin-left: -5px;
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.2;

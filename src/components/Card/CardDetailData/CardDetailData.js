@@ -1,5 +1,7 @@
+import Avatar from "components/Avatar/Avatar"
 import Label from "components/Label/Label"
-import { Form } from "react-bootstrap"
+import TrelloButton from "components/TrelloButton/TrelloButton"
+import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 import "./CardDetailData.scss"
@@ -23,7 +25,7 @@ const CardDetailData = () => {
               src={require("assets/images/user-avatar.png")}
             /> */}
             {members.map((src) => (
-              <img key={src} className="members__item" src={src} />
+              <Avatar key={src} src={src} />
             ))}
             <a href="#" className="members__item members__item--add">
               <AiOutlinePlus size={16} />
@@ -39,20 +41,25 @@ const CardDetailData = () => {
             <Label color="purple" />
             {/* <Label color="red" />
             <Label color="blue" /> */}
-            <div className="labels__item labels__item--add">
+            <div className="labels__item labels__item--add ">
               <AiOutlinePlus size={16} />
             </div>
+            {/* <TrelloButton className="labels__item labels__item--add card-button">
+              <AiOutlinePlus size={16} />
+            </TrelloButton> */}
           </div>
         </div>
-        <div className="card-detail-data__item">
+        <div className="card-detail-data__item card-detail-data__item--full-width">
           <h3 className="card-detail-data__item-header">Due date</h3>
-          <div className="due-date-complete">
-            <Form.Check type={"checkbox"} id={`complete-checkbox`} />
-            <div className="due-date-complete__date-picker">
-              Oct 18 at 8:42 PM
-              <BsChevronDown size={14} />
-            </div>
-          </div>
+          <TrelloCheckBox
+            label={
+              <TrelloButton className="due-date-complete__date-picker card-button">
+                Oct 18 at 8:42 PM
+                <span className="due-date-complete__badge">over due</span>
+                <BsChevronDown size={14} />
+              </TrelloButton>
+            }
+          />
         </div>
       </div>
     </div>

@@ -1,17 +1,17 @@
 @import "_setting.scss";
 
 $app-bar-bg-color: #0067a3;
-$app-bar-max-height: 32px;
+$app-bar-max-height: 2rem;
 
-%app-bar-bg-color-lighten-10 {
-  background-color: lighten($color: $app-bar-bg-color, $amount: 10) !important;
+%app-bar-bg-color-brighter {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .app-bar {
-  // height: $app-bar-height;
   padding: 6px 10px;
   background-color: $app-bar-bg-color;
   .app-bar-container {
+    height: $app-bar-max-height;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -22,7 +22,7 @@ $app-bar-max-height: 32px;
       justify-content: flex-start;
       flex-flow: wrap;
       gap: 0.3rem;
-      max-height: $app-bar-max-height;
+      height: inherit;
 
       .icon-end {
         margin-left: 6px;
@@ -34,7 +34,7 @@ $app-bar-max-height: 32px;
       justify-content: flex-end;
       flex-flow: wrap;
       gap: 0.3rem;
-      max-height: $app-bar-max-height;
+      height: inherit;
 
       .form-control::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -62,20 +62,21 @@ $app-bar-max-height: 32px;
           width: 30px;
           padding: 0px 7px;
           border-radius: 0.375rem;
-          @extend %app-bar-bg-color-lighten-10;
+          @extend %app-bar-bg-color-brighter;
         }
 
         .search-text-input {
           padding: 0px 20px 0px 0px;
           border: none;
           color: white;
-          @extend %app-bar-bg-color-lighten-10;
+          @extend %app-bar-bg-color-brighter;
         }
       }
 
-      .icon-center {
-        color: white;
+      .trello-btn {
+        padding: 0 0.375rem;
       }
+
       .user-avatar {
         width: $app-bar-max-height;
         height: $app-bar-max-height;
@@ -86,22 +87,14 @@ $app-bar-max-height: 32px;
     }
 
     .app-bar-btn-item {
+      font-weight: 400;
+      color: white;
+
       &:first-child {
         margin-left: 0px;
       }
       &:last-child {
         margin-right: 0px;
-      }
-      margin: 2px;
-      padding: 6px;
-      font-weight: 400;
-      background-color: inherit;
-
-      transition: 0.7s;
-
-      &:hover,
-      &:focus {
-        @extend %app-bar-bg-color-lighten-10;
       }
 
       .trello-icon {
@@ -133,7 +126,7 @@ $app-bar-max-height: 32px;
     }
 
     .active {
-      @extend %app-bar-bg-color-lighten-10;
+      @extend %app-bar-bg-color-brighter;
     }
   }
 }

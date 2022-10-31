@@ -7,7 +7,7 @@ import CardDetailSideBar from "../CardDetailSideBar/CardDetailSideBar"
 import "./ModalCardDetail.scss"
 
 const bannerUrl =
-  "https://images.unsplash.com/photo-1486728297118-82a07bc48a28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1229&q=80"
+  "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
 
 const ModalCardDetail = ({ show, onAction }) => {
   const handleClose = () => onAction(MODAL_ACTION_CLOSE)

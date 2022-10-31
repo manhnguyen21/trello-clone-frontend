@@ -1,4 +1,5 @@
 import GrowingTextArea from "components/GrowingTextArea/GrowingTextArea"
+import TrelloButton from "components/TrelloButton/TrelloButton"
 import { MdNotes } from "react-icons/md"
 import "./CardDetailDescription.scss"
 const CardDetailDescription = ({ className }) => {
@@ -8,38 +9,27 @@ const CardDetailDescription = ({ className }) => {
         <MdNotes />
       </i>
       <div className="modal-card-detail-container__title">
-        <div className="card-description-title">Description</div>
-      </div>
-      <div className="card-description-input">
-        <GrowingTextArea
-          rows={4}
-          placeholder="Add module detailed module description..."
-        />
-      </div>
-      <div className="card-description-manipulation">
-        <div>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--save"
-          >
-            Save
-          </a>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--cancel"
-          >
-            Cancel
-          </a>
-        </div>
-        <div>
-          <a
-            href="#"
-            className="card-description-manipulation__button card-description-manipulation__button--formatting-help"
-          >
-            Formatting help
-          </a>
+        <div className="modal-card-detail-container__title modal-card-detail-container__title--text">
+          Description
         </div>
       </div>
+      <GrowingTextArea
+        rows={4}
+        placeholder="Add module detailed module description..."
+        className="card-description-input"
+      >
+        <div className="card-description-manipulation">
+          <div>
+            <TrelloButton type="primary">Save</TrelloButton>
+            <TrelloButton className="card-description-manipulation__button--cancel card-button">
+              Cancel
+            </TrelloButton>
+          </div>
+          <div>
+            <TrelloButton className="card-button">Formatting help</TrelloButton>
+          </div>
+        </div>
+      </GrowingTextArea>
     </div>
   )
 }
