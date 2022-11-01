@@ -9,7 +9,6 @@ import { BiTimeFive } from "react-icons/bi"
 import { BsEmojiSmile, BsPeople, BsThreeDots } from "react-icons/bs"
 import { FiCheckSquare } from "react-icons/fi"
 import { GoMention } from "react-icons/go"
-import { GrClose } from "react-icons/gr"
 import { RiUserAddLine } from "react-icons/ri"
 import "./CardDetailChecklist.scss"
 
@@ -45,19 +44,20 @@ const CheckItem = ({ content }) => {
         {edit && (
           <GrowingTextArea
             className="check-item__input-box"
-            placeholder="Write a comment..."
-            rows={3}
+            placeholder="Add an item"
+            rows={2}
           >
             <div className="check-item__input-controls">
               <div>
                 <TrelloButton type="primary" onClick={() => setEdit(false)}>
-                  Save
+                  Add
                 </TrelloButton>
                 <TrelloButton
                   type="transparent-darker"
                   onClick={() => setEdit(false)}
                 >
-                  <GrClose />
+                  {/* <GrClose /> */}
+                  Cancel
                 </TrelloButton>
               </div>
               <div className="check-item-input-options">
