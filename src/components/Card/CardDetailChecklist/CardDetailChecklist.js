@@ -9,19 +9,25 @@ import { BiTimeFive } from "react-icons/bi"
 import { BsEmojiSmile, BsPeople, BsThreeDots } from "react-icons/bs"
 import { FiCheckSquare } from "react-icons/fi"
 import { GoMention } from "react-icons/go"
+import { GrClose } from "react-icons/gr"
 import { RiUserAddLine } from "react-icons/ri"
 import "./CardDetailChecklist.scss"
 
-const CheckItem = ({ content }) => {
+const CheckItem = ({ addNew, content }) => {
   const [edit, setEdit] = useState(false)
 
   return (
-    <div className="check-item">
-      <div className="check-item__checkbox">
-        <TrelloCheckBox />
-      </div>
+    <div className={`check-item ${!addNew ? "check-item--edit" : ""}`}>
+      {!addNew && (
+        <div className="check-item__checkbox">
+          <TrelloCheckBox />
+        </div>
+      )}
       <div className="check-item__content">
-        {!edit && (
+        {!edit && addNew && (
+          <TrelloButton onClick={() => setEdit(true)}>Add an item</TrelloButton>
+        )}
+        {!edit && !addNew && (
           <>
             <div className="check-item__text" onClick={() => setEdit(true)}>
               <span>{content}</span>
@@ -43,21 +49,22 @@ const CheckItem = ({ content }) => {
         )}
         {edit && (
           <GrowingTextArea
-            className="check-item__input-box"
+            className={`check-item__input-box ${
+              !addNew ? "check-item__input-box--edit" : ""
+            }`}
             placeholder="Add an item"
             rows={2}
           >
             <div className="check-item__input-controls">
-              <div>
+              <div className="check-item-actions">
                 <TrelloButton type="primary" onClick={() => setEdit(false)}>
-                  Add
+                  {addNew ? `Add` : "Save"}
                 </TrelloButton>
                 <TrelloButton
                   type="transparent-darker"
                   onClick={() => setEdit(false)}
                 >
-                  {/* <GrClose /> */}
-                  Cancel
+                  {addNew ? "Cancel" : <GrClose />}
                 </TrelloButton>
               </div>
               <div className="check-item-input-options">
@@ -120,9 +127,7 @@ const CardDetailCheckList = () => {
       <CheckItem content={"check 2"} />
       <CheckItem content={"👍"} />
       <CheckItem content={"⛔"} />
-      <TrelloButton className={"modal-card-detail-container"}>
-        Add an item
-      </TrelloButton>
+      <CheckItem addNew />
     </div>
   )
 }
