@@ -25,11 +25,9 @@
       flex-flow: row wrap;
       gap: 0.25rem;
 
-      $item-height: 2rem;
-      $item-width: 2rem;
-
       .members__item--add,
       .labels__item--add {
+        width: 2rem;
         background-color: rgba(0, 0, 0, 0.03);
         text-align: center;
         svg {
@@ -41,8 +39,8 @@
         }
       }
 
-      .labels__item--add {
-        width: 2rem;
+      .members__item--add {
+        border-radius: 50%;
       }
     }
 
