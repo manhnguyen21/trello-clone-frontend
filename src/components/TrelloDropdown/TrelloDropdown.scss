@@ -1,0 +1,49 @@
+@import "_setting.scss";
+
+.trello-dropdown {
+  z-index: 1;
+  position: relative;
+  button:focus + .trello-dropdown-container {
+    opacity: 1;
+    transform: translateY(10px);
+    pointer-events: auto;
+  }
+
+  .trello-dropdown-container {
+    // visible style
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s linear, transform 0.2s linear;
+
+    // block style
+    background-color: #ffffff;
+    padding: 0 0.75rem;
+    min-width: 18.75rem;
+    z-index: 999;
+    border-radius: 3px;
+    box-shadow: 0 0px 1rem rgba(0, 0, 0, 0.1);
+    .trello-dropdown-container__header {
+      display: grid;
+      grid-template-columns: 0.75rem 1fr 0.75rem;
+      height: 41px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      align-items: center;
+      h2 {
+        font-size: 1rem;
+        color: $text-sub-title-color;
+        text-align: center;
+        margin: 0;
+      }
+      button {
+        padding: 0;
+        height: calc(41px - 0.75rem);
+      }
+    }
+    .trello-dropdown-container__content {
+      padding: 0.75rem 0;
+    }
+  }
+}
