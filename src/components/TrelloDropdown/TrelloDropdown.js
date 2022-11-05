@@ -5,7 +5,7 @@ const TrelloDropdown = ({ children, header, dropDownContent }) => {
   return (
     <div className="trello-dropdown">
       {children}
-      <div className="trello-dropdown-container">
+      <div className="trello-dropdown-container trello-dropdown-container--active">
         <div className="trello-dropdown-container__header">
           <span></span>
           <h2>{header}</h2>

@@ -3,7 +3,8 @@
 .trello-dropdown {
   z-index: 1;
   position: relative;
-  button:focus + .trello-dropdown-container {
+
+  &:focus-within > .trello-dropdown-container {
     opacity: 1;
     transform: translateY(10px);
     pointer-events: auto;

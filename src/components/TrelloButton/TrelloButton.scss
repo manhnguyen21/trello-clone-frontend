@@ -72,7 +72,8 @@
     background-color: var(--btn-hover-bg-color);
   }
 
-  &:active {
+  &:active,
+  &:focus {
     background-color: var(--btn-active-bg-color);
     color: var(--btn-active-color);
   }
