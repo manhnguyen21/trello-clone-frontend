@@ -124,10 +124,6 @@ $app-bar-max-height: 2rem;
         }
       }
     }
-
-    .active {
-      @extend %app-bar-bg-color-brighter;
-    }
   }
 }
 

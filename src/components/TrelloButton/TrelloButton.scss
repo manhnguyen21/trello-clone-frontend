@@ -68,12 +68,14 @@
   white-space: nowrap;
   background-color: var(--btn-background-color);
   color: var(--btn-color);
+
   &:hover {
     background-color: var(--btn-hover-bg-color);
   }
 
   &:active,
-  &:focus {
+  &:focus,
+  &.trello-btn--focus {
     background-color: var(--btn-active-bg-color);
     color: var(--btn-active-color);
   }
