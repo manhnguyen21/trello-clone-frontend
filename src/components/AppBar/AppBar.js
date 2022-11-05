@@ -35,8 +35,9 @@ const AppBar = () => {
   const showMoreButton =
     hideTemplates || hideStarred || hideRecent || hideWorkspace
 
-  const isActive = (feature) =>
-    (activeFeature === feature && "trello-btn--focus") || ""
+  const isActive = (feature) => {
+    return (activeFeature === feature && "trello-btn--focus") || ""
+  }
 
   const handleClickFeature = ({ target: { id } }) => setActiveFeature(id)
 
@@ -65,7 +66,6 @@ const AppBar = () => {
                     </div>
                   </div>
                 }
-                isDrop={activeFeature === WORKSPACE}
               >
                 <TrelloButton
                   id={WORKSPACE}
@@ -92,7 +92,6 @@ const AppBar = () => {
                     </div>
                   </div>
                 }
-                isDrop={activeFeature === RECENT}
               >
                 <TrelloButton
                   id={RECENT}
@@ -119,7 +118,6 @@ const AppBar = () => {
                     </div>
                   </div>
                 }
-                isDrop={activeFeature === STARRED}
               >
                 <TrelloButton
                   id={STARRED}
@@ -146,7 +144,6 @@ const AppBar = () => {
                     </div>
                   </div>
                 }
-                isDrop={activeFeature === TEMPLATES}
               >
                 <TrelloButton
                   id={TEMPLATES}
@@ -178,7 +175,6 @@ const AppBar = () => {
                     </div>
                   </div>
                 }
-                isDrop={activeFeature === CREATE}
               >
                 <TrelloButton
                   id={CREATE}

@@ -42,8 +42,8 @@
     }
   }
 
-  &:focus-within > .trello-dropdown-container,
-  .trello-dropdown-container--active {
+  // &:focus,
+  &:focus-within > .trello-dropdown-container {
     opacity: 1;
     transform: translateY(10px);
     pointer-events: auto;
