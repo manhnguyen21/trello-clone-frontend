@@ -50,12 +50,16 @@
     }
 
     .trello-dropdown-container__content {
-      padding: 0.75rem 0;
+      padding-bottom: 0.75rem;
+      div:last-child {
+        border: none;
+      }
     }
   }
 
   // &:focus,
-  &:focus-within > .trello-dropdown-container {
+  &:focus-within > .trello-dropdown-container,
+  .trello-dropdown-container--active {
     opacity: 1;
     transform: translateY(10px);
     pointer-events: auto;
