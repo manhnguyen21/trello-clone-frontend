@@ -1,5 +1,7 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
 import useMediaQuery from "hooks/useMediaQuery"
+import { useState } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import { IconContext } from "react-icons"
 import { AiOutlinePlus } from "react-icons/ai"
@@ -9,16 +11,35 @@ import { IoMdNotificationsOutline } from "react-icons/io"
 import { RiInformationLine } from "react-icons/ri"
 import "./AppBar.scss"
 
+const WORKSPACE = "workspace"
+const RECENT = "recent"
+const STARRED = "starred"
+const TEMPLATES = "templates"
+const CREATE = "create"
+
 const AppBar = () => {
   const hideCreate = useMediaQuery("(max-width: 1000px)")
+
   const hideTemplates = useMediaQuery("(max-width: 900px)")
+
   const hideStarred = useMediaQuery("(max-width: 890px)")
+
   const hideRecent = useMediaQuery("(max-width: 810px)")
+
   const hideWorkspace = useMediaQuery("(max-width: 700px)")
+
   const hideSearchBar = useMediaQuery("(max-width: 600px)")
+
+  const [activeFeature, setActiveFeature] = useState("create")
 
   const showMoreButton =
     hideTemplates || hideStarred || hideRecent || hideWorkspace
+
+  const isActive = (feature) => {
+    return (activeFeature === feature && "trello-btn--focus") || ""
+  }
+
+  const handleClickFeature = ({ target: { id } }) => setActiveFeature(id)
 
   return (
     <nav className="app-bar">
@@ -32,40 +53,108 @@ const AppBar = () => {
               <div className="trello-icon" />
             </TrelloButton>
             {!hideWorkspace && (
-              <TrelloButton
-                className="app-bar-btn-item"
-                type="transparent-brighter"
+              <TrelloDropdown
+                header={"Workspace"}
+                dropDownContent={
+                  <div className="workspace">
+                    <div className="workspace__title">Your workspace</div>
+                    <div className="workspace__details">
+                      <div className="workspace__avatar">
+                        <span>T</span>
+                      </div>
+                      <div className="workspace__name">Trello workspace</div>
+                    </div>
+                  </div>
+                }
               >
-                Workspace
-                <FiChevronDown />
-              </TrelloButton>
+                <TrelloButton
+                  id={WORKSPACE}
+                  onClick={handleClickFeature}
+                  className={`app-bar-btn-item ${isActive(WORKSPACE)}`}
+                  type="transparent-brighter"
+                >
+                  Workspace
+                  <FiChevronDown />
+                </TrelloButton>
+              </TrelloDropdown>
             )}
             {!hideRecent && (
-              <TrelloButton
-                className="app-bar-btn-item"
-                type="transparent-brighter"
+              <TrelloDropdown
+                header={RECENT}
+                dropDownContent={
+                  <div className="workspace">
+                    <div className="workspace__title">Your workspace</div>
+                    <div className="workspace__details">
+                      <div className="workspace__avatar">
+                        <span>T</span>
+                      </div>
+                      <div className="workspace__name">Trello workspace</div>
+                    </div>
+                  </div>
+                }
               >
-                Recent
-                <FiChevronDown />
-              </TrelloButton>
+                <TrelloButton
+                  id={RECENT}
+                  onClick={handleClickFeature}
+                  className={`app-bar-btn-item ${isActive(RECENT)}`}
+                  type="transparent-brighter"
+                >
+                  Recent
+                  <FiChevronDown />
+                </TrelloButton>
+              </TrelloDropdown>
             )}
             {!hideStarred && (
-              <TrelloButton
-                className="app-bar-btn-item"
-                type="transparent-brighter"
+              <TrelloDropdown
+                header={STARRED}
+                dropDownContent={
+                  <div className="workspace">
+                    <div className="workspace__title">Your workspace</div>
+                    <div className="workspace__details">
+                      <div className="workspace__avatar">
+                        <span>T</span>
+                      </div>
+                      <div className="workspace__name">Trello workspace</div>
+                    </div>
+                  </div>
+                }
               >
-                Starred
-                <FiChevronDown />
-              </TrelloButton>
+                <TrelloButton
+                  id={STARRED}
+                  onClick={handleClickFeature}
+                  className={`app-bar-btn-item ${isActive(STARRED)}`}
+                  type="transparent-brighter"
+                >
+                  Starred
+                  <FiChevronDown />
+                </TrelloButton>
+              </TrelloDropdown>
             )}
             {!hideTemplates && (
-              <TrelloButton
-                className="app-bar-btn-item"
-                type="transparent-brighter"
+              <TrelloDropdown
+                header={TEMPLATES}
+                dropDownContent={
+                  <div className="workspace">
+                    <div className="workspace__title">Your workspace</div>
+                    <div className="workspace__details">
+                      <div className="workspace__avatar">
+                        <span>T</span>
+                      </div>
+                      <div className="workspace__name">Trello workspace</div>
+                    </div>
+                  </div>
+                }
               >
-                Templates
-                <FiChevronDown />
-              </TrelloButton>
+                <TrelloButton
+                  id={TEMPLATES}
+                  onClick={handleClickFeature}
+                  className={`app-bar-btn-item ${isActive(TEMPLATES)}`}
+                  type="transparent-brighter"
+                >
+                  Templates
+                  <FiChevronDown />
+                </TrelloButton>
+              </TrelloDropdown>
             )}
             {showMoreButton && (
               <TrelloButton className="app-bar-btn-item">
@@ -73,12 +162,29 @@ const AppBar = () => {
               </TrelloButton>
             )}
             {!hideCreate ? (
-              <TrelloButton
-                className="app-bar-btn-item active"
-                type="transparent-brighter"
+              <TrelloDropdown
+                header={CREATE}
+                dropDownContent={
+                  <div className="workspace">
+                    <div className="workspace__title">Your workspace</div>
+                    <div className="workspace__details">
+                      <div className="workspace__avatar">
+                        <span>T</span>
+                      </div>
+                      <div className="workspace__name">Trello workspace</div>
+                    </div>
+                  </div>
+                }
               >
-                Create
-              </TrelloButton>
+                <TrelloButton
+                  id={CREATE}
+                  onClick={handleClickFeature}
+                  className={`app-bar-btn-item ${isActive(CREATE)}`}
+                  type="transparent-brighter"
+                >
+                  Create
+                </TrelloButton>
+              </TrelloDropdown>
             ) : (
               <TrelloButton
                 className="app-bar-btn-item active"

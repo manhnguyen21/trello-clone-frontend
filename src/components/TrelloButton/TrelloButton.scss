@@ -3,9 +3,10 @@
 .darker {
   --btn-background-color: rgba(0, 0, 0, 0.05);
   --btn-color: $app-main-text-color;
+  // focus
+  --btn-focus-bg-color: rgba(0, 0, 0, 0.06);
   // hover
   --btn-hover-bg-color: rgba(0, 0, 0, 0.08);
-
   // active
   --btn-active-bg-color: rgba(0, 0, 0, 0.15);
   --btn-active-color: $app-main-text-color;
@@ -14,20 +15,22 @@
 .brighter {
   --btn-background-color: rgba(255, 255, 255, 0.2);
   --btn-color: $app-main-text-color;
+  // focus
+  --btn-focus-bg-color: rgba(255, 255, 255, 0.3);
   // hover
-  --btn-hover-bg-color: rgba(255, 255, 255, 0.3);
-
+  --btn-hover-bg-color: rgba(255, 255, 255, 0.4);
   // active
-  --btn-active-bg-color: rgba(255, 255, 255, 0.4);
+  --btn-active-bg-color: rgba(255, 255, 255, 0.5);
   --btn-active-color: $app-main-text-color;
 }
 
 .transparent-darker {
   --btn-background-color: transparent;
   --btn-color: $app-main-text-color;
+  // focus
+  --btn-focus-bg-color: rgba(0, 0, 0, 0.05);
   // hover
   --btn-hover-bg-color: rgba(0, 0, 0, 0.08);
-
   // active
   --btn-active-bg-color: rgba(0, 0, 0, 0.15);
   --btn-active-color: $app-main-text-color;
@@ -36,20 +39,22 @@
 .transparent-brighter {
   --btn-background-color: transparent;
   --btn-color: $app-main-text-color;
+  // focus
+  --btn-focus-bg-color: rgba(255, 255, 255, 0.2);
   // hover
   --btn-hover-bg-color: rgba(255, 255, 255, 0.3);
-
   // active
-  --btn-active-bg-color: rgba(255, 255, 255, 0.4);
+  --btn-active-bg-color: rgba(255, 255, 255, 0.5);
   --btn-active-color: $app-main-text-color;
 }
 
 .primary {
   --btn-background-color: #{$board-bg-color};
   --btn-color: white;
+  // focus
+  --btn-focus-bg-color: #2196d9;
   // hover
   --btn-hover-bg-color: #00639b;
-
   // active
   --btn-active-bg-color: #00629ba1;
   --btn-active-color: white;
@@ -68,6 +73,12 @@
   white-space: nowrap;
   background-color: var(--btn-background-color);
   color: var(--btn-color);
+
+  &:focus,
+  &.trello-btn--focus {
+    background-color: var(--btn-focus-bg-color);
+  }
+
   &:hover {
     background-color: var(--btn-hover-bg-color);
   }
