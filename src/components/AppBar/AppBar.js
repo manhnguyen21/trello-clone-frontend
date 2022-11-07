@@ -4,7 +4,7 @@ import useMediaQuery from "hooks/useMediaQuery"
 import { useState } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import { IconContext } from "react-icons"
-import { AiOutlinePlus } from "react-icons/ai"
+import { AiFillStar, AiOutlinePlus, AiOutlineStar } from "react-icons/ai"
 import { BiSearch } from "react-icons/bi"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
 import { IoMdNotificationsOutline } from "react-icons/io"
@@ -65,15 +65,73 @@ const recentBoards = [
     description: "Trello Templates",
   },
   {
-    key: 4,
+    key: 5,
     thumb:
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
     name: "Project Management",
     description: "",
   },
+  {
+    key: 6,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
+    name: "Project Management",
+    description: "",
+  },
+  {
+    key: 7,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
+    name: "Project Management",
+    description: "",
+  },
+  {
+    key: 8,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/350dda08d977f92d756f3d9ec111ea66/photo-1521495084171-3ad639e3d525.jpg",
+    name: "ThanhDat-Workspace",
+    description: "Trello Templates",
+  },
+  {
+    key: 9,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x322/47f09f0e3910259568294477d0bdedac/photo-1576502200916-3808e07386a5.jpg",
+    name: "Kanban Template",
+    description: "",
+  },
+  {
+    key: 10,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x480/e8a76cd7622d8889d42c2977427bb584/photo-1515079424831-8fce6574676d.jpg",
+    name: "Trello Agile Sprint Board",
+    description: "Trello Templates",
+  },
+  {
+    key: 11,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
+    name: "Project Management",
+    description: "",
+  },
+  {
+    key: 12,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
+    name: "Project Management",
+    description: "",
+  },
+  {
+    key: 13,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/350dda08d977f92d756f3d9ec111ea66/photo-1521495084171-3ad639e3d525.jpg",
+    name: "ThanhDat-Workspace",
+    description: "Trello Templates",
+  },
 ]
 
 const Board = ({ board }) => {
+  const [starred, setStarred] = useState(false)
+  const toggleStarred = () => setStarred(!starred)
   return (
     <div className="board">
       <div
@@ -85,7 +143,16 @@ const Board = ({ board }) => {
         {board?.description && <span>{board.description}</span>}
       </div>
       <TrelloButton className={"board-template-btn"}>Template</TrelloButton>
-      <div className="start" />
+      {!starred && (
+        <AiOutlineStar onClick={toggleStarred} className="board-star" />
+      )}
+      {starred && (
+        <AiFillStar
+          onClick={toggleStarred}
+          tabIndex={-1}
+          className="board-star board-star--starred"
+        />
+      )}
     </div>
   )
 }
