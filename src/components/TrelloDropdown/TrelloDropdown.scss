@@ -23,6 +23,20 @@
     border-radius: 3px;
     box-shadow: 0 0px 1rem rgba(0, 0, 0, 0.1);
 
+    ::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(9, 30, 66, 0.08);
+      border-radius: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(9, 30, 66, 0.1);
+      border-radius: 0.5rem;
+    }
+
     .trello-dropdown-container__header {
       display: grid;
       grid-template-columns: 1.25rem 1fr 1.25rem;
@@ -56,7 +70,7 @@
     .trello-dropdown-container__content {
       padding: 0 0.75rem 0.75rem 0.75rem;
       max-height: 18.125rem;
-      overflow: scroll;
+      overflow-y: auto;
 
       div:last-child {
         border: none;
