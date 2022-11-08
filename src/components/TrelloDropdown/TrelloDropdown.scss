@@ -13,20 +13,38 @@
     pointer-events: none;
     transition: opacity 0.2s linear, transform 0.2s linear;
 
+    max-width: 17.1875rem;
+
     // block style
     background-color: #ffffff;
-    padding: 0 0.75rem;
+    // padding: 0 0.75rem;
     min-width: 18.75rem;
     z-index: 999;
     border-radius: 3px;
     box-shadow: 0 0px 1rem rgba(0, 0, 0, 0.1);
 
+    ::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(9, 30, 66, 0.08);
+      border-radius: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(9, 30, 66, 0.1);
+      border-radius: 0.5rem;
+    }
+
     .trello-dropdown-container__header {
       display: grid;
       grid-template-columns: 1.25rem 1fr 1.25rem;
+      align-items: center;
+
+      padding: 0 0.75rem;
       height: 41px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      align-items: center;
       color: $text-sub-title-color;
 
       h2 {
@@ -50,7 +68,10 @@
     }
 
     .trello-dropdown-container__content {
-      padding-bottom: 0.75rem;
+      padding: 0 0.75rem 0.75rem 0.75rem;
+      max-height: 18.125rem;
+      overflow-y: auto;
+
       div:last-child {
         border: none;
       }
