@@ -1,0 +1,96 @@
+@import "_setting.scss";
+
+.boards {
+  padding: 0.75rem 0;
+  > * {
+    margin-bottom: 0.5rem;
+  }
+
+  .board {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+
+    font-weight: 700;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover > .board-thumb {
+      opacity: 0.6;
+    }
+
+    &:hover > .board-star {
+      display: inline;
+    }
+
+    .board-thumb {
+      flex-shrink: 0;
+      width: 40px;
+      height: inherit;
+      background-size: cover;
+      border-radius: inherit;
+    }
+
+    .board-info {
+      padding-left: 0.5rem;
+      min-width: 100px;
+      flex: 1;
+      div {
+        font-size: 14px;
+        color: $app-main-text-color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 100;
+        padding-right: 0.5rem;
+        color: $text-sub-title-color;
+      }
+    }
+
+    .board-template-btn {
+      height: 1.375rem;
+      padding: 3px 0.5rem;
+      margin: 0 0.5rem 0 0;
+      font-size: 11px;
+      font-weight: inherit;
+    }
+
+    .board-star {
+      display: none;
+      border: none;
+      outline: none;
+      margin-right: 0.375rem;
+      width: 1.2rem;
+      height: 1.2rem;
+
+      &:hover {
+        color: #f2d600;
+      }
+
+      &.board-star--starred {
+        display: block;
+        color: #f2d600;
+      }
+    }
+  }
+}
+
+ul.boards {
+  list-style: none;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

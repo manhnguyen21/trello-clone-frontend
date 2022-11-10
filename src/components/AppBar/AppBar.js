@@ -1,10 +1,12 @@
+import Boards from "components/Boards/Boards"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
+import Workspaces from "components/Workspaces/Workspaces"
 import useMediaQuery from "hooks/useMediaQuery"
 import { useState } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import { IconContext } from "react-icons"
-import { AiFillStar, AiOutlinePlus, AiOutlineStar } from "react-icons/ai"
+import { AiOutlinePlus } from "react-icons/ai"
 import { BiSearch } from "react-icons/bi"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
 import { IoMdNotificationsOutline } from "react-icons/io"
@@ -17,31 +19,6 @@ const STARRED = "starred"
 const TEMPLATES = "templates"
 const CREATE = "create"
 
-const WorkSpaces = () => {
-  return (
-    <>
-      <div className="workspace">
-        <div className="workspace__title">Current workspace</div>
-        <div className="workspace__details workspace__details--current">
-          <div className="workspace__avatar">
-            <span>T</span>
-          </div>
-          <div className="workspace__name">Trello workspace</div>
-        </div>
-      </div>
-      <div className="workspace">
-        <div className="workspace__title">Your workspace</div>
-        <div className="workspace__details">
-          <div className="workspace__avatar">
-            <span>T</span>
-          </div>
-          <div className="workspace__name">Trello workspace</div>
-        </div>
-      </div>
-    </>
-  )
-}
-
 const recentBoards = [
   {
     key: 1,
@@ -49,6 +26,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/350dda08d977f92d756f3d9ec111ea66/photo-1521495084171-3ad639e3d525.jpg",
     name: "ThanhDat-Workspace",
     description: "Trello Templates",
+    starred: true,
   },
   {
     key: 2,
@@ -56,6 +34,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x322/47f09f0e3910259568294477d0bdedac/photo-1576502200916-3808e07386a5.jpg",
     name: "Kanban Template",
     description: "",
+    starred: true,
   },
   {
     key: 3,
@@ -63,6 +42,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x480/e8a76cd7622d8889d42c2977427bb584/photo-1515079424831-8fce6574676d.jpg",
     name: "Trello Agile Sprint Board",
     description: "Trello Templates",
+    starred: true,
   },
   {
     key: 5,
@@ -70,6 +50,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
     name: "Project Management",
     description: "",
+    starred: false,
   },
   {
     key: 6,
@@ -77,6 +58,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
     name: "Project Management",
     description: "",
+    starred: false,
   },
   {
     key: 7,
@@ -84,6 +66,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x336/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg",
     name: "Project Management",
     description: "",
+    starred: false,
   },
   {
     key: 8,
@@ -91,6 +74,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/350dda08d977f92d756f3d9ec111ea66/photo-1521495084171-3ad639e3d525.jpg",
     name: "ThanhDat-Workspace",
     description: "Trello Templates",
+    starred: false,
   },
   {
     key: 9,
@@ -98,6 +82,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x322/47f09f0e3910259568294477d0bdedac/photo-1576502200916-3808e07386a5.jpg",
     name: "Kanban Template",
     description: "",
+    starred: false,
   },
   {
     key: 10,
@@ -105,6 +90,7 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x480/e8a76cd7622d8889d42c2977427bb584/photo-1515079424831-8fce6574676d.jpg",
     name: "Trello Agile Sprint Board",
     description: "Trello Templates",
+    starred: false,
   },
   {
     key: 11,
@@ -128,46 +114,6 @@ const recentBoards = [
     description: "Trello Templates",
   },
 ]
-
-const Board = ({ board }) => {
-  const [starred, setStarred] = useState(false)
-  const toggleStarred = () => setStarred(!starred)
-  return (
-    <div className="board">
-      <div
-        className="board-thumb"
-        style={{ backgroundImage: `url(${board?.thumb})` }}
-      />
-      <div className="board-info">
-        <div>{board?.name}</div>
-        {board?.description && <span>{board.description}</span>}
-      </div>
-      <TrelloButton className={"board-template-btn"}>Template</TrelloButton>
-      {!starred && (
-        <AiOutlineStar onClick={toggleStarred} className="board-star" />
-      )}
-      {starred && (
-        <AiFillStar
-          onClick={toggleStarred}
-          tabIndex={-1}
-          className="board-star board-star--starred"
-        />
-      )}
-    </div>
-  )
-}
-
-const RecentBoards = ({ recentBoards }) => {
-  return (
-    <ul className="recent-board">
-      {recentBoards.map(({ key, ...board }) => (
-        <li key={key}>
-          <Board board={board} />
-        </li>
-      ))}
-    </ul>
-  )
-}
 
 const AppBar = () => {
   const hideCreate = useMediaQuery("(max-width: 1000px)")
@@ -207,7 +153,7 @@ const AppBar = () => {
             {!hideWorkspace && (
               <TrelloDropdown
                 header={"Workspace"}
-                dropDownContent={<WorkSpaces />}
+                dropDownContent={<Workspaces />}
               >
                 <TrelloButton
                   id={WORKSPACE}
@@ -223,8 +169,7 @@ const AppBar = () => {
             {!hideRecent && (
               <TrelloDropdown
                 header={"Recent boards"}
-                dropDownContent={<RecentBoards recentBoards={recentBoards} />}
-                // active
+                dropDownContent={<Boards boards={recentBoards} />}
               >
                 <TrelloButton
                   id={RECENT}
@@ -241,15 +186,7 @@ const AppBar = () => {
               <TrelloDropdown
                 header={STARRED}
                 dropDownContent={
-                  <div className="workspace">
-                    <div className="workspace__title">Your workspace</div>
-                    <div className="workspace__details">
-                      <div className="workspace__avatar">
-                        <span>T</span>
-                      </div>
-                      <div className="workspace__name">Trello workspace</div>
-                    </div>
-                  </div>
+                  <Boards boards={recentBoards.filter((i) => i.starred)} />
                 }
               >
                 <TrelloButton
@@ -264,20 +201,7 @@ const AppBar = () => {
               </TrelloDropdown>
             )}
             {!hideTemplates && (
-              <TrelloDropdown
-                header={TEMPLATES}
-                dropDownContent={
-                  <div className="workspace">
-                    <div className="workspace__title">Your workspace</div>
-                    <div className="workspace__details">
-                      <div className="workspace__avatar">
-                        <span>T</span>
-                      </div>
-                      <div className="workspace__name">Trello workspace</div>
-                    </div>
-                  </div>
-                }
-              >
+              <TrelloDropdown header={TEMPLATES} dropDownContent={<div>a</div>}>
                 <TrelloButton
                   id={TEMPLATES}
                   onClick={handleClickFeature}
@@ -295,20 +219,7 @@ const AppBar = () => {
               </TrelloButton>
             )}
             {!hideCreate ? (
-              <TrelloDropdown
-                header={CREATE}
-                dropDownContent={
-                  <div className="workspace">
-                    <div className="workspace__title">Your workspace</div>
-                    <div className="workspace__details">
-                      <div className="workspace__avatar">
-                        <span>T</span>
-                      </div>
-                      <div className="workspace__name">Trello workspace</div>
-                    </div>
-                  </div>
-                }
-              >
+              <TrelloDropdown header={CREATE} dropDownContent={<div>a</div>}>
                 <TrelloButton
                   id={CREATE}
                   onClick={handleClickFeature}
