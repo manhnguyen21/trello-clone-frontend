@@ -1,4 +1,5 @@
 import Boards from "components/Boards/Boards"
+import CreateButton from "components/CreateButton/CreateButton"
 import Templates from "components/Templates/Templates"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
@@ -12,7 +13,6 @@ import { BiSearch } from "react-icons/bi"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { RiInformationLine } from "react-icons/ri"
-import { TbLayoutBoardSplit } from "react-icons/tb"
 import "./AppBar.scss"
 
 const WORKSPACE = "workspace"
@@ -116,25 +116,6 @@ const recentBoards = [
     description: "Trello Templates",
   },
 ]
-
-const CreateButton = () => {
-  return (
-    <TrelloButton className="create-container" type="transparent-darker">
-      <div className="create-container__header">
-        <div className="create-container__icon">
-          <IconContext.Provider value={{ size: 20 }}>
-            <TbLayoutBoardSplit />
-          </IconContext.Provider>
-        </div>
-        <div className="create-container__title">Create board</div>
-      </div>
-      <p className="create-container__content">
-        A board is made up of cards ordered on lists. Use it to manage projects,
-        track information, or organize anything.
-      </p>
-    </TrelloButton>
-  )
-}
 
 const AppBar = () => {
   const hideCreate = useMediaQuery("(max-width: 1000px)")
@@ -253,7 +234,7 @@ const AppBar = () => {
                     <CreateButton />
                   </>
                 }
-                active
+                // active
               >
                 <TrelloButton
                   id={CREATE}
