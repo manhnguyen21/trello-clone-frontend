@@ -1,4 +1,5 @@
 import Boards from "components/Boards/Boards"
+import Templates from "components/Templates/Templates"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
 import Workspaces from "components/Workspaces/Workspaces"
@@ -201,7 +202,11 @@ const AppBar = () => {
               </TrelloDropdown>
             )}
             {!hideTemplates && (
-              <TrelloDropdown header={TEMPLATES} dropDownContent={<div>a</div>}>
+              <TrelloDropdown
+                header={TEMPLATES}
+                dropDownContent={<Templates />}
+                active
+              >
                 <TrelloButton
                   id={TEMPLATES}
                   onClick={handleClickFeature}

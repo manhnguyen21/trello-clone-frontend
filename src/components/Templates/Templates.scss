@@ -1,0 +1,34 @@
+.templates {
+  .templates__list {
+    .template {
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      border-radius: 3px;
+
+      transition: 0.1s linear;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .template__thumb {
+        width: 40px;
+        height: 32px;
+        object-fit: cover;
+        background-size: cover;
+        margin-right: 0.5rem;
+        border-radius: inherit;
+      }
+      .template__name {
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 5px;
+      }
+    }
+  }
+}
