@@ -12,6 +12,7 @@ import { BiSearch } from "react-icons/bi"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { RiInformationLine } from "react-icons/ri"
+import { TbLayoutBoardSplit } from "react-icons/tb"
 import "./AppBar.scss"
 
 const WORKSPACE = "workspace"
@@ -224,7 +225,29 @@ const AppBar = () => {
               </TrelloButton>
             )}
             {!hideCreate ? (
-              <TrelloDropdown header={CREATE} dropDownContent={<div>a</div>}>
+              <TrelloDropdown
+                header={CREATE}
+                dropDownContent={
+                  <TrelloButton
+                    className="create-container"
+                    type="transparent-darker"
+                  >
+                    <div className="create-container__header">
+                      <div className="create-container__icon">
+                        <TbLayoutBoardSplit />
+                      </div>
+                      <div className="create-container__title">
+                        Create board
+                      </div>
+                    </div>
+                    <p className="create-container__content">
+                      A board is made up of cards ordered on lists. Use it to
+                      manage projects, track information, or organize anything.
+                    </p>
+                  </TrelloButton>
+                }
+                active
+              >
                 <TrelloButton
                   id={CREATE}
                   onClick={handleClickFeature}
