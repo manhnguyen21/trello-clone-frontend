@@ -127,9 +127,14 @@ $app-bar-max-height: 2rem;
   }
 }
 
+.trello-dropdown-container__content {
+  padding: 0 !important;
+  margin-bottom: 0.5rem;
+}
+
 .create-container {
   width: 100%;
-  padding: 0.2rem;
+  padding: 0.5rem 0.75rem;
 
   &:active {
     background-color: #e4f0f6;
@@ -139,12 +144,10 @@ $app-bar-max-height: 2rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
-
-    // .create-container__icon {
-    // }
+    color: $app-main-text-color;
 
     .create-container__title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
     }
   }
@@ -152,9 +155,9 @@ $app-bar-max-height: 2rem;
   p.create-container__content {
     margin: 4px 0 0 0;
     padding: 0;
-    font-size: 14px;
-    color: $app-main-text-color;
+    font-size: 13px;
     white-space: break-spaces;
-    text-align: justify;
+    text-align: start;
+    color: $text-sub-title-color;
   }
 }

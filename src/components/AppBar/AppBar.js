@@ -117,6 +117,25 @@ const recentBoards = [
   },
 ]
 
+const CreateButton = () => {
+  return (
+    <TrelloButton className="create-container" type="transparent-darker">
+      <div className="create-container__header">
+        <div className="create-container__icon">
+          <IconContext.Provider value={{ size: 20 }}>
+            <TbLayoutBoardSplit />
+          </IconContext.Provider>
+        </div>
+        <div className="create-container__title">Create board</div>
+      </div>
+      <p className="create-container__content">
+        A board is made up of cards ordered on lists. Use it to manage projects,
+        track information, or organize anything.
+      </p>
+    </TrelloButton>
+  )
+}
+
 const AppBar = () => {
   const hideCreate = useMediaQuery("(max-width: 1000px)")
 
@@ -228,23 +247,11 @@ const AppBar = () => {
               <TrelloDropdown
                 header={CREATE}
                 dropDownContent={
-                  <TrelloButton
-                    className="create-container"
-                    type="transparent-darker"
-                  >
-                    <div className="create-container__header">
-                      <div className="create-container__icon">
-                        <TbLayoutBoardSplit />
-                      </div>
-                      <div className="create-container__title">
-                        Create board
-                      </div>
-                    </div>
-                    <p className="create-container__content">
-                      A board is made up of cards ordered on lists. Use it to
-                      manage projects, track information, or organize anything.
-                    </p>
-                  </TrelloButton>
+                  <>
+                    <CreateButton />
+                    <CreateButton />
+                    <CreateButton />
+                  </>
                 }
                 active
               >
