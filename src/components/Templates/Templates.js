@@ -1,3 +1,7 @@
+import TrelloButton from "components/TrelloButton/TrelloButton"
+import { useState } from "react"
+import { IconContext } from "react-icons"
+import { IoChevronDown, IoChevronUp } from "react-icons/io5"
 import "./Templates.scss"
 
 const templates = [
@@ -55,6 +59,12 @@ const templates = [
       "https://trello-backgrounds.s3.amazonaws.com/575584dacedaafdf0d8660c2/480x272/02a67bbc2d5b879d912dad85eb5f3a05/asset_3.png",
     name: "Teaching: Weekly Planning",
   },
+  {
+    id: 9,
+    thumb:
+      "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/963ddbe30ac0e2ab51ed5ed7403a5143/photo-1523266092241-0077129f31fe.jpg",
+    name: "Mise-En-Place Personal Productivity System",
+  },
 ]
 
 const Template = ({ template }) => {
@@ -71,17 +81,40 @@ const Template = ({ template }) => {
 }
 
 const TemplateContainer = ({ title, templates }) => {
+  const [showTemplates, setShowTemplates] = useState(false)
+  const toggle = () => setShowTemplates(!showTemplates)
   return (
     <div className="templates">
       <div className="templates__header">
         <div className="templates__title">{title}</div>
-        <div className="templates__collapse"></div>
+        <IconContext.Provider value={{ className: "" }}>
+          {!showTemplates && (
+            <TrelloButton
+              type="transparent-darker"
+              className="templates__collapse"
+              onClick={toggle}
+            >
+              <IoChevronDown />
+            </TrelloButton>
+          )}
+          {showTemplates && (
+            <TrelloButton
+              type="transparent-darker"
+              className="templates__collapse"
+              onClick={toggle}
+            >
+              <IoChevronUp />
+            </TrelloButton>
+          )}
+        </IconContext.Provider>
       </div>
-      <div className="templates__list">
-        {templates.map(({ id, ...template }) => (
-          <Template key={id} template={template} />
-        ))}
-      </div>
+      {showTemplates && (
+        <div className="templates__list">
+          {templates.map(({ id, ...template }) => (
+            <Template key={id} template={template} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

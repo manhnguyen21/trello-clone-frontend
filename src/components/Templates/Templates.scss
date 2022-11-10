@@ -1,4 +1,25 @@
+@import "_setting.scss";
+
 .templates {
+  font-weight: bold;
+
+  .templates__header {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $text-sub-title-color;
+
+    .templates__title {
+      flex-grow: 1;
+    }
+    .templates__collapse {
+      padding: 0;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
   .templates__list {
     .template {
       margin-top: 0.5rem;
@@ -23,7 +44,6 @@
       }
       .template__name {
         font-size: 14px;
-        font-weight: 700;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
