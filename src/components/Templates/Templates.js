@@ -75,7 +75,7 @@ const Template = ({ template }) => {
         alt={template.thumb}
         className="template__thumb"
       />
-      <span className="template__name">{template.name}</span>
+      <span className="template__name text--no-select">{template.name}</span>
     </div>
   )
 }
