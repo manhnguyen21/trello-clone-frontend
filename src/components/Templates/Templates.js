@@ -60,7 +60,7 @@ const templates = [
     name: "Teaching: Weekly Planning",
   },
   {
-    id: 9,
+    id: 10,
     thumb:
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/963ddbe30ac0e2ab51ed5ed7403a5143/photo-1523266092241-0077129f31fe.jpg",
     name: "Mise-En-Place Personal Productivity System",
