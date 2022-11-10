@@ -4,6 +4,10 @@
   width: 100%;
   padding: 0.5rem 0.75rem;
 
+  &:hover {
+    background-color: rgba(9, 30, 66, 0.04);
+  }
+
   &:active {
     background-color: #e4f0f6;
   }
