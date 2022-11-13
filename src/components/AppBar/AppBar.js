@@ -1,4 +1,5 @@
 import Boards from "components/Boards/Boards"
+import CreateButton from "components/CreateButton/CreateButton"
 import Templates from "components/Templates/Templates"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
@@ -9,9 +10,12 @@ import { Form, InputGroup } from "react-bootstrap"
 import { IconContext } from "react-icons"
 import { AiOutlinePlus } from "react-icons/ai"
 import { BiSearch } from "react-icons/bi"
+import { BsPeople } from "react-icons/bs"
 import { FiChevronDown, FiSearch } from "react-icons/fi"
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { RiInformationLine } from "react-icons/ri"
+import { TbLayoutBoardSplit } from "react-icons/tb"
+import { VscNotebookTemplate } from "react-icons/vsc"
 import "./AppBar.scss"
 
 const WORKSPACE = "workspace"
@@ -113,6 +117,29 @@ const recentBoards = [
       "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x320/350dda08d977f92d756f3d9ec111ea66/photo-1521495084171-3ad639e3d525.jpg",
     name: "ThanhDat-Workspace",
     description: "Trello Templates",
+  },
+]
+
+const createContent = [
+  {
+    key: 1,
+    icon: <TbLayoutBoardSplit />,
+    title: "Create boards",
+    content:
+      "A board is made up of cards ordered on lists. Use it to manage projects, track information, or organize anything.",
+  },
+  {
+    key: 2,
+    icon: <VscNotebookTemplate />,
+    title: "Start with a template",
+    content: "Get started faster with a board template.",
+  },
+  {
+    key: 3,
+    icon: <BsPeople />,
+    title: "Create Workspace",
+    content:
+      "A Workspace is a group of boards and people. Use it to organize your company, side hustle, family, or friends.",
   },
 ]
 
@@ -224,7 +251,20 @@ const AppBar = () => {
               </TrelloButton>
             )}
             {!hideCreate ? (
-              <TrelloDropdown header={CREATE} dropDownContent={<div>a</div>}>
+              <TrelloDropdown
+                header={CREATE}
+                dropDownContent={createContent.map(
+                  ({ key, icon, title, content }) => (
+                    <CreateButton
+                      key={key}
+                      icon={icon}
+                      title={title}
+                      content={content}
+                    />
+                  )
+                )}
+                // active
+              >
                 <TrelloButton
                   id={CREATE}
                   onClick={handleClickFeature}
