@@ -30,7 +30,6 @@ const Board = ({ board }) => {
       {starred && (
         <AiFillStar
           onClick={toggleStarred}
-          tabIndex={-1}
           className="board-star board-star--starred"
         />
       )}
