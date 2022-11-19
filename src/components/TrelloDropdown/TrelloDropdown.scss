@@ -12,7 +12,7 @@
     top: 100%;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s linear, transform 0.2s linear;
+    transition: opacity, transform 0.2s linear;
 
     max-width: 17.1875rem;
 
@@ -85,7 +85,7 @@
   &:focus-within > .trello-dropdown-container,
   .trello-dropdown-container--active {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(6px);
     pointer-events: auto;
   }
 }

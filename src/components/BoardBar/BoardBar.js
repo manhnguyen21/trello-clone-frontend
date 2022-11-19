@@ -1,7 +1,7 @@
-import CreateButton from "components/CreateButton/CreateButton"
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
+
 import { IconContext } from "react-icons"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
 import { BiRocket } from "react-icons/bi"
@@ -18,7 +18,7 @@ import "./BoardBar.scss"
 
 const boardNameInputStyle = { fontSize: 18, fontWeight: "bold", height: 32 }
 
-const createContent = [
+const workspaceVisibilityContent = [
   {
     key: 1,
     icon: <HiOutlineLockClosed color={"red"} />,
@@ -76,14 +76,16 @@ const BoardBar = () => {
             className="workspace-visibility"
             dropDownContent={
               <div className="workspace-visibility-content">
-                {createContent.map(({ key, icon, title, content }) => (
-                  <CreateButton
-                    key={key}
-                    icon={icon}
-                    title={title}
-                    content={content}
-                  />
-                ))}
+                {workspaceVisibilityContent.map(
+                  ({ key, icon, title, content }) => (
+                    <TrelloDropdown.Item
+                      key={key}
+                      icon={icon}
+                      title={title}
+                      content={content}
+                    />
+                  )
+                )}
               </div>
             }
           >
@@ -94,7 +96,7 @@ const BoardBar = () => {
             >
               <FiUsers />
               Workspace visible
-              <FiChevronDown />
+              <FiChevronDown className="navbar-board-btn-item--icon-end" />
             </TrelloButton>
           </TrelloDropdown>
           {/* <TrelloButton className="navbar-board-btn-item btn-without-icon">

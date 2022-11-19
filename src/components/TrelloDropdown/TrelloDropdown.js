@@ -1,4 +1,5 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import TrelloDropdownItem from "components/TrelloDropdownItem/TrelloDropdownItem"
 import { IconContext } from "react-icons"
 import { IoCloseOutline } from "react-icons/io5"
 import "./TrelloDropdown.scss"
@@ -36,5 +37,7 @@ const TrelloDropdown = ({
     </div>
   )
 }
+
+TrelloDropdown.Item = TrelloDropdownItem
 
 export default TrelloDropdown
