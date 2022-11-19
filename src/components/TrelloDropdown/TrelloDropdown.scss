@@ -3,6 +3,7 @@
 .trello-dropdown {
   z-index: 1;
   position: relative;
+  height: inherit;
 
   .trello-dropdown-container {
     // visible style
@@ -69,7 +70,7 @@
 
     .trello-dropdown-container__content {
       margin-top: 0.5rem;
-      padding: 0 0.75rem 0.75rem 0.75rem;
+      // padding: 0 0.75rem 0.75rem 0.75rem;
       // max-height: 18.125rem;
       max-height: 85vh;
       overflow-y: auto;

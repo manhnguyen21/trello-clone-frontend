@@ -1,5 +1,6 @@
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
 import { IconContext } from "react-icons"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
 import { BiRocket } from "react-icons/bi"
@@ -36,10 +37,22 @@ const BoardBar = () => {
             />
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
-            <FiUsers />
-            Workspace visible
-          </TrelloButton>
+          <TrelloDropdown
+            header={"Recent boards"}
+            dropDownContent={() => <div>Workspace visible content</div>}
+          >
+            <TrelloButton
+              // id={RECENT}
+              // onClick={handleClickFeature}
+              // className={`app-bar-btn-item ${isActive(RECENT)}`}
+              className="navbar-board-btn-item "
+              type="brighter"
+            >
+              <FiUsers />
+              Workspace visible
+              <FiChevronDown />
+            </TrelloButton>
+          </TrelloDropdown>
           {/* <TrelloButton className="navbar-board-btn-item btn-without-icon">
               Trello Workspace
             </TrelloButton> */}
