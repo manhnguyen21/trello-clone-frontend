@@ -3,6 +3,7 @@
 .trello-dropdown {
   z-index: 1;
   position: relative;
+  height: inherit;
 
   .trello-dropdown-container {
     // visible style
@@ -11,7 +12,7 @@
     top: 100%;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s linear, transform 0.2s linear;
+    transition: opacity, transform 0.2s linear;
 
     max-width: 17.1875rem;
 
@@ -69,7 +70,7 @@
 
     .trello-dropdown-container__content {
       margin-top: 0.5rem;
-      padding: 0 0.75rem 0.75rem 0.75rem;
+      // padding: 0 0.75rem 0.75rem 0.75rem;
       // max-height: 18.125rem;
       max-height: 85vh;
       overflow-y: auto;
@@ -84,7 +85,7 @@
   &:focus-within > .trello-dropdown-container,
   .trello-dropdown-container--active {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(6px);
     pointer-events: auto;
   }
 }

@@ -1,5 +1,4 @@
 import Boards from "components/Boards/Boards"
-import CreateButton from "components/CreateButton/CreateButton"
 import Templates from "components/Templates/Templates"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
@@ -255,7 +254,7 @@ const AppBar = () => {
                 header={CREATE}
                 dropDownContent={createContent.map(
                   ({ key, icon, title, content }) => (
-                    <CreateButton
+                    <TrelloDropdown.Item
                       key={key}
                       icon={icon}
                       title={title}

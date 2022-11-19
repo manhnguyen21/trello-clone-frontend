@@ -1,17 +1,52 @@
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
+import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
+
 import { IconContext } from "react-icons"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
 import { BiRocket } from "react-icons/bi"
 import { BsThreeDots } from "react-icons/bs"
 import { FiChevronDown, FiUsers } from "react-icons/fi"
-import { HiViewBoards } from "react-icons/hi"
+import { GiEarthAfricaEurope } from "react-icons/gi"
+import { HiOutlineLockClosed, HiViewBoards } from "react-icons/hi"
 import { IoFilterSharp } from "react-icons/io5"
+import { MdOutlinePeopleAlt } from "react-icons/md"
+import { RiOrganizationChart } from "react-icons/ri"
 import { TiStarOutline } from "react-icons/ti"
 import { ICON_SIZE } from "utilities/constants"
 import "./BoardBar.scss"
 
 const boardNameInputStyle = { fontSize: 18, fontWeight: "bold", height: 32 }
+
+const workspaceVisibilityContent = [
+  {
+    key: 1,
+    icon: <HiOutlineLockClosed color={"red"} />,
+    title: "Private",
+    content: "Only board members can see and edit this board.",
+  },
+  {
+    key: 2,
+    icon: <MdOutlinePeopleAlt />,
+    title: "Workspace",
+    content:
+      "All members of the Trello Workspace Workspace can see and edit this board.",
+  },
+  {
+    key: 3,
+    icon: <RiOrganizationChart />,
+    title: "Organization",
+    content:
+      "All members of the organization can see this board. The board must be added to an enterprise Workspace to enable this.",
+  },
+  {
+    key: 4,
+    icon: <GiEarthAfricaEurope color="green" />,
+    title: "Public",
+    content:
+      "Anyone on the internet can see this board. Only board members can edit.",
+  },
+]
 
 const BoardBar = () => {
   return (
@@ -36,10 +71,34 @@ const BoardBar = () => {
             />
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
-            <FiUsers />
-            Workspace visible
-          </TrelloButton>
+          <TrelloDropdown
+            header={"Change visibility"}
+            className="workspace-visibility"
+            dropDownContent={
+              <div className="workspace-visibility-content">
+                {workspaceVisibilityContent.map(
+                  ({ key, icon, title, content }) => (
+                    <TrelloDropdown.Item
+                      key={key}
+                      icon={icon}
+                      title={title}
+                      content={content}
+                    />
+                  )
+                )}
+              </div>
+            }
+          >
+            <TrelloButton
+              id={"workspace-visibility"}
+              className="navbar-board-btn-item "
+              type="brighter"
+            >
+              <FiUsers />
+              Workspace visible
+              <FiChevronDown className="navbar-board-btn-item--icon-end" />
+            </TrelloButton>
+          </TrelloDropdown>
           {/* <TrelloButton className="navbar-board-btn-item btn-without-icon">
               Trello Workspace
             </TrelloButton> */}
