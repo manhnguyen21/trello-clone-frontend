@@ -7,7 +7,7 @@ const TrelloDropdownItem = ({ icon, title, content }) => {
     <TrelloButton className="trello-dropdown-item" type="transparent-darker">
       <div className="trello-dropdown-item__header">
         <div className="trello-dropdown-item__icon">
-          <IconContext.Provider value={{ size: 20 }}>
+          <IconContext.Provider value={{ size: 16 }}>
             {icon}
           </IconContext.Provider>
         </div>
