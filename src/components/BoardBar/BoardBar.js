@@ -24,6 +24,7 @@ const workspaceVisibilityContent = [
     icon: <HiOutlineLockClosed color={"red"} />,
     title: "Private",
     content: "Only board members can see and edit this board.",
+    disabled: false,
   },
   {
     key: 2,
@@ -31,6 +32,7 @@ const workspaceVisibilityContent = [
     title: "Workspace",
     content:
       "All members of the Trello Workspace Workspace can see and edit this board.",
+    disabled: false,
   },
   {
     key: 3,
@@ -38,6 +40,7 @@ const workspaceVisibilityContent = [
     title: "Organization",
     content:
       "All members of the organization can see this board. The board must be added to an enterprise Workspace to enable this.",
+    disabled: true,
   },
   {
     key: 4,
@@ -45,6 +48,7 @@ const workspaceVisibilityContent = [
     title: "Public",
     content:
       "Anyone on the internet can see this board. Only board members can edit.",
+    disabled: false,
   },
 ]
 
@@ -77,12 +81,13 @@ const BoardBar = () => {
             dropDownContent={
               <div className="workspace-visibility-content">
                 {workspaceVisibilityContent.map(
-                  ({ key, icon, title, content }) => (
+                  ({ key, icon, title, content, disabled }) => (
                     <TrelloDropdown.Item
                       key={key}
                       icon={icon}
                       title={title}
                       content={content}
+                      disabled={disabled}
                     />
                   )
                 )}

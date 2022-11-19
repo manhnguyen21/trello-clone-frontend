@@ -2,9 +2,13 @@ import TrelloButton from "components/TrelloButton/TrelloButton"
 import { IconContext } from "react-icons"
 import "./TrelloDropdownItem.scss"
 
-const TrelloDropdownItem = ({ icon, title, content }) => {
+const TrelloDropdownItem = ({ icon, title, content, disabled }) => {
+  const disabledClassName = disabled ? "trello-dropdown-item--disabled" : ""
   return (
-    <TrelloButton className="trello-dropdown-item" type="transparent-darker">
+    <TrelloButton
+      className={`trello-dropdown-item ${disabledClassName}`}
+      type="transparent-darker"
+    >
       <div className="trello-dropdown-item__header">
         <div className="trello-dropdown-item__icon">
           <IconContext.Provider value={{ size: 16 }}>
