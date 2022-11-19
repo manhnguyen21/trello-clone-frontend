@@ -103,3 +103,12 @@ $board-bar-max-height: 2rem;
     }
   }
 }
+
+div.workspace-visibility {
+  max-width: 377px !important;
+  width: max-content;
+
+  .workspace-visibility-content {
+    margin-bottom: 0.5rem;
+  }
+}

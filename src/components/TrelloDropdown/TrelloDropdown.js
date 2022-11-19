@@ -3,16 +3,22 @@ import { IconContext } from "react-icons"
 import { IoCloseOutline } from "react-icons/io5"
 import "./TrelloDropdown.scss"
 
-const TrelloDropdown = ({ children, header, dropDownContent, active }) => {
+const TrelloDropdown = ({
+  className,
+  children,
+  header,
+  dropDownContent,
+  active,
+}) => {
   const handleClose = () => document.activeElement.blur()
 
   return (
-    <div className="trello-dropdown" tabIndex={-1}>
+    <div className={`trello-dropdown`} tabIndex={-1}>
       {children}
       <div
-        className={`trello-dropdown-container ${
-          active && "trello-dropdown-container--active"
-        }`}
+        className={`trello-dropdown-container ${className || ""}   ${
+          (active && "trello-dropdown-container--active") || ""
+        } `}
       >
         <div className="trello-dropdown-container__header">
           <span></span>
