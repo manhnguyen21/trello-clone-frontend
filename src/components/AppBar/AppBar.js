@@ -232,6 +232,9 @@ const AppBar = () => {
                 header={TEMPLATES}
                 dropDownContent={<Templates />}
                 active={isActive(TEMPLATES)}
+                onClose={() => {
+                  setActiveFeature(null)
+                }}
               >
                 <TrelloButton
                   id={TEMPLATES}
