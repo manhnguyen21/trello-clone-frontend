@@ -45,5 +45,40 @@
         font-size: 0.8rem;
       }
     }
+
+    .filter-item {
+      display: flex;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      align-items: center;
+      .filter-item__icon {
+        margin: 0 0.5rem 0 1rem;
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.09);
+        svg {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        img {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
   }
 }

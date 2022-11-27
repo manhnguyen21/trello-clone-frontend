@@ -1,5 +1,7 @@
 import Avatar from "components/Avatar/Avatar"
 import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
+import { IconContext } from "react-icons"
+import { AiOutlineUser } from "react-icons/ai"
 import "./Filter.scss"
 
 const FilterGroup = ({ label, onChange, items }) => {
@@ -26,7 +28,10 @@ const FilterGroup = ({ label, onChange, items }) => {
         return (
           <div className="filter-item" key={item.id}>
             <TrelloCheckBox onChange={handleChange} />
-            <Avatar key={item.icon} src={item.icon} /> <p>{item.text}</p>
+            <IconContext.Provider value={{ size: 16 }}>
+              <span className="filter-item__icon">{item.icon}</span>
+            </IconContext.Provider>
+            <span>{item.text}</span>
           </div>
         )
       })}
@@ -44,14 +49,29 @@ const Filter = () => {
         }
         text
       />
-      {/* <FilterGroup
-        label={"member"}
+      <FilterGroup
+        label={"Member"}
         onChange={(checkedItems) => console.log("checkedItems", checkedItems)}
         items={[
-          { icon: "icon", text: "No member" },
-          { icon: "me", text: "card assign to me" },
+          {
+            icon: <AiOutlineUser />,
+            text: "No member",
+          },
+          {
+            icon: (
+              <Avatar
+                src={
+                  "https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
+                }
+                alt={
+                  "https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"
+                }
+              />
+            ),
+            text: "Card assign to me",
+          },
         ]}
-      /> */}
+      />
     </div>
   )
 }
