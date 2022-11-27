@@ -48,36 +48,51 @@
 
     .filter-item {
       display: flex;
+      box-sizing: content-box;
       padding: 0.5rem 0 0.5rem 0.5rem;
+
+      &.label {
+        height: auto;
+        padding: 0 0 0.5rem 0.5rem;
+      }
 
       &:hover {
         cursor: pointer;
       }
 
-      align-items: center;
-      .filter-item__icon {
-        margin: 0 0.5rem 0 1rem;
-        position: relative;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.09);
-        svg {
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+      .filter-item-content {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
 
-        img {
+        margin-left: 1rem;
+
+        .filter-item-content__icon {
+          position: relative;
           width: 1.5rem;
           height: 1.5rem;
-        }
-      }
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.09);
 
-      span {
-        font-size: 14px;
+          svg {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          img {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        span.filter-item-content__text {
+          flex-grow: 1;
+          font-size: 14px;
+        }
       }
     }
   }
