@@ -171,8 +171,11 @@ const BoardBar = () => {
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
           <TrelloDropdown
-            className='filter-dropdown'
-            header="Filter" dropDownContent={<Filter />} active>
+            className="filter-dropdown"
+            header="Filter"
+            dropDownContent={<Filter />}
+            active
+          >
             <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
               <IoFilterSharp />
               Filter

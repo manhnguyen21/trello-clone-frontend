@@ -1,6 +1,7 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdownItem from "components/TrelloDropdownItem/TrelloDropdownItem"
 import { isFunction } from "lodash"
+import { useEffect, useRef, useState } from "react"
 import { IconContext } from "react-icons"
 import { IoCloseOutline } from "react-icons/io5"
 import "./TrelloDropdown.scss"
@@ -14,13 +15,34 @@ const TrelloDropdown = ({
   // the action which collapse the dropdown
   onClose,
 }) => {
+  const wrapperRef = useRef()
+
+  const [contentHeight, setContentHeight] = useState()
+
+  useEffect(() => {
+    const updateDropdownContentHeight = (e) => {
+      if (wrapperRef.current) {
+        const height =
+          e.target.window.innerHeight - (wrapperRef.current.offsetTop + 90)
+        setContentHeight(height)
+      }
+    }
+
+    updateDropdownContentHeight({ target: { window } })
+
+    window.addEventListener("resize", updateDropdownContentHeight)
+
+    return () =>
+      window.removeEventListener("resize", updateDropdownContentHeight)
+  }, [])
+
   const handleClose = () => {
     document.activeElement.blur()
     isFunction(onClose) && onClose()
   }
 
   return (
-    <div className={`trello-dropdown`} tabIndex={-1}>
+    <div className={`trello-dropdown`} tabIndex={-1} ref={wrapperRef}>
       {children}
       <div
         className={`trello-dropdown-container ${className || ""}   ${
@@ -36,7 +58,10 @@ const TrelloDropdown = ({
             </IconContext.Provider>
           </TrelloButton>
         </div>
-        <div className="trello-dropdown-container__content">
+        <div
+          className="trello-dropdown-container__content"
+          style={{ maxHeight: contentHeight }}
+        >
           {dropDownContent}
         </div>
       </div>
