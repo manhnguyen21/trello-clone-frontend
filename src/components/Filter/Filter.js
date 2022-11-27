@@ -10,10 +10,15 @@ const FilterGroup = ({ label, onChange, items }) => {
 
   return (
     <div className="filter-group">
-      <span>{label}</span>
+      <span className="filter-group__label">{label}</span>
       {!items && (
         <div className="filter-text">
-          <input size="sm" type="text" className="trello-app-editable" />
+          <input
+            size="sm"
+            type="text"
+            className="trello-app-editable"
+            placeholder="Enter a keyword..."
+          />
           <span>Search cards, members, labels, and more.</span>
         </div>
       )}
@@ -39,14 +44,14 @@ const Filter = () => {
         }
         text
       />
-      <FilterGroup
+      {/* <FilterGroup
         label={"member"}
         onChange={(checkedItems) => console.log("checkedItems", checkedItems)}
         items={[
           { icon: "icon", text: "No member" },
           { icon: "me", text: "card assign to me" },
         ]}
-      />
+      /> */}
     </div>
   )
 }
