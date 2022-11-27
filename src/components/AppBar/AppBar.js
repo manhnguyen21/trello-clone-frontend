@@ -231,7 +231,6 @@ const AppBar = () => {
               <TrelloDropdown
                 header={TEMPLATES}
                 dropDownContent={<Templates />}
-                active={isActive(TEMPLATES)}
               >
                 <TrelloButton
                   id={TEMPLATES}

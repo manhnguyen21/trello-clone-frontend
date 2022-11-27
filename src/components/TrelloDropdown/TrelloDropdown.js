@@ -1,5 +1,6 @@
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdownItem from "components/TrelloDropdownItem/TrelloDropdownItem"
+import { isFunction } from "lodash"
 import { IconContext } from "react-icons"
 import { IoCloseOutline } from "react-icons/io5"
 import "./TrelloDropdown.scss"
@@ -10,8 +11,13 @@ const TrelloDropdown = ({
   header,
   dropDownContent,
   active,
+  // the action which collapse the dropdown
+  onClose,
 }) => {
-  const handleClose = () => document.activeElement.blur()
+  const handleClose = () => {
+    document.activeElement.blur()
+    isFunction(onClose) && onClose()
+  }
 
   return (
     <div className={`trello-dropdown`} tabIndex={-1}>
