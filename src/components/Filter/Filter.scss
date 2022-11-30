@@ -1,4 +1,6 @@
 @import "_setting.scss";
+$background-color: rgba(0, 0, 0, 0.03);
+$hover-color: rgba(0, 0, 0, 0.09);
 
 .filter-container {
   padding: 0 12px 12px 12px;
@@ -21,16 +23,16 @@
         width: 100%;
         height: 2rem;
         outline: #0079bf;
-        border: 2px solid rgba(0, 0, 0, 0.09);
+        border: 2px solid $hover-color;
         border-radius: 3px;
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
-        background-color: rgba(0, 0, 0, 0.03);
+        background-color: $background-color;
         transition: all 0.1s linear;
 
         &:hover {
           cursor: text;
-          background-color: rgb(0, 0, 0, 0.09);
+          background-color: $hover-color;
         }
 
         &:focus {
@@ -58,6 +60,15 @@
 
       &:hover {
         cursor: pointer;
+
+        .trello-checkbox label,
+        .trello-checkbox label::before {
+          background-color: $background-color;
+        }
+        .trello-checkbox input:checked + label,
+        .trello-checkbox input:checked + label::before {
+          background-color: $input-border-color;
+        }
       }
 
       .filter-item-content {
@@ -73,7 +84,7 @@
           width: 1.5rem;
           height: 1.5rem;
           border-radius: 50%;
-          background-color: rgba(0, 0, 0, 0.09);
+          background-color: $hover-color;
 
           svg {
             display: block;

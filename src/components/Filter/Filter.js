@@ -80,10 +80,6 @@ const filterGroups = [
 ]
 
 const FilterGroup = ({ label, onChange, items }) => {
-  const handleChange = (e) => {
-    onChange(e.target.value)
-  }
-
   return (
     <div className="filter-group">
       <span className="filter-group__label">{label}</span>
@@ -104,7 +100,7 @@ const FilterGroup = ({ label, onChange, items }) => {
             className={`filter-item ${label === "Labels" ? "label" : ""}`}
             key={item.id}
           >
-            <TrelloCheckBox onChange={handleChange} />
+            <TrelloCheckBox />
             <div className="filter-item-content">
               {item.icon && (
                 <IconContext.Provider value={{ size: 16 }}>
