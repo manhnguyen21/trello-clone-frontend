@@ -1,3 +1,4 @@
+import Filter from "components/Filter/Filter"
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
@@ -169,10 +170,16 @@ const BoardBar = () => {
             Power-Ups
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
-            <IoFilterSharp />
-            Filter
-          </TrelloButton>
+          <TrelloDropdown
+            className="filter-dropdown"
+            header="Filter"
+            dropDownContent={<Filter />}
+          >
+            <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
+              <IoFilterSharp />
+              Filter
+            </TrelloButton>
+          </TrelloDropdown>
           <span className="navbar-board-btn-divider" />
           <img
             className="user-avatar"

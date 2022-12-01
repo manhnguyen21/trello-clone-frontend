@@ -1,7 +1,7 @@
 @import "_setting.scss";
 
 $label-size: 1rem;
-
+$hover-background: rgba(0, 0, 0, 0.03);
 .trello-checkbox {
   display: block;
   display: grid;
@@ -10,8 +10,12 @@ $label-size: 1rem;
   input {
     display: none;
 
+    &:hover + label {
+      background-color: $hover-background;
+    }
+
     &:hover + label::before {
-      background-color: #fafbfc;
+      background-color: $hover-background;
     }
 
     &:checked + label::before {
@@ -40,6 +44,8 @@ $label-size: 1rem;
     cursor: pointer;
     align-self: center;
     height: $label-size;
+    border-radius: 2px;
+
     &::before {
       content: "";
       width: $label-size;
