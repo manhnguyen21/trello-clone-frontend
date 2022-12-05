@@ -1,5 +1,7 @@
 import "./Avatar.scss"
 
-const Avatar = ({ src }) => <img key={src} className="avatar" src={src} />
+const Avatar = ({ className, src }) => (
+  <img key={src} className={`avatar ${className || ""}`} src={src} />
+)
 
 export default Avatar

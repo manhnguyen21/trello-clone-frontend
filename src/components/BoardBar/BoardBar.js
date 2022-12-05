@@ -1,16 +1,16 @@
+import Filter from "components/Filter/Filter"
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
-
 import { IconContext } from "react-icons"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
-import { BiRocket } from "react-icons/bi"
-import { BsThreeDots } from "react-icons/bs"
+import { BiRocket, BiSlider } from "react-icons/bi"
+import { BsMenuButtonWideFill, BsThreeDots } from "react-icons/bs"
 import { FiChevronDown, FiUsers } from "react-icons/fi"
 import { GiEarthAfricaEurope } from "react-icons/gi"
 import { HiOutlineLockClosed, HiViewBoards } from "react-icons/hi"
 import { IoFilterSharp } from "react-icons/io5"
-import { MdOutlinePeopleAlt } from "react-icons/md"
+import { MdOutlineMailOutline, MdOutlinePeopleAlt } from "react-icons/md"
 import { RiOrganizationChart } from "react-icons/ri"
 import { TiStarOutline } from "react-icons/ti"
 import { ICON_SIZE } from "utilities/constants"
@@ -24,6 +24,7 @@ const workspaceVisibilityContent = [
     icon: <HiOutlineLockClosed color={"red"} />,
     title: "Private",
     content: "Only board members can see and edit this board.",
+    disabled: false,
   },
   {
     key: 2,
@@ -31,6 +32,7 @@ const workspaceVisibilityContent = [
     title: "Workspace",
     content:
       "All members of the Trello Workspace Workspace can see and edit this board.",
+    disabled: false,
   },
   {
     key: 3,
@@ -38,6 +40,7 @@ const workspaceVisibilityContent = [
     title: "Organization",
     content:
       "All members of the organization can see this board. The board must be added to an enterprise Workspace to enable this.",
+    disabled: true,
   },
   {
     key: 4,
@@ -45,6 +48,34 @@ const workspaceVisibilityContent = [
     title: "Public",
     content:
       "Anyone on the internet can see this board. Only board members can edit.",
+    disabled: false,
+  },
+]
+
+const automationContent = [
+  {
+    key: 1,
+    icon: <BiSlider />,
+    title: "Rules",
+    content:
+      "Create rules that automatically respond to actions, schedules, or a card's due date.",
+    disabled: false,
+  },
+  {
+    key: 2,
+    icon: <BsMenuButtonWideFill />,
+    title: "Buttons",
+    content:
+      "Create custom buttons on the back of every card or at the top of the board.",
+    disabled: false,
+  },
+  {
+    key: 3,
+    icon: <MdOutlineMailOutline />,
+    title: "Email reports",
+    content:
+      "Set up email reports, such as a weekly summary of all cards that are due within 7 days.",
+    disabled: false,
   },
 ]
 
@@ -77,12 +108,13 @@ const BoardBar = () => {
             dropDownContent={
               <div className="workspace-visibility-content">
                 {workspaceVisibilityContent.map(
-                  ({ key, icon, title, content }) => (
+                  ({ key, icon, title, content, disabled }) => (
                     <TrelloDropdown.Item
                       key={key}
                       icon={icon}
                       title={title}
                       content={content}
+                      disabled={disabled}
                     />
                   )
                 )}
@@ -110,19 +142,44 @@ const BoardBar = () => {
           </TrelloButton>
         </div>
         <div className="navbar-board-container--right">
-          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
-            <AiFillThunderbolt />
-            Automation
-          </TrelloButton>
+          <TrelloDropdown
+            header="Automation"
+            dropDownContent={
+              <div className="workspace-visibility-content">
+                {automationContent.map(
+                  ({ key, icon, title, content, disabled }) => (
+                    <TrelloDropdown.Item
+                      key={key}
+                      icon={icon}
+                      title={title}
+                      content={content}
+                      disabled={disabled}
+                    />
+                  )
+                )}
+              </div>
+            }
+          >
+            <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
+              <AiFillThunderbolt />
+              Automation
+            </TrelloButton>
+          </TrelloDropdown>
           <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
             <BiRocket />
             Power-Ups
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
-          <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
-            <IoFilterSharp />
-            Filter
-          </TrelloButton>
+          <TrelloDropdown
+            className="filter-dropdown"
+            header="Filter"
+            dropDownContent={<Filter />}
+          >
+            <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
+              <IoFilterSharp />
+              Filter
+            </TrelloButton>
+          </TrelloDropdown>
           <span className="navbar-board-btn-divider" />
           <img
             className="user-avatar"

@@ -88,24 +88,14 @@ const TemplateContainer = ({ title, templates }) => {
       <div className="templates__header">
         <div className="templates__title">{title}</div>
         <IconContext.Provider value={{ className: "" }}>
-          {!showTemplates && (
-            <TrelloButton
-              type="transparent-darker"
-              className="templates__collapse"
-              onClick={toggle}
-            >
-              <IoChevronDown />
-            </TrelloButton>
-          )}
-          {showTemplates && (
-            <TrelloButton
-              type="transparent-darker"
-              className="templates__collapse"
-              onClick={toggle}
-            >
-              <IoChevronUp />
-            </TrelloButton>
-          )}
+          <TrelloButton
+            type="transparent-darker"
+            className="templates__collapse"
+            onClick={toggle}
+          >
+            {!showTemplates && <IoChevronDown />}
+            {showTemplates && <IoChevronUp />}
+          </TrelloButton>
         </IconContext.Provider>
       </div>
       {showTemplates && (
