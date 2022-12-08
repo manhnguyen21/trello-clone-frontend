@@ -1,6 +1,8 @@
 import Avatar from "components/Avatar/Avatar"
 import Label from "components/Label/Label"
 import TrelloCheckBox from "components/TrelloCheckBox/TrelloCheckBox"
+import { uniqueId } from "lodash"
+import { useState } from "react"
 import { IconContext } from "react-icons"
 import { AiOutlineUser } from "react-icons/ai"
 import { FiClock } from "react-icons/fi"
@@ -12,10 +14,12 @@ const filterGroups = [
     groupName: "Member",
     items: [
       {
+        id: uniqueId(),
         icon: <AiOutlineUser />,
         text: "No member",
       },
       {
+        id: uniqueId(),
         icon: (
           <Avatar
             src={
@@ -34,31 +38,38 @@ const filterGroups = [
     groupName: "Due date",
     items: [
       {
+        id: uniqueId(),
         icon: <RiCalendarTodoFill />,
         text: "No dates",
       },
       {
+        id: uniqueId(),
         icon: <FiClock />,
         style: { backgroundColor: "rgb(235, 90, 70)", color: "white" },
         text: "Overdue",
       },
       {
+        id: uniqueId(),
         icon: <FiClock />,
         style: { backgroundColor: "rgb(242, 214, 0)", color: "white" },
         text: "Due in the next day",
       },
       {
+        id: uniqueId(),
         icon: <FiClock />,
         text: "Due in the next week",
       },
       {
+        id: uniqueId(),
         icon: <FiClock />,
         text: "Due in the next month",
       },
       {
+        id: uniqueId(),
         text: "Marked as complete",
       },
       {
+        id: uniqueId(),
         text: "Not marked as complete",
       },
     ],
@@ -67,19 +78,32 @@ const filterGroups = [
     groupName: "Labels",
     items: [
       {
+        id: uniqueId(),
         text: <Label width="100%" />,
       },
       {
+        id: uniqueId(),
         text: <Label width="100%" color="dark-blue" />,
       },
       {
+        id: uniqueId(),
         text: <Label width="100%" color="purple" />,
       },
     ],
   },
 ]
 
-const FilterGroup = ({ label, onChange, items }) => {
+const FilterGroup = ({ label, items }) => {
+  const [checkedIds, setCheckedIds] = useState([])
+
+  const handleItemCheck = (id) => {
+    if (checkedIds.includes(id)) {
+      setCheckedIds(checkedIds.filter((i) => i !== id))
+    } else {
+      setCheckedIds([...checkedIds, id])
+    }
+  }
+
   return (
     <div className="filter-group">
       <span className="filter-group__label">{label}</span>
@@ -97,10 +121,19 @@ const FilterGroup = ({ label, onChange, items }) => {
       {items?.map((item) => {
         return (
           <div
-            className={`filter-item ${label === "Labels" ? "label" : ""}`}
             key={item.id}
+            onClick={(e) => {
+              e.preventDefault()
+              handleItemCheck(item.id)
+            }}
+            className={`filter-item ${label === "Labels" ? "label" : ""}`}
           >
-            <TrelloCheckBox />
+            <TrelloCheckBox
+              checked={checkedIds.includes(item.id)}
+              onChange={(e) => {
+                e.preventDefault()
+              }}
+            />
             <div className="filter-item-content">
               {item.icon && (
                 <IconContext.Provider value={{ size: 16 }}>
