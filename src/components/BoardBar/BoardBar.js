@@ -2,6 +2,7 @@ import Filter from "components/Filter/Filter"
 import GrowingInput from "components/GrowingInput/GrowingInput"
 import TrelloButton from "components/TrelloButton/TrelloButton"
 import TrelloDropdown from "components/TrelloDropdown/TrelloDropdown"
+import { useState } from "react"
 import { IconContext } from "react-icons"
 import { AiFillThunderbolt, AiOutlineUserAdd } from "react-icons/ai"
 import { BiRocket, BiSlider } from "react-icons/bi"
@@ -17,6 +18,10 @@ import { ICON_SIZE } from "utilities/constants"
 import "./BoardBar.scss"
 
 const boardNameInputStyle = { fontSize: 18, fontWeight: "bold", height: 32 }
+
+const WORKSPACE_VISIBILITY = "workspace-visibility"
+const AUTOMATION = "Automation"
+const FILTER = "Filter"
 
 const workspaceVisibilityContent = [
   {
@@ -80,6 +85,21 @@ const automationContent = [
 ]
 
 const BoardBar = () => {
+  const [activeFeature, setActiveFeature] = useState(null)
+
+  const isActive = (feature) => {
+    if (activeFeature === FILTER && feature === FILTER) {
+      return "filter-active"
+    }
+    return (activeFeature === feature && "trello-btn--focus") || ""
+  }
+
+  const handleButtonClick = ({ target: { id } }) => {
+    setActiveFeature(activeFeature !== id ? id : null)
+  }
+
+  const handleCloseFeature = () => setActiveFeature(null)
+
   return (
     <nav className="navbar-board">
       <IconContext.Provider
@@ -105,6 +125,8 @@ const BoardBar = () => {
           <TrelloDropdown
             header={"Change visibility"}
             className="workspace-visibility"
+            onClose={handleCloseFeature}
+            active={activeFeature === WORKSPACE_VISIBILITY}
             dropDownContent={
               <div className="workspace-visibility-content">
                 {workspaceVisibilityContent.map(
@@ -122,9 +144,12 @@ const BoardBar = () => {
             }
           >
             <TrelloButton
-              id={"workspace-visibility"}
-              className="navbar-board-btn-item "
+              id={WORKSPACE_VISIBILITY}
+              className={`navbar-board-btn-item ${isActive(
+                WORKSPACE_VISIBILITY
+              )}`}
               type="brighter"
+              onClick={handleButtonClick}
             >
               <FiUsers />
               Workspace visible
@@ -144,6 +169,8 @@ const BoardBar = () => {
         <div className="navbar-board-container--right">
           <TrelloDropdown
             header="Automation"
+            onClose={handleCloseFeature}
+            active={activeFeature === AUTOMATION}
             dropDownContent={
               <div className="workspace-visibility-content">
                 {automationContent.map(
@@ -160,7 +187,12 @@ const BoardBar = () => {
               </div>
             }
           >
-            <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
+            <TrelloButton
+              id={AUTOMATION}
+              className={`navbar-board-btn-item ${isActive(AUTOMATION)}`}
+              type={"brighter"}
+              onClick={handleButtonClick}
+            >
               <AiFillThunderbolt />
               Automation
             </TrelloButton>
@@ -171,11 +203,18 @@ const BoardBar = () => {
           </TrelloButton>
           <span className="navbar-board-btn-divider" />
           <TrelloDropdown
-            className="filter-dropdown"
+            onClose={handleCloseFeature}
+            active={activeFeature === FILTER}
             header="Filter"
             dropDownContent={<Filter />}
+            className="filter-dropdown"
           >
-            <TrelloButton className="navbar-board-btn-item " type={"brighter"}>
+            <TrelloButton
+              id={FILTER}
+              className={`navbar-board-btn-item ${isActive(FILTER)}`}
+              type={"brighter"}
+              onClick={handleButtonClick}
+            >
               <IoFilterSharp />
               Filter
             </TrelloButton>
