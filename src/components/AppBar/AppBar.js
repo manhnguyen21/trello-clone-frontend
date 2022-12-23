@@ -155,7 +155,7 @@ const AppBar = () => {
 
   const hideSearchBar = useMediaQuery("(max-width: 600px)")
 
-  const [activeFeature, setActiveFeature] = useState("create")
+  const [activeFeature, setActiveFeature] = useState(null)
 
   const showMoreButton =
     hideTemplates || hideStarred || hideRecent || hideWorkspace
@@ -167,6 +167,8 @@ const AppBar = () => {
   const handleClickFeature = ({ target: { id } }) => {
     setActiveFeature(id !== activeFeature ? id : null)
   }
+
+  const handleCloseFeature = () => setActiveFeature(null)
 
   return (
     <nav className="app-bar">
@@ -184,6 +186,7 @@ const AppBar = () => {
                 header={"Workspace"}
                 dropDownContent={<Workspaces />}
                 active={activeFeature === WORKSPACE}
+                onClose={handleCloseFeature}
               >
                 <TrelloButton
                   id={WORKSPACE}
@@ -201,6 +204,7 @@ const AppBar = () => {
                 header={"Recent boards"}
                 dropDownContent={<Boards boards={recentBoards} />}
                 active={activeFeature === RECENT}
+                onClose={handleCloseFeature}
               >
                 <TrelloButton
                   id={RECENT}
@@ -220,6 +224,7 @@ const AppBar = () => {
                   <Boards boards={recentBoards.filter((i) => i.starred)} />
                 }
                 active={activeFeature === STARRED}
+                onClose={handleCloseFeature}
               >
                 <TrelloButton
                   id={STARRED}
@@ -237,6 +242,7 @@ const AppBar = () => {
                 header={TEMPLATES}
                 dropDownContent={<Templates />}
                 active={activeFeature === TEMPLATES}
+                onClose={handleCloseFeature}
               >
                 <TrelloButton
                   id={TEMPLATES}
@@ -268,6 +274,8 @@ const AppBar = () => {
                   )
                 )}
                 active={activeFeature === CREATE}
+                onClose={handleCloseFeature}
+
                 // active
               >
                 <TrelloButton
