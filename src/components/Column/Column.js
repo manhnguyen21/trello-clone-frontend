@@ -18,16 +18,21 @@ import "./Column.scss"
 const Column = ({ column, onCardDrop, onColumnUpdateState }) => {
   const cards = mapOrder(column.cards, column.cardOrder)
 
-  const firstCardTitleRef = useRef()
   const endCardTitleRef = useRef()
 
+  const firstCardTitleRef = useRef()
+
   const [columnTitle, setColumnTitle] = useState("")
-  const [firstCardTitle, setFirstCardTitle] = useState("")
+
   const [endCardTitle, setEndCardTitle] = useState("")
 
+  const [firstCardTitle, setFirstCardTitle] = useState("")
+
   const [showConfirmModal, setShowConfirmModal] = useState(false)
-  const [openAddNewFirstCard, setOpenAddNewFirstCard] = useState(false)
+
   const [openAddNewEndCard, setOpenAddNewEndCard] = useState(false)
+
+  const [openAddNewFirstCard, setOpenAddNewFirstCard] = useState(false)
 
   const toggleShowConfirmModal = () => setShowConfirmModal(!showConfirmModal)
 

@@ -154,19 +154,17 @@ const FilterGroup = ({ label, items }) => {
   )
 }
 
-const Filter = () => {
-  return (
-    <div className="filter-container">
-      <FilterGroup label={"Keyword"} text />
-      {filterGroups.map((group) => (
-        <FilterGroup
-          key={group.groupName}
-          label={group.groupName}
-          items={group.items}
-        />
-      ))}
-    </div>
-  )
-}
+const Filter = () => (
+  <div className="filter-container">
+    <FilterGroup label={"Keyword"} text />
+    {filterGroups.map((group) => (
+      <FilterGroup
+        key={group.groupName}
+        label={group.groupName}
+        items={group.items}
+      />
+    ))}
+  </div>
+)
 
 export default Filter

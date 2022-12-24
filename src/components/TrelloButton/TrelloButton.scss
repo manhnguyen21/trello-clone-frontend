@@ -74,9 +74,9 @@
   background-color: var(--btn-background-color);
   color: var(--btn-color);
 
-  &:focus,
+  // &:focus,
   &.trello-btn--focus {
-    background-color: var(--btn-focus-bg-color);
+    background-color: var(--btn-focus-bg-color) !important;
   }
 
   &:hover {

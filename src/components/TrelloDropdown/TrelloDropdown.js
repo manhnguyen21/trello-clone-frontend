@@ -7,11 +7,11 @@ import { IoCloseOutline } from "react-icons/io5"
 import "./TrelloDropdown.scss"
 
 const TrelloDropdown = ({
-  className,
-  children,
-  header,
-  dropDownContent,
   active,
+  header,
+  children,
+  className,
+  dropDownContent,
   // the action which collapse the dropdown
   onClose,
 }) => {
@@ -37,15 +37,19 @@ const TrelloDropdown = ({
   }, [])
 
   const handleClose = () => {
-    document.activeElement.blur()
     isFunction(onClose) && onClose()
   }
 
   return (
-    <div className={`trello-dropdown`} tabIndex={-1} ref={wrapperRef}>
+    <div
+      tabIndex={-1}
+      ref={wrapperRef}
+      onBlur={handleClose}
+      className={`trello-dropdown`}
+    >
       {children}
       <div
-        className={`trello-dropdown-container ${className || ""}   ${
+        className={`trello-dropdown-container ${className || ""} ${
           (active && "trello-dropdown-container--active") || ""
         } `}
       >
