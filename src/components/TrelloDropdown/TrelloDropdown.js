@@ -40,12 +40,20 @@ const TrelloDropdown = ({
     isFunction(onClose) && onClose()
   }
 
+  const handleBlur = (e) => {
+    // if the blur was because of outside focus
+    // currentTarget is the parent element, relatedTarget is the clicked element
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      handleClose()
+    }
+  }
+
   return (
     <div
-      tabIndex={-1}
       ref={wrapperRef}
-      onBlur={handleClose}
       className={`trello-dropdown`}
+      tabIndex={-1}
+      onBlur={handleBlur}
     >
       {children}
       <div
@@ -63,8 +71,8 @@ const TrelloDropdown = ({
           </TrelloButton>
         </div>
         <div
-          className="trello-dropdown-container__content"
           style={{ maxHeight: contentHeight }}
+          className="trello-dropdown-container__content"
         >
           {dropDownContent}
         </div>
