@@ -1,3 +1,4 @@
+import { initialData } from "actions/initialData"
 import AddColumn from "components/AddColumn/AddColumn"
 import Column from "components/Column/Column"
 import { isEmpty } from "lodash"
@@ -13,23 +14,30 @@ const BoardContent = () => {
   const [columns, setColumns] = React.useState([])
 
   React.useEffect(() => {
-    getBoardById({ id: "6327274493d41701b4f9454f" })
-      .then((response) => {
-        if (!response) return
-
+    const fetchBoardById = async () => {
+      const setData = (response) => {
         const { columns, columnOrder } = response
         const sortedColumns = mapOrder(columns, columnOrder)
+
         setBoard(response)
         setColumns(sortedColumns)
-      })
-      .catch((error) => {
-        throw new Error(error)
-      })
-  }, [])
+      }
+      try {
+        const response = await getBoardById({ id: "6327274493d41701b4f9454f" })
 
-  if (isEmpty(board)) {
-    return <div className="not-found">board not found</div>
-  }
+        if (!response) {
+          throw new Error("Server error")
+        }
+
+        setData(response)
+      } catch (error) {
+        setData(initialData.boards[0])
+        throw new Error(error)
+      }
+    }
+
+    fetchBoardById()
+  }, [])
 
   const onColumnDrop = (drop) => {
     const newColumns = applyDrag(columns, drop)
@@ -111,33 +119,39 @@ const BoardContent = () => {
 
   return (
     <div className="board-content">
-      <Container
-        orientation="horizontal"
-        onDrop={onColumnDrop}
-        dragHandleSelector=".column-drag-handle"
-        getChildPayload={(index) => columns[index]}
-        dropPlaceholder={{
-          animationDuration: 150,
-          showOnTop: true,
-          className: "columns-drop-preview",
-        }}
-      >
-        {columns?.map((column) => (
-          <Draggable key={column._id || Math.random(1000)}>
-            <Column
-              column={column}
-              onColumnUpdateState={onColumnUpdateState}
-              onCardDrop={onCardDrop}
-            />
-          </Draggable>
-        ))}
-      </Container>
-      <AddColumn
-        board={board}
-        setBoard={setBoard}
-        columns={columns}
-        setColumns={setColumns}
-      />
+      {!isEmpty(board) ? (
+        <>
+          <Container
+            orientation="horizontal"
+            onDrop={onColumnDrop}
+            dragHandleSelector=".column-drag-handle"
+            getChildPayload={(index) => columns[index]}
+            dropPlaceholder={{
+              animationDuration: 150,
+              showOnTop: true,
+              className: "columns-drop-preview",
+            }}
+          >
+            {columns?.map((column) => (
+              <Draggable key={column._id || Math.random(1000)}>
+                <Column
+                  column={column}
+                  onCardDrop={onCardDrop}
+                  onColumnUpdateState={onColumnUpdateState}
+                />
+              </Draggable>
+            ))}
+          </Container>
+          <AddColumn
+            board={board}
+            setBoard={setBoard}
+            columns={columns}
+            setColumns={setColumns}
+          />
+        </>
+      ) : (
+        <div className="not-found">board not found</div>
+      )}
     </div>
   )
 }

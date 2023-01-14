@@ -38,7 +38,7 @@ export const initialData = {
               columnId: "column-1",
               title: "The title of card 3",
               cover:
-                "https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/207912652_1776328079222003_3253959893346048550_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=QFhSzdKTLhQAX8FHcJa&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT-4zmvwJaxsGAoGtjb-dt2cPx13wDF_mmAUD6Y6WayO0g&oe=63384089",
+                "https://images.unsplash.com/photo-1492052722242-2554d0e99e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             },
             {
               _id: "card-4",
