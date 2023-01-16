@@ -1,0 +1,20 @@
+@import "_setting.scss";
+
+.trello-spinner {
+  position: relative;
+  margin: auto;
+  width: 10rem;
+  height: 10rem;
+  background-color: transparent;
+  // border: 16px solid darkgray;
+  border-top: 16px solid rgb(0, 195, 255);
+  // border-bottom: 16px solid rgb(0, 195, 255);
+  border-radius: 100%;
+  animation: spinning 4s linear infinite;
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(360deg);
+  }
+}

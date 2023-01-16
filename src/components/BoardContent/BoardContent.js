@@ -1,6 +1,7 @@
 import { initialData } from "actions/initialData"
 import AddColumn from "components/AddColumn/AddColumn"
 import Column from "components/Column/Column"
+import Spinner from "components/Spinner/Spinner"
 import { isEmpty } from "lodash"
 import React from "react"
 import { Container, Draggable } from "react-smooth-dnd"
@@ -150,7 +151,7 @@ const BoardContent = () => {
           />
         </>
       ) : (
-        <div className="not-found">board not found</div>
+        <Spinner />
       )}
     </div>
   )
